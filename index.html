@@ -1,0 +1,854 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DET Boarding Pass</title>
+<meta name="description" content="Week 1 orientation for the async Duolingo English Test course — course overview, fiction-vs-fact myth-busting, self-assessment, and goal-setting, themed as a boarding pass.">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..700&family=Work+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap');
+
+  :root{
+    --bg:#E9EFF5;
+    --paper:#FDFEFF;
+    --paper-2:#EEF3F9;
+    --ink:#10263B;
+    --muted:#56697C;
+    --blue:#00507E;
+    --blue-deep:#003A5C;
+    --coral:#E2653F;
+    --coral-deep:#C24E2C;
+    --gold:#C9932E;
+    --border:#C9D7E3;
+    --stamp-red:#B5432F;
+    --shadow: 0 1px 2px rgba(16,38,59,.07), 0 8px 24px -12px rgba(16,38,59,.2);
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --bg:#0B1B2A;
+      --paper:#122439;
+      --paper-2:#16304A;
+      --ink:#E7EFF7;
+      --muted:#93A8BC;
+      --blue:#5EB3E0;
+      --blue-deep:#8ED0EF;
+      --coral:#F2895F;
+      --coral-deep:#F7A57F;
+      --gold:#E0B24E;
+      --border:#24405A;
+      --stamp-red:#E07A5F;
+      --shadow: 0 1px 2px rgba(0,0,0,.3), 0 8px 24px -12px rgba(0,0,0,.5);
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#0B1B2A;
+    --paper:#122439;
+    --paper-2:#16304A;
+    --ink:#E7EFF7;
+    --muted:#93A8BC;
+    --blue:#5EB3E0;
+    --blue-deep:#8ED0EF;
+    --coral:#F2895F;
+    --coral-deep:#F7A57F;
+    --gold:#E0B24E;
+    --border:#24405A;
+    --stamp-red:#E07A5F;
+    --shadow: 0 1px 2px rgba(0,0,0,.3), 0 8px 24px -12px rgba(0,0,0,.5);
+  }
+
+  *{ box-sizing:border-box; }
+  html{ -webkit-text-size-adjust:100%; }
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:'Work Sans', ui-sans-serif, system-ui, sans-serif;
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{ color:var(--blue-deep); }
+  ::selection{ background:var(--gold); color:#1B2A2E; }
+
+  h1,h2,h3{
+    font-family:'Fraunces', ui-serif, Georgia, serif;
+    font-weight:600;
+    text-wrap:balance;
+    margin:0;
+    color:var(--ink);
+  }
+
+  .mono{ font-family:'IBM Plex Mono', ui-monospace, monospace; }
+
+  /* ---------- Progress rail ---------- */
+  .railwrap{
+    position:sticky; top:0; z-index:40;
+    background:color-mix(in srgb, var(--bg) 88%, transparent);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--border);
+  }
+  .rail{
+    max-width:760px; margin:0 auto;
+    display:flex; align-items:center; gap:6px;
+    padding:10px 20px;
+    overflow-x:auto;
+  }
+  .rail-title{
+    font-family:'Fraunces', serif; font-weight:600; font-size:.85rem;
+    color:var(--blue-deep); white-space:nowrap; margin-right:10px;
+  }
+  .stamp-dot{
+    width:26px; height:26px; border-radius:50%;
+    border:2px solid var(--border);
+    display:flex; align-items:center; justify-content:center;
+    font-family:'IBM Plex Mono', monospace; font-size:.65rem; font-weight:600;
+    color:var(--muted); flex:none;
+    transition:transform .25s ease, border-color .25s ease, color .25s ease, background .25s ease;
+    background:var(--paper);
+  }
+  .stamp-dot.done{
+    border-color:var(--coral);
+    color:var(--paper);
+    background:var(--coral);
+    transform:rotate(-8deg) scale(1.05);
+  }
+  .rail-line{ flex:1; height:1px; background:var(--border); min-width:10px; }
+
+  /* ---------- Layout ---------- */
+  .wrap{ max-width:760px; margin:0 auto; padding:0 20px 100px; }
+
+  header.hero{
+    padding:44px 0 28px;
+    display:flex; flex-direction:column; gap:10px;
+  }
+  .eyebrow{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:.72rem; letter-spacing:.09em; text-transform:uppercase;
+    color:var(--coral-deep); font-weight:600;
+  }
+  header.hero h1{ font-size:clamp(2rem, 5vw, 2.6rem); }
+  header.hero p{ color:var(--muted); font-size:1.02rem; max-width:56ch; margin:0; }
+  .chips{ display:flex; gap:10px; flex-wrap:wrap; margin-top:6px; }
+  .chip{
+    font-family:'IBM Plex Mono', monospace; font-size:.75rem;
+    border:1px dashed var(--border); border-radius:999px;
+    padding:5px 12px; color:var(--muted);
+  }
+
+  section.page{
+    background:var(--paper);
+    border:1px solid var(--border);
+    border-radius:14px;
+    box-shadow:var(--shadow);
+    margin:26px 0;
+    padding:28px 26px 30px;
+    position:relative;
+  }
+  section.page::before{
+    content:"";
+    position:absolute; left:24px; right:24px; top:-1px; height:1px;
+    background-image:linear-gradient(to right, var(--border) 60%, transparent 0%);
+    background-size:10px 1px; background-repeat:repeat-x;
+  }
+  .page-kicker{
+    display:flex; align-items:baseline; gap:10px; margin-bottom:6px;
+  }
+  .page-num{
+    font-family:'IBM Plex Mono', monospace; font-size:.75rem; color:var(--gold); font-weight:600;
+  }
+  .page-time{
+    margin-left:auto; font-family:'IBM Plex Mono', monospace; font-size:.72rem; color:var(--muted);
+  }
+  section.page h2{ font-size:1.5rem; margin-bottom:4px; }
+  .kind-emph{ color:var(--coral-deep); font-style:italic; }
+  .page-sub{ color:var(--muted); margin:0 0 18px; font-size:.98rem; max-width:58ch; }
+
+  /* ---------- Buttons & inputs ---------- */
+  button{ font-family:inherit; cursor:pointer; }
+  .btn{
+    display:inline-flex; align-items:center; gap:8px;
+    background:var(--blue); color:#F3F8FC;
+    border:none; border-radius:9px;
+    padding:11px 20px; font-weight:600; font-size:.95rem;
+    box-shadow:var(--shadow);
+    transition:transform .15s ease, background .15s ease;
+  }
+  .btn:hover{ background:var(--blue-deep); transform:translateY(-1px); }
+  .btn:active{ transform:translateY(0); }
+  .btn.secondary{
+    background:transparent; color:var(--blue-deep);
+    border:1.5px solid var(--blue); box-shadow:none;
+  }
+  .btn.secondary:hover{ background:color-mix(in srgb, var(--blue) 12%, transparent); }
+  .btn:focus-visible, .lane:focus-visible, input:focus-visible, select:focus-visible, .opt:focus-visible{
+    outline:2.5px solid var(--gold); outline-offset:2px;
+  }
+
+  /* ---------- Section 1: check-in lanes ---------- */
+  .lanes{ display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+  @media (max-width:560px){ .lanes{ grid-template-columns:1fr; } }
+  .lane{
+    text-align:left; background:var(--paper-2); border:1.5px solid var(--border);
+    border-radius:12px; padding:16px; display:flex; flex-direction:column; gap:6px;
+  }
+  .lane strong{ font-family:'Fraunces', serif; font-size:1.08rem; }
+  .lane span{ color:var(--muted); font-size:.88rem; }
+  .lane.active{ border-color:var(--coral); background:color-mix(in srgb, var(--coral) 8%, var(--paper-2)); }
+  .lane-icon{ font-family:'IBM Plex Mono', monospace; font-size:1.3rem; color:var(--blue); }
+  .briefing{
+    margin-top:16px; padding-top:16px; border-top:1px dashed var(--border);
+    display:none;
+  }
+  .briefing.show{ display:block; }
+  .briefing ul{ margin:10px 0 0; padding-left:1.2em; }
+  .briefing li{ margin-bottom:6px; }
+
+  /* ---------- Section 2: quick check ---------- */
+  .qc{ border:1px solid var(--border); border-radius:10px; padding:14px 16px; margin-bottom:12px; background:var(--paper-2); }
+  .qc p.q{ font-weight:600; margin:0 0 10px; }
+  .opts{ display:flex; flex-direction:column; gap:8px; }
+  .opt{
+    display:flex; align-items:center; gap:10px;
+    border:1.5px solid var(--border); border-radius:8px;
+    padding:9px 12px; background:var(--paper); font-size:.93rem;
+  }
+  .opt:hover{ border-color:var(--blue); }
+  .opt input{ accent-color:var(--blue); }
+  .qc .fb{ display:none; margin-top:10px; font-size:.9rem; padding:9px 11px; border-radius:8px; }
+  .qc .fb.show{ display:block; }
+  .fb.right{ background:color-mix(in srgb, var(--blue) 16%, var(--paper)); color:var(--blue-deep); }
+  .fb.wrong{ background:color-mix(in srgb, var(--coral) 14%, var(--paper)); color:var(--coral-deep); }
+
+  /* ---------- Section 3: customs cards ---------- */
+  .customs-grid{ display:grid; grid-template-columns:1fr; gap:12px; }
+  .customs-card{
+    border:1.5px solid var(--border); border-radius:12px; overflow:hidden; background:var(--paper-2);
+  }
+  .customs-face{ padding:15px 16px; display:flex; align-items:center; justify-content:space-between; gap:14px; }
+  .customs-face p{ margin:0; font-weight:600; font-size:.98rem; }
+  .customs-actions{ display:flex; gap:8px; flex:none; }
+  .stamp-btn{
+    font-family:'IBM Plex Mono', monospace; font-size:.72rem; font-weight:700; letter-spacing:.04em;
+    border-radius:6px; padding:8px 12px; border:1.5px solid var(--border); background:var(--paper); color:var(--muted);
+  }
+  .stamp-btn:hover{ border-color:var(--ink); }
+  .customs-reveal{
+    display:none; padding:0 16px 16px; font-size:.9rem; color:var(--muted);
+    border-top:1px dashed var(--border); margin-top:0; padding-top:12px;
+  }
+  .customs-reveal.show{ display:block; }
+  .verdict{
+    display:inline-block; font-family:'IBM Plex Mono', monospace; font-weight:700; font-size:.75rem;
+    letter-spacing:.06em; padding:3px 9px; border-radius:5px; margin-right:8px; transform:rotate(-3deg);
+    border:2px solid currentColor;
+  }
+  .verdict.fiction{ color:var(--stamp-red); }
+  .verdict.fact{ color:var(--blue-deep); }
+
+  /* ---------- Section 4: baggage sliders ---------- */
+  .slider-row{ margin-bottom:20px; }
+  .slider-row:last-child{ margin-bottom:0; }
+  .slider-top{ display:flex; justify-content:space-between; align-items:baseline; margin-bottom:6px; }
+  .slider-top strong{ font-size:.95rem; }
+  .slider-top span{ font-family:'IBM Plex Mono', monospace; font-size:.82rem; color:var(--coral-deep); }
+  input[type="range"]{
+    width:100%; -webkit-appearance:none; appearance:none;
+    height:8px; border-radius:999px; background:var(--border); outline:none;
+  }
+  input[type="range"]::-webkit-slider-thumb{
+    -webkit-appearance:none; appearance:none; width:20px; height:20px; border-radius:50%;
+    background:var(--coral); border:3px solid var(--paper); box-shadow:0 0 0 1.5px var(--coral);
+    cursor:pointer;
+  }
+  input[type="range"]::-moz-range-thumb{
+    width:20px; height:20px; border-radius:50%; background:var(--coral); border:3px solid var(--paper);
+    box-shadow:0 0 0 1.5px var(--coral); cursor:pointer;
+  }
+
+  /* ---------- Section 5: boarding pass ticket ---------- */
+  .goal-form{ display:grid; gap:16px; margin-bottom:22px; }
+  .field label{ display:block; font-size:.85rem; font-weight:600; margin-bottom:6px; color:var(--muted); }
+  .field input[type="text"], .field input[type="date"], .field select{
+    width:100%; font-family:inherit; font-size:.95rem; padding:10px 12px;
+    border:1.5px solid var(--border); border-radius:8px; background:var(--paper); color:var(--ink);
+  }
+  .zone-label{ font-family:'IBM Plex Mono', monospace; font-size:.78rem; color:var(--muted); margin-top:4px; }
+
+  .ticket{
+    display:flex; border-radius:14px; overflow:hidden; box-shadow:var(--shadow);
+    border:1.5px solid var(--border);
+  }
+  .ticket-main{
+    flex:1; background:linear-gradient(135deg, var(--blue) 0%, var(--blue-deep) 100%);
+    color:#F3F8FC; padding:20px 22px; display:flex; flex-direction:column; gap:10px;
+  }
+  .ticket-brand{ font-family:'IBM Plex Mono', monospace; font-size:.7rem; letter-spacing:.1em; text-transform:uppercase; opacity:.85; }
+  .ticket-name{ font-family:'Fraunces', serif; font-size:1.35rem; font-weight:600; }
+  .ticket-grid{ display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-top:6px; }
+  .ticket-grid div span{ display:block; font-family:'IBM Plex Mono', monospace; font-size:.65rem; opacity:.75; letter-spacing:.05em; text-transform:uppercase; }
+  .ticket-grid div strong{ font-size:1rem; }
+  .ticket-stub{
+    width:100px; flex:none; background:var(--paper-2); color:var(--ink);
+    border-left:2px dashed var(--paper);
+    display:flex; align-items:center; justify-content:center; writing-mode:vertical-rl;
+    font-family:'IBM Plex Mono', monospace; font-size:.72rem; letter-spacing:.08em; color:var(--muted);
+  }
+  @media (max-width:520px){
+    .ticket{ flex-direction:column; }
+    .ticket-stub{ writing-mode:horizontal-tb; height:34px; border-left:none; border-top:2px dashed var(--paper); }
+  }
+  .disclaimer{ font-size:.8rem; color:var(--muted); margin-top:10px; }
+
+  /* ---------- Section 6: traveler quiz ---------- */
+  .tquiz-q{ margin-bottom:16px; }
+  .tquiz-q p{ font-weight:600; margin:0 0 8px; }
+  .result-card{
+    display:none; margin-top:18px; border-radius:12px; padding:20px;
+    background:var(--paper-2); border:1.5px solid var(--gold);
+  }
+  .result-card.show{ display:block; }
+  .result-badge{
+    width:52px; height:52px; border-radius:50%; background:var(--gold); color:#2A2110;
+    display:flex; align-items:center; justify-content:center; font-family:'Fraunces', serif; font-size:1.4rem; font-weight:700;
+    margin-bottom:10px;
+  }
+  .result-card h3{ font-size:1.25rem; margin-bottom:6px; }
+  .result-card ul{ margin:10px 0 0; padding-left:1.2em; }
+  .result-card li{ margin-bottom:5px; }
+
+  /* ---------- Section 7: final ---------- */
+  .summary-box{
+    background:var(--paper-2); border:1.5px dashed var(--border); border-radius:10px;
+    padding:14px 16px; margin:16px 0; white-space:pre-wrap; font-family:'IBM Plex Mono', monospace;
+    font-size:.85rem; color:var(--ink); min-height:100px;
+  }
+  .final-actions{ display:flex; gap:10px; flex-wrap:wrap; align-items:center; }
+  .copied-note{ font-size:.85rem; color:var(--blue-deep); display:none; font-weight:600; }
+  .copied-note.show{ display:inline; }
+  .stamped{
+    display:none; margin-top:16px; padding:16px; border:2px solid var(--stamp-red); border-radius:10px;
+    color:var(--stamp-red); font-family:'IBM Plex Mono', monospace; font-weight:700; letter-spacing:.05em;
+    text-align:center; transform:rotate(-2deg);
+  }
+  .stamped.show{ display:block; animation:stampin .35s ease; }
+  @keyframes stampin{ from{ opacity:0; transform:scale(1.6) rotate(-2deg);} to{ opacity:1; transform:scale(1) rotate(-2deg);} }
+  @media (prefers-reduced-motion:reduce){
+    .stamped.show{ animation:none; }
+    .stamp-dot.done{ transform:none; }
+  }
+
+  footer.next{
+    margin-top:34px; padding:22px 24px; border-radius:14px;
+    background:var(--paper); border:1px solid var(--border);
+    display:flex; justify-content:space-between; align-items:center; gap:16px; flex-wrap:wrap;
+  }
+  footer.next .l span{ display:block; font-family:'IBM Plex Mono', monospace; font-size:.72rem; color:var(--coral-deep); letter-spacing:.06em; text-transform:uppercase; margin-bottom:4px; }
+  footer.next .l strong{ font-family:'Fraunces', serif; font-size:1.1rem; }
+</style>
+<style>
+  :root{ color-scheme: light dark; }
+</style>
+</head>
+<body>
+<div class="railwrap">
+  <div class="rail" id="rail">
+    <span class="rail-title">YOUR ROUTE</span>
+    <div class="stamp-dot" data-stamp="1">1</div>
+    <div class="rail-line"></div>
+    <div class="stamp-dot" data-stamp="2">2</div>
+    <div class="rail-line"></div>
+    <div class="stamp-dot" data-stamp="3">3</div>
+    <div class="rail-line"></div>
+    <div class="stamp-dot" data-stamp="4">4</div>
+    <div class="rail-line"></div>
+    <div class="stamp-dot" data-stamp="5">5</div>
+    <div class="rail-line"></div>
+    <div class="stamp-dot" data-stamp="6">6</div>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <header class="hero">
+    <div class="eyebrow">Week 1 · Duolingo English Test course</div>
+    <h1>Your DET Boarding Pass</h1>
+    <p>Six short stops to get oriented, reset your goals, and pick up your boarding pass for the semester. Go at your own pace — nothing here is timed, and there's no letter grade. Finishing it is what counts as attending this week.</p>
+    <div class="chips">
+      <span class="chip">~45–55 min total</span>
+      <span class="chip">Solo activity — no partner needed</span>
+      <span class="chip">Self-paced</span>
+    </div>
+  </header>
+
+  <!-- SECTION 1 -->
+  <section class="page" id="sec1">
+    <div class="page-kicker"><span class="page-num">STOP 01</span><span class="page-time">~8 min</span></div>
+    <h2>Check-In Desk</h2>
+    <p class="page-sub">First, tell us which line you're in — it changes what you'll read next.</p>
+
+    <div class="lanes">
+      <button class="lane" id="laneNew" onclick="pickLane('new')">
+        <span class="lane-icon">✈</span>
+        <strong>First time flying with us</strong>
+        <span>New to this course this semester</span>
+      </button>
+      <button class="lane" id="laneReturn" onclick="pickLane('return')">
+        <span class="lane-icon">🧳</span>
+        <strong>Welcome back, frequent flyer</strong>
+        <span>I took the Spring semester course</span>
+      </button>
+    </div>
+
+    <div class="briefing" id="briefNew">
+      <ul>
+        <li><strong>No letter grade — ever.</strong> Nothing in this course affects a GPA or transcript.</li>
+        <li><strong>Two assignments a week:</strong> a required <em>primary</em> assignment (like this one) and an optional <em>minor</em> assignment for extra practice.</li>
+        <li><strong>Completing the primary assignment</strong> is what counts as "attending" that week — I'm checking that you followed the steps, not grading your English.</li>
+        <li><strong>Deadlines are just for your to-do list.</strong> Classroom will show due dates to keep things organized, but I'm not strict about the exact day — done within a reasonable time still counts as on time.</li>
+        <li><strong>Complete the primary assignment for 10 of the 15 weeks (2/3)</strong> and you'll qualify for a Language Hub course completion certificate.</li>
+        <li><strong>Feedback is personal.</strong> Written or audio comments through Classroom — not a red pen, more like notes from a coach.</li>
+      </ul>
+    </div>
+    <div class="briefing" id="briefReturn">
+      <ul>
+        <li><strong>Same low-pressure setup</strong> as last time — still no letter grade, still fully optional, still weekly.</li>
+        <li><strong>What's new this term:</strong> each week's work is now split into a <em>primary</em> assignment (required) and a <em>minor</em> assignment (optional extra practice). Completing the primary assignment is what counts you present for that week, and it's what your Language Hub certificate eligibility is based on.</li>
+        <li><strong>Deadlines in Classroom are flexible</strong> — they're there to organize your to-do list, not to penalize you. Done within a reasonable time still counts as on time.</li>
+        <li><strong>Complete the primary assignment for 10 of the 15 weeks (2/3)</strong> and you qualify for a Language Hub completion certificate.</li>
+        <li><strong>You already know the drill</strong> — so today's real task is Stop 04, Choose Your Destination: resetting your goal for a fresh semester. Feel free to skim Stops 01–03.</li>
+      </ul>
+    </div>
+
+    <div class="briefing" id="briefCommon">
+      <p style="margin-top:0;"><strong>Quick self-check</strong> — pick the best answer for each:</p>
+      <div class="qc">
+        <p class="q">1. How is your work in this course evaluated?</p>
+        <div class="opts">
+          <label class="opt"><input type="radio" name="q1" onclick="answer('q1a','wrong')"> With a letter grade that affects your GPA</label>
+          <label class="opt"><input type="radio" name="q1" onclick="answer('q1a','right')"> I check whether you completed the primary assignment — not a score on your English</label>
+          <label class="opt"><input type="radio" name="q1" onclick="answer('q1a','wrong')"> It isn't looked at at all</label>
+        </div>
+        <div class="fb" id="q1a"></div>
+      </div>
+      <div class="qc">
+        <p class="q">2. How do you get feedback on your work?</p>
+        <div class="opts">
+          <label class="opt"><input type="radio" name="q2" onclick="answer('q2a','right')"> Written and/or audio comments through Classroom</label>
+          <label class="opt"><input type="radio" name="q2" onclick="answer('q2a','wrong')"> A live video call every week</label>
+          <label class="opt"><input type="radio" name="q2" onclick="answer('q2a','wrong')"> You don't — feedback isn't part of this course</label>
+        </div>
+        <div class="fb" id="q2a"></div>
+      </div>
+      <div class="qc">
+        <p class="q">3. What happens if you turn in the primary assignment a few days after the date shown in Classroom?</p>
+        <div class="opts">
+          <label class="opt"><input type="radio" name="q3" onclick="answer('q3a','wrong')"> It doesn't count for that week at all</label>
+          <label class="opt"><input type="radio" name="q3" onclick="answer('q3a','right')"> Nothing serious — done within a reasonable time still counts you present for that week</label>
+          <label class="opt"><input type="radio" name="q3" onclick="answer('q3a','wrong')"> You have to email an excuse</label>
+        </div>
+        <div class="fb" id="q3a"></div>
+      </div>
+      <div class="qc">
+        <p class="q">4. What do you need to do to earn a Language Hub course completion certificate?</p>
+        <div class="opts">
+          <label class="opt"><input type="radio" name="q4" onclick="answer('q4a','wrong')"> Score a specific number of points on the real DET</label>
+          <label class="opt"><input type="radio" name="q4" onclick="answer('q4a','right')"> Complete the primary assignment for at least 10 of the 15 weeks (2/3)</label>
+          <label class="opt"><input type="radio" name="q4" onclick="answer('q4a','wrong')"> Attend a live class session every week</label>
+        </div>
+        <div class="fb" id="q4a"></div>
+      </div>
+      <button class="btn" onclick="completeStop(1)">Continue to Stop 02 →</button>
+    </div>
+  </section>
+
+  <!-- SECTION 2 -->
+  <section class="page" id="sec2">
+    <div class="page-kicker"><span class="page-num">STOP 02</span><span class="page-time">~10 min</span></div>
+    <h2>Passport Control: Fiction or Fact</h2>
+    <p class="page-sub">Six things people say about the Duolingo English Test. Tap FICTION or FACT for each — then see what's actually true.</p>
+
+    <div class="customs-grid" id="customsGrid"></div>
+  </section>
+
+  <!-- SECTION 3 -->
+  <section class="page" id="sec3">
+    <div class="page-kicker"><span class="page-num">STOP 03</span><span class="page-time">~6 min</span></div>
+    <h2>Baggage Check</h2>
+    <p class="page-sub">No test, no judgment — just an honest look at what you're already carrying, so your goal (next stop) starts from somewhere real.</p>
+
+    <div class="slider-row">
+      <div class="slider-top"><strong>Reading</strong><span id="rReading">3 / 5</span></div>
+      <input type="range" min="1" max="5" value="3" id="sReading" oninput="updateSlider('Reading')">
+    </div>
+    <div class="slider-row">
+      <div class="slider-top"><strong>Listening</strong><span id="rListening">3 / 5</span></div>
+      <input type="range" min="1" max="5" value="3" id="sListening" oninput="updateSlider('Listening')">
+    </div>
+    <div class="slider-row">
+      <div class="slider-top"><strong>Speaking</strong><span id="rSpeaking">3 / 5</span></div>
+      <input type="range" min="1" max="5" value="3" id="sSpeaking" oninput="updateSlider('Speaking')">
+    </div>
+    <div class="slider-row">
+      <div class="slider-top"><strong>Writing</strong><span id="rWriting">3 / 5</span></div>
+      <input type="range" min="1" max="5" value="3" id="sWriting" oninput="updateSlider('Writing')">
+    </div>
+    <button class="btn secondary" onclick="completeStop(3)">Got it — continue →</button>
+  </section>
+
+  <!-- SECTION 4 -->
+  <section class="page" id="sec4">
+    <div class="page-kicker"><span class="page-num">STOP 04</span><span class="page-time">~10 min</span></div>
+    <h2>Choose Your Destination</h2>
+    <p class="page-sub">Set a target score and date. This isn't a promise — it's a compass. You can always adjust it later in the course.</p>
+
+    <div class="goal-form">
+      <div class="field">
+        <label for="prevType">Have you taken the DET before?</label>
+        <select id="prevType" onchange="updateGoal()">
+          <option value="none">Never taken it</option>
+          <option value="official">Yes — official test</option>
+          <option value="practice">Yes — practice test</option>
+        </select>
+      </div>
+      <div class="field" id="prevScoreField" style="display:none;">
+        <label for="prevScore">Your previous score (10–160)</label>
+        <input type="number" min="10" max="160" id="prevScore" placeholder="e.g. 85" oninput="updateGoal()">
+      </div>
+      <div class="field">
+        <label for="goalScore">Target score (scale runs 10–160)</label>
+        <input type="range" min="10" max="160" value="95" id="goalScore" oninput="updateGoal()">
+        <div class="zone-label" id="zoneLabel"></div>
+      </div>
+      <div class="field">
+        <label for="goalDate">Target test date</label>
+        <input type="date" id="goalDate" oninput="updateGoal()">
+      </div>
+      <div class="field">
+        <label for="goalSkill">Skill you most want to grow this semester</label>
+        <select id="goalSkill" onchange="updateGoal()">
+          <option value="Reading">Reading</option>
+          <option value="Listening">Listening</option>
+          <option value="Speaking">Speaking</option>
+          <option value="Writing">Writing</option>
+          <option value="Vocabulary">Vocabulary</option>
+          <option value="Overall confidence">Overall confidence</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="goalName">Your name (for your boarding pass)</label>
+        <input type="text" id="goalName" placeholder="e.g. Aoi Tanaka" oninput="updateGoal()">
+      </div>
+    </div>
+
+    <div class="ticket">
+      <div class="ticket-main">
+        <div class="ticket-brand">DET Airways · Boarding Pass</div>
+        <div class="ticket-name" id="tName">Your Name Here</div>
+        <div class="ticket-grid">
+          <div><span>Starting point</span><strong id="tPrev">First flight</strong></div>
+          <div><span>Destination score</span><strong id="tScore">95</strong></div>
+          <div><span>Departure date</span><strong id="tDate">TBD</strong></div>
+          <div><span>Focus area</span><strong id="tSkill">Reading</strong></div>
+          <div><span>Gate</span><strong>DET · Fall 26</strong></div>
+        </div>
+      </div>
+      <div class="ticket-stub mono">BOARDING</div>
+    </div>
+    <p class="disclaimer">These score-range labels are just for this activity, not an official DET benchmark — always check your target school's actual required score.</p>
+    <div style="margin-top:16px;"><button class="btn secondary" onclick="completeStop(4)">Locked in — continue →</button></div>
+  </section>
+
+  <!-- SECTION 5 -->
+  <section class="page" id="sec5">
+    <div class="page-kicker"><span class="page-num">STOP 05</span><span class="page-time">~7 min</span></div>
+    <h2>Which <span class="kind-emph">Kind</span> of Traveler Are You?</h2>
+    <p class="page-sub">Answer four quick questions to find your study style for this course — and a few tips built for it.</p>
+
+    <div id="tquizForm"></div>
+    <button class="btn secondary" onclick="revealTraveler()">Reveal my traveler type</button>
+
+    <div class="result-card" id="resultCard">
+      <div class="result-badge" id="resultIcon">?</div>
+      <h3 id="resultTitle"></h3>
+      <p id="resultDesc"></p>
+      <ul id="resultTips"></ul>
+    </div>
+  </section>
+
+  <!-- SECTION 6 -->
+  <section class="page" id="sec6">
+    <div class="page-kicker"><span class="page-num">STOP 06</span><span class="page-time">~3 min</span></div>
+    <h2>Boarding Pass Confirmed</h2>
+    <p class="page-sub">Almost done. This is Week 1's primary assignment — copy your summary below and paste it into the Week 1 assignment in Classroom. That's what counts you present for this week.</p>
+
+    <div class="summary-box" id="summaryBox">Fill in Stop 04 and 05 above to build your summary.</div>
+    <div class="final-actions">
+      <button class="btn" onclick="copySummary()">Copy my summary</button>
+      <span class="copied-note" id="copiedNote">Copied! Paste it into Classroom.</span>
+    </div>
+
+    <div class="stamped" id="stampedNote" role="status">✓ WELCOME ABOARD — SEE YOU IN CLASSROOM</div>
+  </section>
+
+  <footer class="next">
+    <div class="l">
+      <span>Next stop</span>
+      <strong>Week 2 — Vocabulary for Ideas &amp; Opinions</strong>
+    </div>
+    <span class="chip">Opens next week</span>
+  </footer>
+
+</div>
+
+<script>
+  // ---------- progress rail ----------
+  var STOPS_DONE = {};
+  try {
+    var saved = localStorage.getItem('detW1Progress');
+    if (saved) STOPS_DONE = JSON.parse(saved);
+  } catch(e) {}
+
+  function paintRail(){
+    for (var i=1;i<=6;i++){
+      var dot = document.querySelector('.stamp-dot[data-stamp="'+i+'"]');
+      if (!dot) continue;
+      if (STOPS_DONE[i]) { dot.classList.add('done'); dot.textContent = '✓'; }
+    }
+  }
+  function completeStop(n){
+    STOPS_DONE[n] = true;
+    try { localStorage.setItem('detW1Progress', JSON.stringify(STOPS_DONE)); } catch(e) {}
+    paintRail();
+    var nextSec = document.getElementById('sec' + (n+1));
+    if (nextSec) nextSec.scrollIntoView({behavior:'smooth', block:'start'});
+  }
+  paintRail();
+
+  // ---------- Stop 1: lanes + quiz ----------
+  function pickLane(which){
+    document.getElementById('laneNew').classList.toggle('active', which==='new');
+    document.getElementById('laneReturn').classList.toggle('active', which==='return');
+    document.getElementById('briefNew').classList.toggle('show', which==='new');
+    document.getElementById('briefReturn').classList.toggle('show', which==='return');
+    document.getElementById('briefCommon').classList.add('show');
+    STOPS_DONE['1_lane'] = which;
+  }
+  function answer(id, kind){
+    var el = document.getElementById(id);
+    el.classList.remove('right','wrong');
+    el.classList.add('show', kind);
+    if (kind === 'right') el.textContent = "Correct.";
+    else el.textContent = "Not quite — check the notes above and try the next one.";
+  }
+
+  // ---------- Stop 2: customs fiction/fact ----------
+  var customs = [
+    {q:"The test takes about 3 hours to complete.", v:"fiction", exp:"The whole thing — including setup — runs about 60 minutes."},
+    {q:"You need to go to a special testing center.", v:"fiction", exp:"You take it at home (or anywhere quiet) on a computer with a webcam and steady internet."},
+    {q:"The test adjusts its difficulty based on how you're doing.", v:"fact", exp:"It's computer-adaptive — questions get easier or harder depending on your answers."},
+    {q:"Your score is reported as a percentage out of 100.", v:"fiction", exp:"Scores run on a 10–160 scale, not a percentage."},
+    {q:"There's a separate speaking and writing sample that isn't part of the main adaptive section.", v:"fact", exp:"After the ~45-minute adaptive section, there's a shorter, ungraded-format writing and speaking sample."},
+    {q:"You need perfect grammar to get a good score.", v:"fiction", exp:"The test looks at your overall ability to communicate across many short tasks — not grammar perfection alone."}
+  ];
+  var customsGrid = document.getElementById('customsGrid');
+  customs.forEach(function(item, i){
+    var card = document.createElement('div');
+    card.className = 'customs-card';
+    card.innerHTML =
+      '<div class="customs-face">'+
+        '<p>'+item.q+'</p>'+
+        '<div class="customs-actions">'+
+          '<button class="stamp-btn" onclick="stampCustoms('+i+',\'fiction\')">FICTION</button>'+
+          '<button class="stamp-btn" onclick="stampCustoms('+i+',\'fact\')">FACT</button>'+
+        '</div>'+
+      '</div>'+
+      '<div class="customs-reveal" id="cReveal'+i+'"></div>';
+    customsGrid.appendChild(card);
+  });
+  var customsAnswered = 0;
+  function stampCustoms(i, guess){
+    var item = customs[i];
+    var reveal = document.getElementById('cReveal'+i);
+    if (!reveal.classList.contains('show')) customsAnswered++;
+    var right = guess === item.v;
+    reveal.innerHTML =
+      '<span class="verdict '+item.v+'">'+item.v.toUpperCase()+'</span>'+
+      (right ? 'You got it. ' : 'Actually — ') + item.exp;
+    reveal.classList.add('show');
+    if (customsAnswered >= customs.length) completeStop(2);
+  }
+
+  // ---------- Stop 3: baggage sliders ----------
+  var labels5 = ["Just packing my bag","Getting there","Comfortably packed","Well-prepared","Ready to fly"];
+  function updateSlider(name){
+    var v = document.getElementById('s'+name).value;
+    document.getElementById('r'+name).textContent = v + ' / 5 · ' + labels5[v-1];
+  }
+  ['Reading','Listening','Speaking','Writing'].forEach(updateSlider);
+
+  // ---------- Stop 4: goal ticket ----------
+  var zones = [
+    {max:60, label:"Zone: Getting your passport ready"},
+    {max:95, label:"Zone: Packing your bags"},
+    {max:115, label:"Zone: Boarding soon"},
+    {max:135, label:"Zone: Wheels up"},
+    {max:160, label:"Zone: Cruising altitude"}
+  ];
+  function prevScoreText(){
+    var type = document.getElementById('prevType').value;
+    var field = document.getElementById('prevScoreField');
+    field.style.display = (type === 'none') ? 'none' : 'block';
+    if (type === 'none') return 'First flight (never taken)';
+    var val = document.getElementById('prevScore').value;
+    var label = type === 'official' ? 'official' : 'practice';
+    return val ? (val + ' (' + label + ')') : '(enter score — ' + label + ')';
+  }
+  function updateGoal(){
+    var score = document.getElementById('goalScore').value;
+    var date = document.getElementById('goalDate').value;
+    var skill = document.getElementById('goalSkill').value;
+    var name = document.getElementById('goalName').value.trim();
+    var prev = prevScoreText();
+
+    document.getElementById('tPrev').textContent = prev;
+    document.getElementById('tScore').textContent = score;
+    document.getElementById('tDate').textContent = date || 'TBD';
+    document.getElementById('tSkill').textContent = skill;
+    document.getElementById('tName').textContent = name || 'Your Name Here';
+
+    var zone = zones.find(function(z){ return score <= z.max; }) || zones[zones.length-1];
+    document.getElementById('zoneLabel').textContent = 'Score: ' + score + ' — ' + zone.label;
+
+    buildSummary();
+  }
+  updateGoal();
+
+  // ---------- Stop 5: traveler quiz ----------
+  var tQuestions = [
+    {q:"When it's time to study, you usually...", opts:[
+      {t:"Do a quick 10–15 minute burst, often more than once a day", type:"sprint"},
+      {t:"Sit down for one longer session, once or twice a week", type:"deep"},
+      {t:"Talk it through out loud, even alone", type:"talk"},
+      {t:"Make a checklist first, then work through it", type:"nav"}
+    ]},
+    {q:"A new vocabulary word sticks best when you...", opts:[
+      {t:"Use it in a sentence out loud right away", type:"talk"},
+      {t:"See it a few times across short daily reviews", type:"sprint"},
+      {t:"Write it down with examples in a notebook or app", type:"nav"},
+      {t:"Read it inside a full article or story", type:"deep"}
+    ]},
+    {q:"Your ideal study spot is...", opts:[
+      {t:"Wherever you are — on your phone, between things", type:"sprint"},
+      {t:"A quiet desk, with time carved out", type:"deep"},
+      {t:"Somewhere you can speak without feeling watched", type:"talk"},
+      {t:"Anywhere, as long as you have your plan for the day", type:"nav"}
+    ]},
+    {q:"When you fall behind on a week, you...", opts:[
+      {t:"Squeeze in a few short catch-up sessions", type:"sprint"},
+      {t:"Block out one longer session to catch up fully", type:"deep"},
+      {t:"Talk yourself through what you missed", type:"talk"},
+      {t:"Re-plan your schedule so it doesn't happen again", type:"nav"}
+    ]}
+  ];
+  var tForm = document.getElementById('tquizForm');
+  tQuestions.forEach(function(q, qi){
+    var block = document.createElement('div');
+    block.className = 'tquiz-q';
+    var optsHtml = q.opts.map(function(o, oi){
+      return '<label class="opt"><input type="radio" name="tq'+qi+'" value="'+o.type+'"> '+o.t+'</label>';
+    }).join('');
+    block.innerHTML = '<p>'+(qi+1)+'. '+q.q+'</p><div class="opts">'+optsHtml+'</div>';
+    tForm.appendChild(block);
+  });
+
+  var travelerTypes = {
+    sprint: {
+      icon:"Q", title:"The Quick Connection",
+      desc:"You move in short, frequent bursts — and it works, as long as those bursts actually happen.",
+      tips:["Set a recurring 10-minute slot (same time daily) rather than relying on finding a free moment.","Keep a running note of new words/phrases on your phone to review in spare minutes.","Pair short study bursts with something you already do daily, like commuting or coffee."]
+    },
+    deep: {
+      icon:"L", title:"The Long-Haul Traveler",
+      desc:"You'd rather have one solid, focused block than scattered minutes — depth over frequency.",
+      tips:["Protect one 45–60 minute slot a week and treat it like an appointment.","Use that block for the heavier tasks: longer readings, full practice questions, writing samples.","Warm up for 2–3 minutes before diving in so you're not starting cold."]
+    },
+    talk: {
+      icon:"C", title:"The Chatty Companion",
+      desc:"You learn by hearing and saying things out loud — silent studying doesn't stick as well for you.",
+      tips:["Read new material aloud, even when you're alone.","Record short voice memos answering practice speaking prompts, then listen back.","Narrate what you're doing in English during daily routines — cooking, walking, commuting."]
+    },
+    nav: {
+      icon:"N", title:"The Navigator",
+      desc:"You like a plan. Checklists, schedules, and visible progress keep you motivated and on track.",
+      tips:["Turn each week's lesson into a 3–4 item checklist before you start.","Track your goal score and target date somewhere you'll actually see it again.","Review what you checked off at the end of each week — the Navigator loves a recap."]
+    }
+  };
+
+  function revealTraveler(){
+    var counts = {sprint:0, deep:0, talk:0, nav:0};
+    var answeredAll = true;
+    tQuestions.forEach(function(q, qi){
+      var picked = document.querySelector('input[name="tq'+qi+'"]:checked');
+      if (!picked) { answeredAll = false; return; }
+      counts[picked.value]++;
+    });
+    if (!answeredAll){
+      alert("Answer all four questions to see your traveler type.");
+      return;
+    }
+    var winner = Object.keys(counts).reduce(function(a,b){ return counts[a] >= counts[b] ? a : b; });
+    var type = travelerTypes[winner];
+    document.getElementById('resultIcon').textContent = type.icon;
+    document.getElementById('resultTitle').textContent = type.title;
+    document.getElementById('resultDesc').textContent = type.desc;
+    var tipsEl = document.getElementById('resultTips');
+    tipsEl.innerHTML = '';
+    type.tips.forEach(function(t){
+      var li = document.createElement('li');
+      li.textContent = t;
+      tipsEl.appendChild(li);
+    });
+    document.getElementById('resultCard').classList.add('show');
+    STOPS_DONE.travelerType = type.title;
+    completeStop(5);
+    buildSummary();
+  }
+
+  // ---------- Stop 6: summary + copy ----------
+  function buildSummary(){
+    var name = document.getElementById('goalName').value.trim() || '(name not entered yet)';
+    var prev = prevScoreText();
+    var score = document.getElementById('goalScore').value;
+    var date = document.getElementById('goalDate').value || '(no date set)';
+    var skill = document.getElementById('goalSkill').value;
+    var traveler = STOPS_DONE.travelerType || '(complete Stop 05 first)';
+    var text =
+      "DET Boarding Pass — Week 1\n" +
+      "Name: " + name + "\n" +
+      "Previous score: " + prev + "\n" +
+      "Target score: " + score + "\n" +
+      "Target date: " + date + "\n" +
+      "Focus area: " + skill + "\n" +
+      "Traveler type: " + traveler;
+    document.getElementById('summaryBox').textContent = text;
+    return text;
+  }
+  function copySummary(){
+    var text = buildSummary();
+    var note = document.getElementById('copiedNote');
+    var showConfirm = function(){
+      note.classList.add('show');
+      document.getElementById('stampedNote').classList.add('show');
+      completeStop(6);
+      setTimeout(function(){ note.classList.remove('show'); }, 4000);
+    };
+    if (navigator.clipboard && navigator.clipboard.writeText){
+      navigator.clipboard.writeText(text).then(showConfirm).catch(function(){
+        alert("Couldn't copy automatically — please select the text above and copy it manually.");
+      });
+    } else {
+      alert("Couldn't copy automatically — please select the text above and copy it manually.");
+    }
+  }
+</script>
+</body>
+</html>
