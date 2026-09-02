@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DET Prep Toolkit — Free Practice Resources</title>
+<meta name="description" content="A free, student-friendly collection of websites and tools for building the reading, writing, listening, and speaking skills measured on the Duolingo English Test.">
+<style>
+  :root {
+    --green: #58cc02;
+    --green-dark: #2b6b00;
+    --blue: #1cb0f6;
+    --orange: #ff9600;
+    --purple: #ce82ff;
+    --red: #ff4b4b;
+    --ink: #1a1a1a;
+    --gray: #4b4f54;
+    --bg: #ffffff;
+    --card-bg: #f7f7f8;
+    --border: #e5e5e5;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    color: var(--ink);
+    background: var(--bg);
+    line-height: 1.5;
+  }
+  a { color: inherit; }
+
+  header.hero {
+    background: linear-gradient(135deg, var(--green) 0%, #3ea100 100%);
+    color: #fff;
+    padding: 48px 20px 36px;
+    text-align: center;
+  }
+  header.hero h1 {
+    margin: 0 0 8px;
+    font-size: clamp(28px, 5vw, 42px);
+  }
+  header.hero p {
+    margin: 0 auto;
+    max-width: 620px;
+    font-size: 16px;
+    opacity: 0.95;
+  }
+
+  nav.jump {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background: #fff;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 4px;
+    padding: 10px 12px;
+  }
+  nav.jump a {
+    text-decoration: none;
+    font-size: 13.5px;
+    font-weight: 600;
+    padding: 7px 13px;
+    border-radius: 999px;
+    color: var(--ink);
+    background: var(--card-bg);
+    white-space: nowrap;
+    transition: transform 0.15s ease, background 0.15s ease;
+  }
+  nav.jump a:hover { transform: translateY(-1px); }
+  nav.jump a.official { background: #1a1a1a1a; }
+
+  main {
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 28px 20px 60px;
+  }
+
+  .intro {
+    background: #f4f9ec;
+    border: 1px solid #d8ecc0;
+    border-radius: 12px;
+    padding: 18px 22px;
+    margin-bottom: 34px;
+    font-size: 15px;
+    color: #33361f;
+  }
+  .intro b { color: var(--green-dark); }
+  .intro .badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 12px;
+  }
+  .badge {
+    font-size: 12.5px;
+    font-weight: 700;
+    padding: 4px 10px;
+    border-radius: 999px;
+    color: #fff;
+  }
+  .badge.reading   { background: var(--green); }
+  .badge.listening { background: var(--blue); }
+  .badge.writing   { background: var(--orange); }
+  .badge.speaking  { background: var(--purple); }
+
+  section.category {
+    margin-bottom: 40px;
+    scroll-margin-top: 64px;
+  }
+  section.category h2 {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 21px;
+    color: #fff;
+    padding: 7px 16px;
+    border-radius: 8px;
+    margin: 0 0 4px;
+  }
+  section.category .tagline {
+    display: block;
+    color: var(--gray);
+    font-size: 13.5px;
+    margin: 6px 2px 16px;
+  }
+
+  #official h2 { background: var(--ink); }
+  #reading h2 { background: var(--green); }
+  #listening h2 { background: var(--blue); }
+  #writing h2 { background: var(--orange); }
+  #speaking h2 { background: var(--purple); }
+  #vocab h2 { background: var(--red); }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+    gap: 14px;
+  }
+
+  .card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 16px 18px;
+    transition: box-shadow 0.15s ease, transform 0.15s ease, border-color 0.15s ease;
+  }
+  .card:hover {
+    box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+    transform: translateY(-2px);
+    border-color: #c9c9c9;
+  }
+  .card.starred {
+    background: #fff8e6;
+    border-color: #ffe8a3;
+  }
+  .card h3 {
+    margin: 0 0 2px;
+    font-size: 16px;
+  }
+  .card h3 a {
+    text-decoration: none;
+    color: var(--ink);
+  }
+  .card h3 a:hover { text-decoration: underline; }
+  .card .url {
+    font-size: 12.5px;
+    margin-bottom: 8px;
+  }
+  .card .url a {
+    color: #1899d6;
+    text-decoration: none;
+  }
+  .card .url a:hover { text-decoration: underline; }
+  .card p {
+    margin: 0;
+    font-size: 14px;
+    color: #3a3d40;
+  }
+  .visit {
+    display: inline-block;
+    margin-top: 10px;
+    font-size: 12.5px;
+    font-weight: 700;
+    color: #fff;
+    background: var(--ink);
+    padding: 5px 12px;
+    border-radius: 999px;
+    text-decoration: none;
+  }
+  .visit:hover { opacity: 0.85; }
+
+  footer {
+    text-align: center;
+    font-size: 12.5px;
+    color: #8a8d90;
+    padding: 20px;
+    border-top: 1px solid var(--border);
+  }
+
+  @media (max-width: 480px) {
+    nav.jump { justify-content: flex-start; overflow-x: auto; }
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <h1>🦉 DET Prep Toolkit</h1>
+  <p>Free websites &amp; tools to build your English skills for the Duolingo English Test — organized by the skills the test measures. Everything here is free to use.</p>
+</header>
+
+<nav class="jump">
+  <a href="#official">⭐ Official DET</a>
+  <a href="#reading">📖 Reading</a>
+  <a href="#listening">🎧 Listening</a>
+  <a href="#writing">✍️ Writing</a>
+  <a href="#speaking">🗣️ Speaking</a>
+  <a href="#vocab">📚 Vocabulary &amp; Grammar</a>
+</nav>
+
+<main>
+
+  <div class="intro">
+    <b>How the DET is scored:</b> your Duolingo English Test report gives you four skill subscores &mdash; Reading, Writing, Listening, and Speaking &mdash; which combine into four more: Literacy (reading + writing), Comprehension (reading + listening), Conversation (listening + speaking), and Production (speaking + writing). Practicing the four skills below strengthens all of them.
+    <div class="badges">
+      <span class="badge reading">Reading</span>
+      <span class="badge listening">Listening</span>
+      <span class="badge writing">Writing</span>
+      <span class="badge speaking">Speaking</span>
+    </div>
+  </div>
+
+  <section class="category" id="official">
+    <h2>⭐ Official DET Practice</h2>
+    <span class="tagline">Straight from the source &mdash; start here.</span>
+    <div class="grid">
+
+      <div class="card starred">
+        <h3><a href="https://englishtest.duolingo.com" target="_blank" rel="noopener">Duolingo English Test — Official Site</a></h3>
+        <div class="url"><a href="https://englishtest.duolingo.com" target="_blank" rel="noopener">englishtest.duolingo.com</a></div>
+        <p>The real test's home base: what the DET is, how it's scored, where it's accepted, and how to register when you're ready to take it for real.</p>
+        <a class="visit" href="https://englishtest.duolingo.com" target="_blank" rel="noopener">Visit site →</a>
+      </div>
+
+      <div class="card starred">
+        <h3><a href="https://englishtest.duolingo.com/quick" target="_blank" rel="noopener">Free Quick Practice Test</a></h3>
+        <div class="url"><a href="https://englishtest.duolingo.com/quick" target="_blank" rel="noopener">englishtest.duolingo.com/quick</a></div>
+        <p>A free, official 15-minute mini practice test using the same question types as the real DET, with an estimated score at the end. The best "am I ready?" check — try it early, then again before test day.</p>
+        <a class="visit" href="https://englishtest.duolingo.com/quick" target="_blank" rel="noopener">Visit site →</a>
+      </div>
+
+      <div class="card starred">
+        <h3><a href="https://englishtest.duolingo.com/prepare" target="_blank" rel="noopener">Official Test Prep Page</a></h3>
+        <div class="url"><a href="https://englishtest.duolingo.com/prepare" target="_blank" rel="noopener">englishtest.duolingo.com/prepare</a></div>
+        <p>Duolingo's own prep hub, with sample questions, tips for each question type, and guidance on what to expect on test day.</p>
+        <a class="visit" href="https://englishtest.duolingo.com/prepare" target="_blank" rel="noopener">Visit site →</a>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="category" id="reading">
+    <h2>📖 Reading</h2>
+    <span class="tagline">Build speed and comprehension with graded, leveled texts.</span>
+    <div class="grid">
+
+      <div class="card">
+        <h3><a href="https://breakingnewsenglish.com" target="_blank" rel="noopener">Breaking News English</a></h3>
+        <div class="url"><a href="https://breakingnewsenglish.com" target="_blank" rel="noopener">breakingnewsenglish.com</a></div>
+        <p>Practice reading skills with real news stories. There are thousands of articles at seven difficulty levels, and each article comes with many built-in exercises and activities (vocabulary, gap-fills, comprehension checks, and more).</p>
+        <a class="visit" href="https://breakingnewsenglish.com" target="_blank" rel="noopener">Visit site →</a>
+      </div>
+
+      <div class="card">
+        <h3><a href="https://www.newsinlevels.com" target="_blank" rel="noopener">News in Levels</a></h3>
+        <div class="url"><a href="https://www.newsinlevels.com" target="_blank" rel="noopener">newsinlevels.com</a></div>
+        <p>The same news story rewritten at three levels (easy, medium, hard), each with a short audio recording. Great for reading the same content again as it gets more advanced.</p>
+        <a class="visit" href="https://www.newsinlevels.com" target="_blank" rel="noopener">Visit site →</a>
+      </div>
+
+      <div class="card">
+        <h3><a href="https://learnenglish.britishcouncil.org/skills/reading" target="_blank" rel="noopener">British Council — Reading</a></h3>
+        <div class="url"><a href="https://learnenglish.britishcouncil.org/skills/reading" target="_blank" rel="noopener">learnenglish.britishcouncil.org</a></div>
+        <p>Free graded reading texts (emails, articles, stories) sorted by CEFR level, each with comprehension quizzes and vocabulary support — good for reading closer to DET passage length.</p>
+        <a class="visit" href="https://learnenglish.britishcouncil.org/skills/reading" target="_blank" rel="noopener">Visit site →</a>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="category" id="listening">
+    <h2>🎧 Listening</h2>
+    <span class="tagline">Train your ear with real audio, transcripts, and quizzes.</span>
+    <div class="grid">
+
+      <div class="card">
+        <h3><a href="https://www.esl-lab.com" target="_blank" rel="noopener">Randall's ESL Cyber Listening Lab</a></h3>
+        <div class="url"><a href="https://www.esl-lab.com" target="_blank" rel="noopener">esl-lab.com</a></div>
+        <p>Hundreds of short listening clips sorted from easy to difficult, each with comprehension quizzes and full transcripts you can check afterward.</p>
+        <a class="visit" href="https://www.esl-lab.com" target="_blank" rel="noopener">Visit site →</a>
+      </div>
+
+      <div class="card">
+        <h3><a href="https://www.elllo.org" target="_blank" rel="noopener">ELLLO (English Listening Lesson Library)</a></h3>
+        <div class="url"><a href="https://www.elllo.org" target="_blank" rel="noopener">elllo.org</a></div>
+        <p>A free library of thousands of real, unscripted conversations with people from around the world, each with a transcript, vocabulary notes, and a quiz — great for training your ear for different accents, just like on the DET.</p>
+        <a class="visit" href="https://www.elllo.org" target="_blank" rel="noopener">Visit site →</a>
+      </div>
+
+      <div class="card">
+        <h3><a href="https://learningenglish.voanews.com" target="_blank" rel="noopener">VOA Learning English</a></h3>
+        <div class="url"><a href="https://learningenglish.voanews.com" target="_blank" rel="noopener">learningenglish.voanews.com</a></div>
+        <p>Free news and lessons read in slower, clear American English, with articles and audio at multiple levels — a gentle way to build listening stamina.</p>
+        <a class="visit" href="https://learningenglish.voanews.com" target="_blank" rel="noopener">Visit site →</a>
+      </div>
+
+      <div class="card">
+        <h3><a href="https://www.ted.com/talks" target="_blank" rel="noopener">TED Talks</a></h3>
+        <div class="url"><a href="https://www.ted.com/talks" target="_blank" rel="noopener">ted.com/talks</a></div>
+        <p>Thousands of free talks with searchable transcripts and subtitles in many languages. Turn on English subtitles for extra support, then try listening without them.</p>
+        <a class="visit" href="https://www.ted.com/talks" target="_blank" rel="noopener">Visit site →</a>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="category" id="writing">
+    <h2>✍️ Writing</h2>
+    <span class="tagline">Get instant feedback and practice organizing your ideas.</span>
+    <div class="grid">
+
+      <div class="card">
+        <h3><a href="https://writeandimprove.com" target="_blank" rel="noopener">Write &amp; Improve (Cambridge)</a></h3>
+        <div class="url"><a href="https://writeandimprove.com" target="_blank" rel="noopener">writeandimprove.com</a></div>
+        <p>Free tool from Cambridge English: type or paste a piece of writing and get instant, color-coded feedback plus an estimated CEFR level. Great for practicing DET-style writing prompts and seeing your improvement over time.</p>
+        <a class="visit" href="https://writeandimprove.com" target="_blank" rel="noopener">Visit site →</a>
+      </div>
+
+      <div class="card">
+        <h3><a href="https://hemingwayapp.com" target="_blank" rel="noopener">Hemingway Editor</a></h3>
+        <div class="url"><a href="https://hemingwayapp.com" target="_blank" rel="noopener">hemingwayapp.com</a></div>
+        <p>Paste your writing into the free web version and it highlights sentences that are hard to read, overused adverbs, and passive voice — a fast way to make your DET writing responses clearer.</p>
+        <a class="visit" href="https://hemingwayapp.com" target="_blank" rel="noopener">Visit site →</a>
+      </div>
+
+      <div class="card">
+        <h3><a href="https://learnenglish.britishcouncil.org/skills/writing" target="_blank" rel="noopener">British Council — Writing</a></h3>
+        <div class="url"><a href="https://learnenglish.britishcouncil.org/skills/writing" target="_blank" rel="noopener">learnenglish.britishcouncil.org</a></div>
+        <p>Free writing practice tasks by level, with model answers and tips for organizing paragraphs — useful for the short opinion/essay-style prompts on the DET.</p>
+        <a class="visit" href="https://learnenglish.britishcouncil.org/skills/writing" target="_blank" rel="noopener">Visit site →</a>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="category" id="speaking">
+    <h2>🗣️ Speaking</h2>
+    <span class="tagline">Practice pronunciation and fluency out loud.</span>
+    <div class="grid">
+
+      <div class="card">
+        <h3><a href="https://youglish.com" target="_blank" rel="noopener">YouGlish</a></h3>
+        <div class="url"><a href="https://youglish.com" target="_blank" rel="noopener">youglish.com</a></div>
+        <p>Type any word or phrase and instantly hear real people say it in YouTube clips. Free and excellent for checking pronunciation and natural stress before your DET speaking tasks.</p>
+        <a class="visit" href="https://youglish.com" target="_blank" rel="noopener">Visit site →</a>
+      </div>
+
+      <div class="card">
+        <h3><a href="https://elsaspeak.com" target="_blank" rel="noopener">ELSA Speak</a></h3>
+        <div class="url"><a href="https://elsaspeak.com" target="_blank" rel="noopener">elsaspeak.com</a></div>
+        <p>An AI pronunciation coach app with a free version: record yourself and get instant feedback on individual sounds. (Extra features are paid, but the free tier is enough for daily pronunciation practice.)</p>
+        <a class="visit" href="https://elsaspeak.com" target="_blank" rel="noopener">Visit site →</a>
+      </div>
+
+      <div class="card">
+        <h3><a href="https://learnenglish.britishcouncil.org/skills/speaking" target="_blank" rel="noopener">British Council — Speaking</a></h3>
+        <div class="url"><a href="https://learnenglish.britishcouncil.org/skills/speaking" target="_blank" rel="noopener">learnenglish.britishcouncil.org</a></div>
+        <p>Free videos of everyday spoken English plus guided speaking practice activities — helpful for building the fluency the DET's speaking tasks reward.</p>
+        <a class="visit" href="https://learnenglish.britishcouncil.org/skills/speaking" target="_blank" rel="noopener">Visit site →</a>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="category" id="vocab">
+    <h2>📚 Vocabulary &amp; Grammar</h2>
+    <span class="tagline">Supports every section of the test.</span>
+    <div class="grid">
+
+      <div class="card">
+        <h3><a href="https://dictionary.cambridge.org" target="_blank" rel="noopener">Cambridge Dictionary</a></h3>
+        <div class="url"><a href="https://dictionary.cambridge.org" target="_blank" rel="noopener">dictionary.cambridge.org</a></div>
+        <p>A free learner's dictionary with simple definitions, example sentences, and audio pronunciation in both British and American English — good for the DET's "yes/no word" vocabulary questions.</p>
+        <a class="visit" href="https://dictionary.cambridge.org" target="_blank" rel="noopener">Visit site →</a>
+      </div>
+
+      <div class="card">
+        <h3><a href="https://quizlet.com" target="_blank" rel="noopener">Quizlet</a></h3>
+        <div class="url"><a href="https://quizlet.com" target="_blank" rel="noopener">quizlet.com</a></div>
+        <p>Free flashcards and games for building vocabulary. Search existing DET/TOEFL/IELTS word-list sets, or make your own from words you look up while reading.</p>
+        <a class="visit" href="https://quizlet.com" target="_blank" rel="noopener">Visit site →</a>
+      </div>
+
+      <div class="card">
+        <h3><a href="https://learnenglish.britishcouncil.org/grammar" target="_blank" rel="noopener">British Council — Grammar</a></h3>
+        <div class="url"><a href="https://learnenglish.britishcouncil.org/grammar" target="_blank" rel="noopener">learnenglish.britishcouncil.org</a></div>
+        <p>Free, clear grammar explanations organized by level, each with short practice exercises — useful when you notice the same mistake showing up in your writing.</p>
+        <a class="visit" href="https://learnenglish.britishcouncil.org/grammar" target="_blank" rel="noopener">Visit site →</a>
+      </div>
+
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  All resources listed were free to access at the time this page was made. Websites change, so if a link ever seems off, try searching the site name directly.
+</footer>
+
+</body>
+</html>
