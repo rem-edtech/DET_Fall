@@ -1,0 +1,1074 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DET Connecting Flights</title>
+<meta name="description" content="Week 3 of the async Duolingo English Test course — grammar for fluency: connectors, sentence combining, Listen and Type practice, a timed Writing Sample, and a Vocaroo speaking task.">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..700&family=Work+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap');
+
+  /* Palette: Kindai blue as the anchor, a warm coral complement for accents,
+     plus teal (Economy) and gold (First) as analogous/triadic supports. */
+  :root{
+    --bg:#EDF3FA;
+    --paper:#FFFFFF;
+    --paper-2:#F3F7FC;
+    --ink:#0F2340;
+    --muted:#55657D;
+    --blue:#0068B7;
+    --blue-deep:#004A85;
+    --coral:#E8663D;
+    --coral-deep:#B8481F;
+    --teal:#149487;
+    --teal-deep:#0B6A60;
+    --gold:#D9A21B;
+    --gold-deep:#8A6206;
+    --border:#CFDBE8;
+    --shadow: 0 1px 2px rgba(15,35,64,.07), 0 8px 24px -12px rgba(15,35,64,.22);
+    --cabin:var(--blue); --cabin-deep:var(--blue-deep);
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --bg:#0A1828; --paper:#112338; --paper-2:#152C46; --ink:#E8F0F8; --muted:#95A9BE;
+      --blue:#4DA3E8; --blue-deep:#8CC6F2; --coral:#F28A63; --coral-deep:#F7A889;
+      --teal:#3CC2B2; --teal-deep:#7ADCD0; --gold:#E7B84A; --gold-deep:#F0CD7A;
+      --border:#25405C; --shadow: 0 1px 2px rgba(0,0,0,.3), 0 8px 24px -12px rgba(0,0,0,.55);
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#0A1828; --paper:#112338; --paper-2:#152C46; --ink:#E8F0F8; --muted:#95A9BE;
+    --blue:#4DA3E8; --blue-deep:#8CC6F2; --coral:#F28A63; --coral-deep:#F7A889;
+    --teal:#3CC2B2; --teal-deep:#7ADCD0; --gold:#E7B84A; --gold-deep:#F0CD7A;
+    --border:#25405C; --shadow: 0 1px 2px rgba(0,0,0,.3), 0 8px 24px -12px rgba(0,0,0,.55);
+  }
+  :root{ color-scheme: light dark; }
+  body.cab-E{ --cabin:var(--teal); --cabin-deep:var(--teal-deep); }
+  body.cab-B{ --cabin:var(--blue); --cabin-deep:var(--blue-deep); }
+  body.cab-F{ --cabin:var(--gold); --cabin-deep:var(--gold-deep); }
+
+  *{ box-sizing:border-box; }
+  html{ -webkit-text-size-adjust:100%; }
+  body{
+    margin:0; background:var(--bg); color:var(--ink);
+    font-family:'Work Sans', ui-sans-serif, system-ui, sans-serif;
+    line-height:1.55; -webkit-font-smoothing:antialiased;
+  }
+  a{ color:var(--blue-deep); }
+  ::selection{ background:var(--gold); color:#1B2A2E; }
+  h1,h2,h3{ font-family:'Fraunces', ui-serif, Georgia, serif; font-weight:600; text-wrap:balance; margin:0; color:var(--ink); }
+  .mono{ font-family:'IBM Plex Mono', ui-monospace, monospace; }
+
+  /* ---------- Progress rail ---------- */
+  .railwrap{ position:sticky; top:0; z-index:40; background:color-mix(in srgb, var(--bg) 88%, transparent); backdrop-filter:blur(8px); border-bottom:1px solid var(--border); }
+  .rail{ max-width:780px; margin:0 auto; display:flex; align-items:center; gap:6px; padding:10px 16px; overflow-x:auto; }
+  .rail-title{ font-family:'Fraunces', serif; font-weight:600; font-size:.85rem; color:var(--blue-deep); white-space:nowrap; margin-right:8px; }
+  .stamp-dot{ width:26px; height:26px; border-radius:50%; border:2px solid var(--border); display:flex; align-items:center; justify-content:center; font-family:'IBM Plex Mono', monospace; font-size:.65rem; font-weight:600; color:var(--muted); flex:none; background:var(--paper); transition:transform .25s, background .25s, border-color .25s, color .25s; }
+  .stamp-dot.done{ border-color:var(--coral); background:var(--coral); color:#fff; transform:rotate(-8deg) scale(1.05); }
+  .rail-line{ flex:1; height:1px; background:var(--border); min-width:8px; }
+  .rail-cabin{ margin-left:10px; font-family:'IBM Plex Mono', monospace; font-size:.68rem; font-weight:600; letter-spacing:.06em; white-space:nowrap; padding:4px 10px; border-radius:999px; background:color-mix(in srgb, var(--cabin) 16%, var(--paper)); color:var(--cabin-deep); border:1px solid color-mix(in srgb, var(--cabin) 40%, transparent); }
+
+  /* ---------- Layout ---------- */
+  .wrap{ max-width:780px; margin:0 auto; padding:0 16px 100px; }
+  header.hero{ padding:40px 0 22px; display:flex; flex-direction:column; gap:10px; }
+  .eyebrow{ font-family:'IBM Plex Mono', monospace; font-size:.72rem; letter-spacing:.09em; text-transform:uppercase; color:var(--coral-deep); font-weight:600; }
+  header.hero h1{ font-size:clamp(2rem, 5vw, 2.6rem); }
+  header.hero h1 .accent{ color:var(--blue); font-style:italic; }
+  header.hero p{ color:var(--muted); font-size:1.02rem; max-width:58ch; margin:0; }
+  .chips{ display:flex; gap:8px; flex-wrap:wrap; margin-top:6px; }
+  .chip{ font-family:'IBM Plex Mono', monospace; font-size:.74rem; border:1px dashed var(--border); border-radius:999px; padding:5px 12px; color:var(--muted); }
+  .skillmap{ display:grid; grid-template-columns:repeat(3,1fr); gap:10px; margin-top:12px; }
+  @media (max-width:600px){ .skillmap{ grid-template-columns:1fr; } }
+  .skill{ background:var(--paper); border:1px solid var(--border); border-radius:12px; padding:12px 14px; border-top:4px solid var(--c); }
+  .skill b{ display:block; font-size:.9rem; }
+  .skill span{ font-size:.82rem; color:var(--muted); }
+
+  section.page{ background:var(--paper); border:1px solid var(--border); border-radius:14px; box-shadow:var(--shadow); margin:24px 0; padding:26px 24px 28px; position:relative; overflow:hidden; }
+  section.page::before{ content:""; position:absolute; left:0; top:0; bottom:0; width:5px; background:var(--accent, var(--blue)); opacity:.85; }
+  @media (max-width:520px){ section.page{ padding:22px 16px 24px; } }
+  .page-kicker{ display:flex; align-items:baseline; gap:10px; margin-bottom:6px; }
+  .page-num{ font-family:'IBM Plex Mono', monospace; font-size:.75rem; color:var(--accent, var(--blue)); font-weight:600; letter-spacing:.05em; }
+  .page-time{ margin-left:auto; font-family:'IBM Plex Mono', monospace; font-size:.72rem; color:var(--muted); }
+  section.page h2{ font-size:1.5rem; margin-bottom:4px; }
+  .page-sub{ color:var(--muted); margin:0 0 18px; font-size:.98rem; max-width:60ch; }
+  .det-tag{ display:inline-block; font-family:'IBM Plex Mono', monospace; font-size:.68rem; font-weight:600; letter-spacing:.04em; padding:3px 8px; border-radius:6px; background:color-mix(in srgb, var(--coral) 13%, var(--paper)); color:var(--coral-deep); margin-bottom:12px; }
+
+  /* ---------- Buttons ---------- */
+  button{ font-family:inherit; cursor:pointer; }
+  .btn{ display:inline-flex; align-items:center; gap:8px; background:var(--blue); color:#F3F8FC; border:none; border-radius:9px; padding:11px 20px; font-weight:600; font-size:.95rem; box-shadow:var(--shadow); transition:transform .15s, background .15s; }
+  .btn:hover{ background:var(--blue-deep); transform:translateY(-1px); }
+  :root[data-theme="dark"] .btn, .btn{ }
+  @media (prefers-color-scheme: dark){ :root:not([data-theme="light"]) .btn{ color:#07182A; } }
+  :root[data-theme="dark"] .btn{ color:#07182A; }
+  .btn.secondary{ background:transparent; color:var(--blue-deep); border:1.5px solid var(--blue); box-shadow:none; }
+  .btn.secondary:hover{ background:color-mix(in srgb, var(--blue) 12%, transparent); }
+  .btn.small{ padding:7px 13px; font-size:.85rem; }
+  .btn:focus-visible, .cabin:focus-visible, textarea:focus-visible, input:focus-visible, .rf-btn:focus-visible, .say:focus-visible, .keep:focus-visible, .prompt-opt:focus-visible{ outline:2.5px solid var(--gold); outline-offset:2px; }
+  .row{ display:flex; gap:10px; flex-wrap:wrap; align-items:center; }
+  .note{ font-size:.85rem; color:var(--muted); }
+
+  /* ---------- Stop 1: cabins ---------- */
+  .cabins{ display:grid; grid-template-columns:repeat(3,1fr); gap:12px; }
+  @media (max-width:640px){ .cabins{ grid-template-columns:1fr; } }
+  .cabin{ text-align:left; background:var(--paper-2); border:1.5px solid var(--border); border-radius:12px; padding:16px; display:flex; flex-direction:column; gap:6px; color:var(--ink); position:relative; transition:border-color .2s, background .2s; }
+  .cabin .tag{ font-family:'IBM Plex Mono', monospace; font-size:.68rem; font-weight:600; letter-spacing:.08em; color:var(--cc-deep); }
+  .cabin strong{ font-family:'Fraunces', serif; font-size:1.12rem; }
+  .cabin span.d{ color:var(--muted); font-size:.86rem; }
+  .cabin ul{ margin:4px 0 0; padding-left:1.1em; font-size:.84rem; color:var(--muted); }
+  .cabin::after{ content:""; position:absolute; left:14px; right:14px; top:0; height:4px; border-radius:0 0 4px 4px; background:var(--cc); }
+  .cabin:hover{ border-color:var(--cc); }
+  .cabin.active{ border-color:var(--cc); background:color-mix(in srgb, var(--cc) 10%, var(--paper)); box-shadow:0 0 0 1px var(--cc); }
+  .cabin.E{ --cc:var(--teal); --cc-deep:var(--teal-deep); }
+  .cabin.B{ --cc:var(--blue); --cc-deep:var(--blue-deep); }
+  .cabin.F{ --cc:var(--gold); --cc-deep:var(--gold-deep); }
+  .callout{ margin-top:16px; padding:12px 14px; border-radius:10px; background:color-mix(in srgb, var(--cabin) 9%, var(--paper)); border:1px solid color-mix(in srgb, var(--cabin) 30%, transparent); font-size:.92rem; }
+
+  /* ---------- Stop 2: real or fake ---------- */
+  .rf-top{ display:flex; justify-content:space-between; align-items:center; gap:10px; flex-wrap:wrap; margin-bottom:14px; }
+  .score{ font-family:'IBM Plex Mono', monospace; font-size:.85rem; color:var(--muted); }
+  .score b{ color:var(--coral-deep); }
+  .rf-grid{ display:grid; grid-template-columns:repeat(auto-fill, minmax(210px, 1fr)); gap:10px; }
+  .rf-card{ border:1.5px solid var(--border); border-radius:10px; padding:12px; background:var(--paper-2); display:flex; flex-direction:column; gap:8px; }
+  .rf-word{ font-family:'Fraunces', serif; font-size:1.15rem; font-weight:600; }
+  .rf-actions{ display:flex; gap:6px; }
+  .rf-btn{ flex:1; font-family:'IBM Plex Mono', monospace; font-size:.72rem; font-weight:700; letter-spacing:.05em; border-radius:7px; padding:7px 8px; border:1.5px solid var(--border); background:var(--paper); color:var(--muted); }
+  .rf-btn:hover:not(:disabled){ border-color:var(--ink); color:var(--ink); }
+  .rf-btn:disabled{ cursor:default; opacity:.55; }
+  .rf-card.ok{ border-color:var(--teal); background:color-mix(in srgb, var(--teal) 9%, var(--paper)); }
+  .rf-card.no{ border-color:var(--coral); background:color-mix(in srgb, var(--coral) 8%, var(--paper)); }
+  .rf-fb{ font-size:.82rem; color:var(--muted); display:none; }
+  .rf-card.ok .rf-fb, .rf-card.no .rf-fb{ display:block; }
+  .rf-fb b{ color:var(--ink); }
+
+  /* ---------- Stop 3: word bank ---------- */
+  .bank-tabs{ display:flex; gap:6px; flex-wrap:wrap; margin-bottom:14px; }
+  .bank-tab{ border:1.5px solid var(--border); background:var(--paper); color:var(--muted); border-radius:999px; padding:7px 14px; font-size:.86rem; font-weight:600; }
+  .bank-tab.active{ background:var(--gc); border-color:var(--gc); color:#fff; }
+  @media (prefers-color-scheme: dark){ :root:not([data-theme="light"]) .bank-tab.active{ color:#07182A; } }
+  :root[data-theme="dark"] .bank-tab.active{ color:#07182A; }
+  .group-intro{ font-size:.92rem; color:var(--muted); margin:0 0 12px; }
+  .wcard{ border:1px solid var(--border); border-left:4px solid var(--gc); border-radius:10px; padding:12px 14px; margin-bottom:10px; background:var(--paper-2); }
+  .wcard-top{ display:flex; align-items:center; gap:8px; flex-wrap:wrap; }
+  .wphrase{ font-family:'Fraunces', serif; font-size:1.1rem; font-weight:600; }
+  .lvl{ font-family:'IBM Plex Mono', monospace; font-size:.62rem; font-weight:700; letter-spacing:.06em; padding:2px 7px; border-radius:5px; }
+  .lvl.E{ background:color-mix(in srgb, var(--teal) 16%, var(--paper)); color:var(--teal-deep); }
+  .lvl.B{ background:color-mix(in srgb, var(--blue) 14%, var(--paper)); color:var(--blue-deep); }
+  .lvl.F{ background:color-mix(in srgb, var(--gold) 20%, var(--paper)); color:var(--gold-deep); }
+  .wcard-top .spacer{ flex:1; }
+  .say, .keep{ border:1.5px solid var(--border); background:var(--paper); color:var(--ink); border-radius:7px; padding:5px 10px; font-size:.8rem; font-weight:600; }
+  .say:hover, .keep:hover{ border-color:var(--blue); }
+  .keep.on{ background:var(--coral); border-color:var(--coral); color:#fff; }
+  .wmean{ font-size:.88rem; color:var(--muted); margin:4px 0 2px; }
+  .wex{ font-size:.93rem; margin:0; }
+  .wex em{ font-style:normal; font-weight:600; color:var(--gc-deep); }
+  .g-stance{ --gc:var(--blue); --gc-deep:var(--blue-deep); }
+  .g-strength{ --gc:var(--coral); --gc-deep:var(--coral-deep); }
+  .g-judge{ --gc:var(--teal); --gc-deep:var(--teal-deep); }
+  .g-link{ --gc:var(--gold); --gc-deep:var(--gold-deep); }
+  .toggle{ display:inline-flex; align-items:center; gap:8px; font-size:.86rem; color:var(--muted); cursor:pointer; }
+  .toggle input{ accent-color:var(--blue); width:16px; height:16px; }
+  .kept-bar{ margin-top:14px; font-size:.88rem; color:var(--muted); }
+  .kept-bar b{ color:var(--coral-deep); }
+
+  /* ---------- Stop 4: upgrade counter ---------- */
+  .upg{ border:1px solid var(--border); border-radius:12px; padding:14px 16px; margin-bottom:14px; background:var(--paper-2); }
+  .upg-plain{ display:flex; align-items:baseline; gap:10px; margin-bottom:10px; }
+  .upg-plain .lab{ font-family:'IBM Plex Mono', monospace; font-size:.68rem; font-weight:600; color:var(--muted); letter-spacing:.06em; flex:none; }
+  .upg-plain p{ margin:0; font-size:1.02rem; font-weight:600; text-decoration:underline wavy color-mix(in srgb, var(--coral) 55%, transparent); text-underline-offset:5px; }
+  textarea, input[type="text"], input[type="url"]{ width:100%; font-family:inherit; font-size:.95rem; padding:10px 12px; border:1.5px solid var(--border); border-radius:8px; background:var(--paper); color:var(--ink); }
+  textarea{ resize:vertical; min-height:64px; line-height:1.5; }
+  .models{ display:none; margin-top:12px; gap:8px; flex-direction:column; }
+  .models.show{ display:flex; }
+  .model{ border-radius:9px; padding:9px 12px; font-size:.92rem; border:1px solid var(--border); background:var(--paper); display:flex; gap:10px; align-items:baseline; }
+  .model .lvl{ flex:none; }
+  .model mark{ background:color-mix(in srgb, var(--gold) 28%, transparent); color:inherit; border-radius:3px; padding:0 2px; }
+
+  /* ---------- Stop 5: write ---------- */
+  .prompt-list{ display:flex; flex-direction:column; gap:8px; margin-bottom:14px; }
+  .prompt-opt{ display:flex; align-items:center; gap:10px; border:1.5px solid var(--border); border-radius:9px; padding:11px 13px; background:var(--paper-2); font-size:.95rem; cursor:pointer; }
+  .prompt-opt input{ accent-color:var(--blue); }
+  .prompt-opt:has(input:checked){ border-color:var(--blue); background:color-mix(in srgb, var(--blue) 8%, var(--paper)); }
+  .reqs{ border:1.5px solid color-mix(in srgb, var(--cabin) 45%, transparent); background:color-mix(in srgb, var(--cabin) 7%, var(--paper)); border-radius:10px; padding:12px 14px; margin-bottom:14px; }
+  .reqs h3{ font-size:1rem; margin-bottom:6px; color:var(--cabin-deep); }
+  .req{ display:flex; align-items:center; gap:9px; font-size:.9rem; padding:3px 0; }
+  .req .box{ width:18px; height:18px; border-radius:5px; border:1.5px solid var(--border); display:flex; align-items:center; justify-content:center; font-size:.7rem; flex:none; background:var(--paper); }
+  .req.met .box{ background:var(--teal); border-color:var(--teal); color:#fff; }
+  .req label{ display:flex; align-items:center; gap:9px; cursor:pointer; }
+  .req input[type="checkbox"]{ accent-color:var(--teal); width:18px; height:18px; margin:0; }
+  #essay{ min-height:190px; }
+  .meter{ display:flex; justify-content:space-between; gap:10px; flex-wrap:wrap; margin:8px 0 4px; font-family:'IBM Plex Mono', monospace; font-size:.8rem; color:var(--muted); }
+  .found{ display:flex; flex-wrap:wrap; gap:6px; margin:8px 0; min-height:28px; }
+  .found span{ font-size:.8rem; font-weight:600; padding:4px 10px; border-radius:999px; background:color-mix(in srgb, var(--gold) 22%, var(--paper)); color:var(--gold-deep); border:1px solid color-mix(in srgb, var(--gold) 45%, transparent); }
+  .found .empty{ background:none; border:1px dashed var(--border); color:var(--muted); font-weight:500; }
+  .preview{ border:1px dashed var(--border); border-radius:9px; padding:10px 12px; font-size:.93rem; min-height:44px; white-space:pre-wrap; background:var(--paper-2); }
+  .preview mark{ background:color-mix(in srgb, var(--gold) 30%, transparent); color:inherit; border-radius:3px; padding:0 2px; }
+  .timer{ font-family:'IBM Plex Mono', monospace; font-weight:600; color:var(--coral-deep); }
+
+  /* ---------- Stop 6: speak ---------- */
+  .steps{ counter-reset:s; list-style:none; padding:0; margin:0 0 16px; display:grid; gap:8px; }
+  .steps li{ counter-increment:s; display:flex; gap:12px; align-items:flex-start; font-size:.94rem; }
+  .steps li::before{ content:counter(s); flex:none; width:26px; height:26px; border-radius:50%; background:var(--coral); color:#fff; font-family:'IBM Plex Mono', monospace; font-weight:700; font-size:.78rem; display:flex; align-items:center; justify-content:center; margin-top:1px; }
+  .cuecard{ border-radius:12px; padding:16px 18px; margin-bottom:16px; background:linear-gradient(135deg, color-mix(in srgb, var(--coral) 12%, var(--paper)) 0%, color-mix(in srgb, var(--gold) 12%, var(--paper)) 100%); border:1px solid color-mix(in srgb, var(--coral) 30%, transparent); }
+  .cuecard h3{ font-size:1.05rem; margin-bottom:6px; }
+  .cuecard p{ margin:4px 0; font-size:.93rem; }
+  .linkcheck{ font-size:.85rem; margin-top:6px; min-height:1.3em; }
+  .linkcheck.ok{ color:var(--teal-deep); font-weight:600; }
+  .linkcheck.bad{ color:var(--coral-deep); }
+
+  /* ---------- Stop 7: summary ---------- */
+  .summary-box{ background:var(--paper-2); border:1.5px dashed var(--border); border-radius:10px; padding:14px 16px; margin:14px 0; white-space:pre-wrap; font-family:'IBM Plex Mono', monospace; font-size:.83rem; color:var(--ink); min-height:100px; overflow-wrap:anywhere; }
+  .copied-note{ font-size:.85rem; color:var(--teal-deep); display:none; font-weight:600; }
+  .copied-note.show{ display:inline; }
+  .missing{ font-size:.86rem; color:var(--coral-deep); margin:0; }
+  .stamped{ display:none; margin-top:16px; padding:16px; border:2px solid var(--coral); border-radius:10px; color:var(--coral-deep); font-family:'IBM Plex Mono', monospace; font-weight:700; letter-spacing:.05em; text-align:center; transform:rotate(-2deg); }
+  .stamped.show{ display:block; animation:stampin .35s ease; }
+  @keyframes stampin{ from{ opacity:0; transform:scale(1.6) rotate(-2deg);} to{ opacity:1; transform:scale(1) rotate(-2deg);} }
+
+  /* ---------- Duty-free resources ---------- */
+  .res-feature{ display:flex; gap:14px; align-items:center; flex-wrap:wrap; justify-content:space-between; padding:16px 18px; border-radius:12px; margin-bottom:14px; background:linear-gradient(135deg, var(--blue) 0%, var(--blue-deep) 100%); color:#F3F8FC; }
+  .res-feature h3{ color:#fff; font-size:1.15rem; }
+  .res-feature p{ margin:4px 0 0; font-size:.88rem; opacity:.9; max-width:48ch; }
+  .res-feature .row a{ background:#fff; color:#004A85; text-decoration:none; font-weight:700; font-size:.86rem; padding:9px 14px; border-radius:8px; }
+  .res-feature .row a.ghost{ background:transparent; color:#fff; border:1.5px solid rgba(255,255,255,.7); }
+  @media (prefers-color-scheme: dark){ :root:not([data-theme="light"]) .res-feature{ background:linear-gradient(135deg, #0C4F8A 0%, #083763 100%); } }
+  :root[data-theme="dark"] .res-feature{ background:linear-gradient(135deg, #0C4F8A 0%, #083763 100%); }
+  .res-feature{ flex-direction:column; align-items:stretch; }
+  .rf-head{ display:flex; gap:14px; align-items:center; flex-wrap:wrap; justify-content:space-between; }
+  .qt-grid{ display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-top:12px; }
+  @media (max-width:600px){ .qt-grid{ grid-template-columns:1fr; } }
+  .qt{ background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.25); border-radius:10px; padding:10px 12px; font-size:.84rem; }
+  .qt.main{ background:rgba(255,255,255,.18); border-color:rgba(255,255,255,.55); }
+  .qt b{ display:block; font-size:.98rem; color:#fff; margin:2px 0; }
+  .qt span:not(.qt-tag){ opacity:.92; }
+  .qt-tag{ font-family:'IBM Plex Mono', monospace; font-size:.64rem; font-weight:600; letter-spacing:.06em; color:#FFD27A; }
+  .res-grid{ display:grid; grid-template-columns:1fr 1fr; gap:10px; }
+  @media (max-width:600px){ .res-grid{ grid-template-columns:1fr; } }
+  .res{ display:block; text-decoration:none; color:var(--ink); border:1px solid var(--border); border-top:3px solid var(--rc); border-radius:10px; padding:12px 14px; background:var(--paper-2); transition:transform .15s, border-color .15s; }
+  .res:hover{ transform:translateY(-2px); border-color:var(--rc); }
+  .res b{ display:block; font-size:.96rem; }
+  .res .url{ font-family:'IBM Plex Mono', monospace; font-size:.7rem; color:var(--rc-deep); }
+  .res p{ margin:6px 0 0; font-size:.85rem; color:var(--muted); }
+  .res .how{ display:block; margin-top:6px; font-size:.8rem; color:var(--ink); }
+  .rc-blue{ --rc:var(--blue); --rc-deep:var(--blue-deep); }
+  .rc-teal{ --rc:var(--teal); --rc-deep:var(--teal-deep); }
+  .rc-coral{ --rc:var(--coral); --rc-deep:var(--coral-deep); }
+  .rc-gold{ --rc:var(--gold); --rc-deep:var(--gold-deep); }
+
+  footer.next{ margin-top:30px; padding:20px 22px; border-radius:14px; background:var(--paper); border:1px solid var(--border); display:flex; justify-content:space-between; align-items:center; gap:16px; flex-wrap:wrap; }
+  footer.next span{ display:block; font-family:'IBM Plex Mono', monospace; font-size:.72rem; color:var(--coral-deep); letter-spacing:.06em; text-transform:uppercase; margin-bottom:4px; }
+  footer.next strong{ font-family:'Fraunces', serif; font-size:1.1rem; }
+
+  @media (prefers-reduced-motion:reduce){
+    .stamped.show{ animation:none; } .stamp-dot.done{ transform:none; } .res:hover, .btn:hover{ transform:none; }
+    html{ scroll-behavior:auto; }
+  }
+
+  /* ---------- Week 3 additions ---------- */
+  :root{ --violet:#7A5BC0; --violet-deep:#553A96; }
+  @media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){ --violet:#A990E8; --violet-deep:#C9B8F4; } }
+  :root[data-theme="dark"]{ --violet:#A990E8; --violet-deep:#C9B8F4; }
+  .g-add{ --gc:var(--blue); --gc-deep:var(--blue-deep); }
+  .g-contrast{ --gc:var(--coral); --gc-deep:var(--coral-deep); }
+  .g-reason{ --gc:var(--teal); --gc-deep:var(--teal-deep); }
+  .g-result{ --gc:var(--gold); --gc-deep:var(--gold-deep); }
+  .g-detail{ --gc:var(--violet); --gc-deep:var(--violet-deep); }
+  .wtip{ font-size:.82rem; margin:6px 0 0; color:var(--ink); padding:5px 9px; border-radius:6px; background:color-mix(in srgb, var(--gc) 10%, var(--paper)); display:inline-block; }
+  .wtip b{ font-family:'IBM Plex Mono', monospace; font-size:.66rem; letter-spacing:.05em; color:var(--gc-deep); margin-right:6px; }
+
+  .mc{ border:1.5px solid var(--border); border-radius:10px; padding:14px; background:var(--paper-2); margin-bottom:10px; }
+  .mc.ok{ border-color:var(--teal); background:color-mix(in srgb, var(--teal) 9%, var(--paper)); }
+  .mc.no{ border-color:var(--coral); background:color-mix(in srgb, var(--coral) 8%, var(--paper)); }
+  .mc-sent{ font-size:1.04rem; font-weight:500; margin:0 0 10px; line-height:1.7; }
+  .gap{ display:inline-block; min-width:74px; border-bottom:2px solid var(--coral); text-align:center; font-weight:700; color:var(--coral-deep); padding:0 6px; }
+  .mc.ok .gap{ border-color:var(--teal); color:var(--teal-deep); }
+  .mc-opts{ display:flex; gap:8px; flex-wrap:wrap; }
+  .mc-opts .rf-btn{ flex:none; padding:8px 14px; font-size:.8rem; letter-spacing:.02em; }
+  .mc-opts .rf-btn.picked{ border-color:var(--ink); color:var(--ink); opacity:1; }
+  .mc-fb{ font-size:.86rem; color:var(--muted); margin:8px 0 0; }
+  .mc-fb b{ color:var(--ink); }
+
+  .lt{ border:1.5px solid var(--border); border-radius:12px; padding:14px 16px; background:var(--paper-2); margin-bottom:12px; }
+  .lt.checked{ border-color:color-mix(in srgb, var(--teal) 60%, var(--border)); }
+  .lt-head{ display:flex; align-items:center; gap:10px; flex-wrap:wrap; margin-bottom:10px; }
+  .lt-num{ font-family:'IBM Plex Mono', monospace; font-size:.72rem; font-weight:600; color:var(--muted); letter-spacing:.05em; }
+  .lt-acc{ margin-left:auto; font-family:'IBM Plex Mono', monospace; font-size:.8rem; font-weight:600; color:var(--teal-deep); }
+  .lt-diff{ margin-top:10px; font-size:1rem; line-height:2; }
+  .lt-diff .hit{ color:var(--teal-deep); font-weight:600; }
+  .lt-diff .miss{ background:color-mix(in srgb, var(--coral) 18%, transparent); border-bottom:2px solid var(--coral); border-radius:3px; padding:1px 4px; font-weight:600; }
+  .lt-note{ font-size:.85rem; color:var(--muted); margin:6px 0 0; }
+  .lt-note b{ color:var(--ink); }
+  .lt-flash{ font-family:'Fraunces', serif; font-size:1.05rem; padding:10px 12px; border:1px dashed var(--coral); border-radius:8px; margin-bottom:10px; }
+  .legend{ display:flex; gap:14px; flex-wrap:wrap; font-size:.8rem; color:var(--muted); margin:0 0 12px; }
+  .mc-opts .rf-btn:focus-visible, .bank-tab:focus-visible{ outline:2.5px solid var(--gold); outline-offset:2px; }
+  @media (prefers-color-scheme: dark){ :root:not([data-theme="light"]) .btn.secondary{ color:var(--blue-deep); } }
+  :root[data-theme="dark"] .btn.secondary{ color:var(--blue-deep); }
+</style>
+</head>
+<body class="cab-B">
+
+<div class="railwrap">
+  <div class="rail" id="rail">
+    <span class="rail-title">YOUR ROUTE</span>
+    <div class="stamp-dot" data-stamp="1">1</div><div class="rail-line"></div>
+    <div class="stamp-dot" data-stamp="2">2</div><div class="rail-line"></div>
+    <div class="stamp-dot" data-stamp="3">3</div><div class="rail-line"></div>
+    <div class="stamp-dot" data-stamp="4">4</div><div class="rail-line"></div>
+    <div class="stamp-dot" data-stamp="5">5</div><div class="rail-line"></div>
+    <div class="stamp-dot" data-stamp="6">6</div><div class="rail-line"></div>
+    <div class="stamp-dot" data-stamp="7">7</div><div class="rail-line"></div>
+    <div class="stamp-dot" data-stamp="8">8</div>
+    <span class="rail-cabin" id="railCabin">NO CABIN YET</span>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <header class="hero">
+    <div class="eyebrow">Week 3 · Grammar for Fluency</div>
+    <h1><span class="accent">Connecting</span> Flights</h1>
+    <p>Short sentences are like short flights: they work, but you keep stopping. This week you'll use connecting words (<em>because, although, however, which…</em>) to join your ideas into one smooth trip. You choose your own level. Go at your own pace. There's no grade, and finishing all the steps counts as attending this week.</p>
+    <div class="chips">
+      <span class="chip">~50 min total</span>
+      <span class="chip">Choose your level</span>
+      <span class="chip">Headphones helpful</span>
+      <span class="chip">Writing + a short recording</span>
+    </div>
+    <div class="skillmap">
+      <div class="skill" style="--c:var(--teal)"><b>Listen and Type</b><span>Hear the small grammar words and endings</span></div>
+      <div class="skill" style="--c:var(--blue)"><b>Writing Sample</b><span>Join ideas so your writing flows</span></div>
+      <div class="skill" style="--c:var(--coral)"><b>Speaking</b><span>Keep talking by linking your ideas</span></div>
+    </div>
+  </header>
+
+  <!-- STOP 1 -->
+  <section class="page" id="sec1" style="--accent:var(--blue)">
+    <div class="page-kicker"><span class="page-num">STOP 01</span><span class="page-time">~2 min</span></div>
+    <h2>Choose Your Cabin</h2>
+    <p class="page-sub">Pick the level that feels right today. Your choice changes the connectors, sentences, and task size on this page. <strong>Every cabin counts the same for attendance</strong>, and you can switch any time.</p>
+
+    <div class="cabins">
+      <button class="cabin E" id="cabE" onclick="pickCabin('E')">
+        <span class="tag">ECONOMY</span>
+        <strong>Comfortable basics</strong>
+        <span class="d">"I write short sentences. I want to join them."</span>
+        <ul><li>and, but, so, because</li><li>Write ~50 words</li><li>Speak ~30–45 sec</li></ul>
+      </button>
+      <button class="cabin B" id="cabB" onclick="pickCabin('B')">
+        <span class="tag">BUSINESS</span>
+        <strong>A little more room</strong>
+        <span class="d">"I use <em>and</em> and <em>but</em> too much."</span>
+        <ul><li>although, however, who / which</li><li>Write ~80 words</li><li>Speak ~45–60 sec</li></ul>
+      </button>
+      <button class="cabin F" id="cabF" onclick="pickCabin('F')">
+        <span class="tag">FIRST CLASS</span>
+        <strong>Full upgrade</strong>
+        <span class="d">"I want my sentences to sound more advanced."</span>
+        <ul><li>despite, whereas, consequently</li><li>Write ~120 words</li><li>Speak ~60–90 sec</li></ul>
+      </button>
+    </div>
+    <div class="callout" id="cabinCallout" style="display:none"></div>
+  </section>
+
+  <!-- STOP 2 -->
+  <section class="page" id="sec2" style="--accent:var(--teal)">
+    <div class="page-kicker"><span class="page-num">STOP 02</span><span class="page-time">~6 min</span></div>
+    <h2>Missed Connection</h2>
+    <p class="page-sub">Each sentence is missing its connecting word. Choose the one that makes the connection. You get feedback right away, so don't worry about mistakes. They show you what to look at in the next stop.</p>
+    <div class="rf-top">
+      <span class="score" id="mcScore">0 / 8 answered</span>
+      <button class="btn secondary small" onclick="mcReset()">Try again</button>
+    </div>
+    <div id="mcList"></div>
+  </section>
+
+  <!-- STOP 3 -->
+  <section class="page" id="sec3" style="--accent:var(--coral)">
+    <div class="page-kicker"><span class="page-num">STOP 03</span><span class="page-time">~10 min</span></div>
+    <h2>The Route Map</h2>
+    <p class="page-sub">Connectors do five different jobs. Look at each group, press <strong>▶ Listen</strong> to hear the example, and read the punctuation tip. Press <strong>☆ Keep</strong> on 3 or more connectors you want to use today. They'll appear in your summary.</p>
+    <div class="row" style="justify-content:space-between; margin-bottom:12px">
+      <div class="bank-tabs" id="bankTabs"></div>
+      <label class="toggle"><input type="checkbox" id="showAll" onchange="renderBank()"> Show connectors from all cabins</label>
+    </div>
+    <p class="group-intro" id="groupIntro"></p>
+    <div id="bankList"></div>
+    <div class="kept-bar" id="keptBar"></div>
+    <div class="row" style="margin-top:14px"><button class="btn" onclick="completeStop(3)">I've explored all five groups →</button></div>
+  </section>
+
+  <!-- STOP 4 -->
+  <section class="page" id="sec4" style="--accent:var(--gold)">
+    <div class="page-kicker"><span class="page-num">STOP 04</span><span class="page-time">~8 min</span></div>
+    <h2>Layover Repair</h2>
+    <p class="page-sub">These ideas are stuck in separate short sentences. Join each group into <strong>one or two smooth sentences</strong> using connectors, then press <strong>Compare</strong> to see an example at every level. There's no single right answer.</p>
+    <div id="upgList"></div>
+    <div class="row"><button class="btn" onclick="completeStop(4)">Continue to listening →</button></div>
+  </section>
+
+  <!-- STOP 5 -->
+  <section class="page" id="sec5" style="--accent:var(--teal)">
+    <div class="page-kicker"><span class="page-num">STOP 05</span><span class="page-time">~8 min</span></div>
+    <h2>Gate Announcements</h2>
+    <span class="det-tag">DET PRACTICE · LISTEN AND TYPE</span>
+    <p class="page-sub">On the DET, you hear a sentence and type exactly what you hear. You can play it <strong>up to 3 times</strong>. The words people miss are usually the small grammar ones: <em>a / the</em>, <em>-ed</em> and <em>-s</em> endings, and short forms like <em>he's</em>. Listen for them.</p>
+    <p class="note" id="ttsNote" style="margin:-8px 0 12px"></p>
+    <p class="legend"><span><span class="lt-diff"><span class="hit">green</span></span> = you typed it</span><span><span class="lt-diff"><span class="miss">marked</span></span> = missing or different</span></p>
+    <div class="rf-top"><span class="score" id="ltScore">0 / 5 checked</span></div>
+    <div id="ltList"></div>
+    <p class="note">Tip: Use grammar to check your typing. If you heard "she walk to", grammar tells you it must be "walk<strong>ed</strong>" or "walk<strong>s</strong>". Capital letters and punctuation are not checked here.</p>
+  </section>
+
+  <!-- STOP 6 -->
+  <section class="page" id="sec6" style="--accent:var(--blue)">
+    <div class="page-kicker"><span class="page-num">STOP 06</span><span class="page-time">~12 min</span></div>
+    <h2>Non-Stop Writing</h2>
+    <span class="det-tag">DET PRACTICE · WRITING SAMPLE</span>
+    <p class="page-sub">This is the main task. Choose one question and write your answer. As you type, the page counts how many <strong>different</strong> connectors you use. Try not to use the same one again and again.</p>
+
+    <div class="prompt-list" id="promptList"></div>
+    <div class="reqs" id="reqs"></div>
+
+    <textarea id="essay" placeholder="Start writing here… (your work is saved in this browser while you write)" oninput="onEssay()"></textarea>
+    <div class="meter"><span id="wc">0 words</span><span id="bc">0 different connectors</span></div>
+    <div class="found" id="found"></div>
+    <details style="margin-top:6px">
+      <summary class="note" style="cursor:pointer">See your answer with connectors highlighted</summary>
+      <div class="preview" id="preview" style="margin-top:8px"></div>
+    </details>
+    <div class="row" style="margin-top:14px; justify-content:space-between">
+      <span class="note">Want the real test feeling? Try a 5-minute timer: <button class="btn secondary small" id="wTimerBtn" onclick="writeTimer()">Start 5:00</button> <span class="timer" id="wTimer"></span></span>
+      <button class="btn" onclick="completeStop(6)">Done writing →</button>
+    </div>
+  </section>
+
+  <!-- STOP 7 -->
+  <section class="page" id="sec7" style="--accent:var(--coral)">
+    <div class="page-kicker"><span class="page-num">STOP 07</span><span class="page-time">~6 min</span></div>
+    <h2>In-Flight Announcement</h2>
+    <span class="det-tag">BONUS FLUENCY · SPEAKING</span>
+    <p class="page-sub">Connectors help in speaking too: they give you a way to keep going. Record a short answer on <strong>Vocaroo</strong> (free, no account needed) and paste the link below so I can listen and send you feedback.</p>
+
+    <div class="cuecard" id="cuecard"></div>
+
+    <ol class="steps">
+      <li><span>Open <a href="https://vocaroo.com/" target="_blank" rel="noopener">vocaroo.com</a> in a new tab. It works on a computer or a phone.</span></li>
+      <li><span>Take <strong>30 seconds</strong> to plan: choose the connectors you will use. Don't write a full script. Just use notes.</span></li>
+      <li><span>Press the red <strong>record</strong> button (allow the microphone if asked) and start talking. If you get stuck, say a connector (<em>and… because… so…</em>) and add one more idea.</span></li>
+      <li><span>Press stop, then <strong>Save &amp; Upload</strong>. Copy the link it gives you (it looks like <span class="mono">voca.ro/…</span> or <span class="mono">vocaroo.com/…</span>).</span></li>
+      <li><span>Paste the link here:</span></li>
+    </ol>
+    <input type="url" id="vocaLink" placeholder="https://voca.ro/..." oninput="checkLink()">
+    <div class="linkcheck" id="linkCheck"></div>
+    <p class="note">Nervous about recording? That's normal. Only I will hear it, and my feedback will focus on one or two helpful things, not every mistake.</p>
+    <div class="row" style="margin-top:10px"><button class="btn" onclick="completeStop(7)">Continue to my summary →</button></div>
+  </section>
+
+  <!-- STOP 8 -->
+  <section class="page" id="sec8" style="--accent:var(--teal)">
+    <div class="page-kicker"><span class="page-num">STOP 08</span><span class="page-time">~2 min</span></div>
+    <h2>Landing Card</h2>
+    <p class="page-sub">This is Week 3's primary assignment. Copy your summary and paste it into the Week 3 assignment in Classroom. That counts as attending this week.</p>
+    <p class="missing" id="missing"></p>
+    <div class="summary-box" id="summary"></div>
+    <div class="row">
+      <button class="btn" onclick="copySummary()">Copy my summary</button>
+      <span class="copied-note" id="copied">Copied! Now paste it into Classroom.</span>
+    </div>
+    <div class="stamped" id="stamped">✓ LANDED — SEE YOU IN CLASSROOM</div>
+  </section>
+
+  <!-- RESOURCES -->
+  <section class="page" id="resources" style="--accent:var(--gold)">
+    <div class="page-kicker"><span class="page-num">TAKE-HOME</span><span class="page-time">optional</span></div>
+    <h2>Duty-Free Shop: Free Grammar Tools</h2>
+    <p class="page-sub">Free sites for practicing grammar and dictation between classes. You don't need to use all of them. Pick one or two you like.</p>
+
+    <div class="res-feature">
+      <div class="rf-head">
+        <div>
+          <h3>Official DET Practice: try this week's question types</h3>
+          <p>On Duolingo's free practice page, choose the question types below. They use the same skills you practiced today: hearing grammar accurately and connecting your ideas.</p>
+        </div>
+        <div class="row">
+          <a href="https://englishtest.duolingo.com/practice" target="_blank" rel="noopener">Open the practice page →</a>
+          <a class="ghost" href="https://englishtest.duolingo.com/quick" target="_blank" rel="noopener">Quick practice test</a>
+        </div>
+      </div>
+      <div class="qt-grid">
+        <div class="qt main"><span class="qt-tag">MAIN FOCUS · Stop 05</span><b>Listen and Type</b><span>Hear a sentence and type it. You can play it up to 3 times. This is the same as today's Gate Announcements.</span></div>
+        <div class="qt main"><span class="qt-tag">MAIN FOCUS · Stop 06</span><b>Writing Sample</b><span>Write your answer to a question. You get 30 seconds to prepare, then 5 minutes to write. Use your connectors here.</span></div>
+        <div class="qt"><span class="qt-tag">ALSO TRY</span><b>Interactive Writing</b><span>Write a response, then answer a follow-up question. Good practice for linking a second idea to your first.</span></div>
+        <div class="qt"><span class="qt-tag">ALSO TRY · Stop 07</span><b>Speaking Sample</b><span>Talk about a question after 30 seconds of preparation. Connectors help you keep going.</span></div>
+      </div>
+    </div>
+
+    <div class="res-grid">
+      <a class="res rc-blue" href="https://learnenglish.britishcouncil.org/free-resources/grammar/c1/contrasting-ideas" target="_blank" rel="noopener">
+        <b>British Council LearnEnglish Grammar</b><span class="url">learnenglish.britishcouncil.org</span>
+        <p>Short grammar explanations with quick exercises, sorted by level (A1–C1).</p>
+        <span class="how">Try: read the <em>contrasting ideas</em> explanation and do the first exercise.</span>
+      </a>
+      <a class="res rc-teal" href="https://dailydictation.com/" target="_blank" rel="noopener">
+        <b>Daily Dictation</b><span class="url">dailydictation.com</span>
+        <p>Listen to short sentences and type what you hear. Very close to Listen and Type on the DET.</p>
+        <span class="how">Try: one short exercise (about 5 minutes) a day.</span>
+      </a>
+      <a class="res rc-coral" href="https://www.perfect-english-grammar.com/linking-words-contrast-exercise-1.html" target="_blank" rel="noopener">
+        <b>Perfect English Grammar</b><span class="url">perfect-english-grammar.com</span>
+        <p>Clear explanations and lots of free exercises, including relative clauses and linking words.</p>
+        <span class="how">Try: this <em>linking words of contrast</em> exercise (although / however / despite).</span>
+      </a>
+      <a class="res rc-gold" href="https://dictionary.cambridge.org/grammar/british-grammar/" target="_blank" rel="noopener">
+        <b>Cambridge Grammar</b><span class="url">dictionary.cambridge.org/grammar</span>
+        <p>A free reference for checking how a connector is used, with example sentences.</p>
+        <span class="how">Try: look up <em>although or though</em>.</span>
+      </a>
+      <a class="res rc-blue" href="https://www.quill.org/" target="_blank" rel="noopener">
+        <b>Quill</b><span class="url">quill.org</span>
+        <p>Free sentence-combining activities. You join short sentences with connectors, like today's Layover Repair.</p>
+        <span class="how">Try: the <em>Quill Connect</em> activities.</span>
+      </a>
+      <a class="res rc-teal" href="https://youglish.com/" target="_blank" rel="noopener">
+        <b>YouGlish</b><span class="url">youglish.com</span>
+        <p>Hear any word or phrase in real YouTube videos. Good for hearing how connectors sound at natural speed.</p>
+        <span class="how">Try: search <em>as a result</em>.</span>
+      </a>
+    </div>
+    <p class="note" style="margin-top:12px">All sites were free to use when this page was made. If a link changes, search for the site name.</p>
+  </section>
+
+  <footer class="next">
+    <div><span>Next stop</span><strong>Week 4: Reading Longer Texts with Confidence</strong></div>
+    <span class="chip">Opens next week</span>
+  </footer>
+</div>
+
+<script>
+/* ================= data ================= */
+var CABIN_NAMES = {E:'Economy', B:'Business', F:'First Class'};
+var ORDER = {E:1, B:2, F:3};
+var NSTOPS = 8;
+
+// s = sentence with ___ ; o = options ; a = correct option ; why = feedback
+var MC = {
+  E: [
+    {s:'I was tired, ___ I went to bed early.', o:['but','so','because'], a:'so', why:'Going to bed early is the <b>result</b> of being tired.'},
+    {s:'I like coffee, ___ my sister prefers tea.', o:['but','so','or'], a:'but', why:'The two ideas are <b>different</b>, so we need a contrast word.'},
+    {s:'She stayed home ___ she was sick.', o:['so','but','because'], a:'because', why:'Being sick is the <b>reason</b> she stayed home.'},
+    {s:'We can take the bus ___ walk to the station.', o:['or','because','so'], a:'or', why:'These are two <b>choices</b>.'},
+    {s:'I wanted to buy the bag, ___ it was too expensive.', o:['so','but','because'], a:'but', why:'The second idea is a <b>surprise or problem</b> after the first one.'},
+    {s:'He studied hard, ___ he passed the test.', o:['but','or','so'], a:'so', why:'Passing is the <b>result</b> of studying hard.'},
+    {s:'I always eat breakfast ___ I leave home.', o:['before','so','but'], a:'before', why:'This connector shows the <b>order in time</b>.'},
+    {s:'Call me ___ you arrive at the airport.', o:['but','when','or'], a:'when', why:'This connector shows the <b>time</b> something happens.'}
+  ],
+  B: [
+    {s:'___ it was raining, we went for a walk.', o:['Because','Although','So'], a:'Although', why:'Walking in the rain is <b>surprising</b>. "Although" joins two contrasting ideas in one sentence.'},
+    {s:'The train was late. ___, I arrived on time.', o:['However','Therefore','For example'], a:'However', why:'A contrast in a <b>new sentence</b>. "However" is followed by a comma.'},
+    {s:'I have a friend ___ lives in Canada.', o:['which','who','where'], a:'who', why:'Use <b>who</b> to add information about a person.'},
+    {s:'There are many ways to practice English. ___, you can watch films without subtitles.', o:['However','As a result','For example'], a:'For example', why:'The second sentence gives an <b>example</b> of the first.'},
+    {s:'This is the café ___ I usually study.', o:['where','which','who'], a:'where', why:'Use <b>where</b> for a place when something happens there.'},
+    {s:'He didn\'t sleep well. ___, he felt tired all day.', o:['However','As a result','For example'], a:'As a result', why:'Feeling tired is the <b>result</b> of not sleeping well.'},
+    {s:'I\'ll join the club ___ I have enough time.', o:['which','but','if'], a:'if', why:'Joining depends on a <b>condition</b>.'},
+    {s:'___ I finish my homework, I usually watch a video.', o:['After','Although','However'], a:'After', why:'This shows the <b>order in time</b>. "However" cannot join two ideas in one sentence like this.'}
+  ],
+  F: [
+    {s:'___ the heavy rain, the festival went ahead.', o:['Although','Despite','However'], a:'Despite', why:'<b>Despite + noun</b> (the heavy rain). "Although" needs a subject and verb: "Although it rained heavily, …"'},
+    {s:'City life is convenient, ___ life in the countryside is quieter.', o:['despite','therefore','whereas'], a:'whereas', why:'<b>Whereas</b> compares two different things in one sentence.'},
+    {s:'Tuition has risen sharply. ___, more students need part-time jobs.', o:['Consequently','Nevertheless','Whereas'], a:'Consequently', why:'The second sentence is a <b>result</b>. "Consequently" is a formal "so".'},
+    {s:'The plan was risky. ___, the team decided to try it.', o:['Consequently','Moreover','Nevertheless'], a:'Nevertheless', why:'An <b>unexpected</b> decision. "Nevertheless" is a formal "but still".'},
+    {s:'___ tired, she finished the report before midnight.', o:['Despite','Although','However'], a:'Although', why:'"Although tired" is a short form of "Although she was tired". With "despite" you would need <b>being</b>: "Despite being tired, …"'},
+    {s:'Online courses are cheap. ___, they let you study at any time.', o:['Nevertheless','Moreover','Whereas'], a:'Moreover', why:'The second sentence <b>adds</b> another good point.'},
+    {s:'___ in a small town, he was nervous about moving to Tokyo.', o:['Despite','Whereas','Having grown up'], a:'Having grown up', why:'A <b>participle clause</b> gives the reason: "Because he had grown up in a small town, …"'},
+    {s:'You won\'t improve ___ you practice regularly.', o:['unless','whereas','despite'], a:'unless', why:'<b>Unless</b> means "if … not": "if you don\'t practice regularly".'}
+  ]
+};
+
+var GROUPS = [
+  {id:'add', cls:'g-add', name:'Add', intro:'Add one more idea that goes in the same direction.'},
+  {id:'contrast', cls:'g-contrast', name:'Contrast', intro:'Show that the next idea is different or surprising. These are the connectors the DET notices most.'},
+  {id:'reason', cls:'g-reason', name:'Reason', intro:'Say why. A reason after every opinion is the fastest way to write more.'},
+  {id:'result', cls:'g-result', name:'Result', intro:'Say what happened next because of the first idea.'},
+  {id:'detail', cls:'g-detail', name:'Example & detail', intro:'Give an example, or add information about a person, thing, place, or time.'}
+];
+
+// v = regex sources for detection (lowercase); tip = punctuation / grammar tip
+var BANK = [
+  // add
+  {g:'add', l:'E', p:'and', m:'Joins two ideas that go together.', ex:'I get up early <em>and</em> study before class.', tip:'Don\'t start every sentence with "And". Use it inside the sentence.', v:['and']},
+  {g:'add', l:'E', p:'also', m:'Adds one more point.', ex:'The café is quiet. It <em>also</em> has free Wi-Fi.', tip:'Usually goes before the main verb: "It also has…"', v:['also']},
+  {g:'add', l:'B', p:'In addition, …', m:'A more formal "also" for a new sentence.', ex:'The course is free. <em>In addition,</em> you can study at any time.', tip:'New sentence + comma.', v:['in addition']},
+  {g:'add', l:'B', p:'as well as', m:'"And" for joining two nouns or -ing forms.', ex:'She speaks Spanish <em>as well as</em> English.', tip:'Followed by a noun or -ing, not a full sentence.', v:['as well as']},
+  {g:'add', l:'F', p:'Moreover, … / Furthermore, …', m:'Adds a stronger or more important point.', ex:'Cycling is cheap. <em>Moreover,</em> it keeps you fit.', tip:'New sentence + comma. Use once, not in every paragraph.', v:['moreover','furthermore']},
+  {g:'add', l:'F', p:'not only … but also …', m:'Emphasizes that there are two points.', ex:'The trip was <em>not only</em> fun <em>but also</em> useful for my English.', tip:'Keep the same form after each part: fun / useful.', v:['not only']},
+  // contrast
+  {g:'contrast', l:'E', p:'but', m:'Shows a different or opposite idea.', ex:'I like cooking, <em>but</em> I don\'t like washing dishes.', tip:'Comma before "but" when it joins two full ideas.', v:['but']},
+  {g:'contrast', l:'B', p:'although / even though', m:'Joins a surprising idea in the same sentence.', ex:'<em>Although</em> the test was difficult, I finished on time.', tip:'One sentence. Never use "although" and "but" together.', v:['although','even though']},
+  {g:'contrast', l:'B', p:'However, …', m:'"But" for a new sentence.', ex:'The room is small. <em>However,</em> it is very bright.', tip:'New sentence + comma. Not: "It is small, however it is bright."', v:['however']},
+  {g:'contrast', l:'F', p:'whereas', m:'Compares two different things directly.', ex:'My brother loves the city, <em>whereas</em> I prefer the mountains.', tip:'One sentence, comma before "whereas".', v:['whereas','while']},
+  {g:'contrast', l:'F', p:'despite / in spite of', m:'"Although", but followed by a noun or -ing.', ex:'<em>Despite</em> the cold weather, we ate lunch outside.', tip:'despite + noun / -ing. Not "despite it was cold".', v:['despite','in spite of']},
+  {g:'contrast', l:'F', p:'Nevertheless, …', m:'Formal "but still".', ex:'The work was hard. <em>Nevertheless,</em> she enjoyed it.', tip:'New sentence + comma.', v:['nevertheless','nonetheless']},
+  // reason
+  {g:'reason', l:'E', p:'because', m:'Gives a reason.', ex:'I walk to school <em>because</em> it is close.', tip:'"Because it is close." alone is not a full sentence in writing.', v:['because(?! of)']},
+  {g:'reason', l:'B', p:'since', m:'"Because", often at the start of a sentence.', ex:'<em>Since</em> the shop was closed, we went home.', tip:'If it starts the sentence, put a comma after the first part.', v:['since']},
+  {g:'reason', l:'B', p:'because of', m:'A reason that is a noun, not a sentence.', ex:'The flight was late <em>because of</em> the storm.', tip:'because of + noun. because + subject + verb.', v:['because of']},
+  {g:'reason', l:'F', p:'due to', m:'Formal "because of".', ex:'The event was moved indoors <em>due to</em> the weather.', tip:'due to + noun.', v:['due to']},
+  {g:'reason', l:'F', p:'given that', m:'"Because we know that…"', ex:'<em>Given that</em> rent is so high, many students live at home.', tip:'given that + subject + verb, then a comma.', v:['given that']},
+  // result
+  {g:'result', l:'E', p:'so', m:'Shows a result.', ex:'It was raining, <em>so</em> I took an umbrella.', tip:'Comma before "so".', v:['so(?= (?:i|we|he|she|it|they|you|my|our|his|her|their|the|a|an|there|that|this|these|people|students|many|some|now)\\b)']},
+  {g:'result', l:'B', p:'As a result, …', m:'A result in a new sentence.', ex:'I practiced every day. <em>As a result,</em> my speaking improved.', tip:'New sentence + comma.', v:['as a result']},
+  {g:'result', l:'B', p:'Therefore, …', m:'A logical result. More formal than "so".', ex:'The library closes at eight. <em>Therefore,</em> I study there in the afternoon.', tip:'New sentence + comma.', v:['therefore']},
+  {g:'result', l:'B', p:'which means (that)', m:'Explains the result of the idea before it.', ex:'The class is online, <em>which means</em> I save two hours a day.', tip:'Comma before "which".', v:['which means']},
+  {g:'result', l:'F', p:'Consequently, …', m:'Formal "so / as a result".', ex:'Prices have risen. <em>Consequently,</em> people are eating out less.', tip:'New sentence + comma, or after a semicolon ( ; ).', v:['consequently']},
+  {g:'result', l:'F', p:'so … that …', m:'Shows a result of "how much".', ex:'The film was <em>so</em> long <em>that</em> I fell asleep.', tip:'so + adjective + that + result.', v:[]},
+  // detail
+  {g:'detail', l:'E', p:'for example', m:'Introduces an example.', ex:'I like quiet places. <em>For example,</em> I often study in the library.', tip:'Comma after "For example".', v:['for example']},
+  {g:'detail', l:'E', p:'when / before / after', m:'Shows the time or order.', ex:'I listen to music <em>when</em> I do my homework.', tip:'If it starts the sentence, add a comma: "When I study, I…"', v:['when','before','after']},
+  {g:'detail', l:'B', p:'such as', m:'Gives examples inside the sentence.', ex:'I enjoy outdoor activities <em>such as</em> hiking and cycling.', tip:'such as + nouns. No comma after it.', v:['such as']},
+  {g:'detail', l:'B', p:'who / which / where', m:'Adds information about a person / thing / place.', ex:'I have a teacher <em>who</em> always makes us laugh.', tip:'who = person, which = thing, where = place.', v:['who','which(?! means)','where']},
+  {g:'detail', l:'B', p:'For instance, …', m:'Same as "for example". Adds variety.', ex:'<em>For instance,</em> many students study on the train.', tip:'Comma after "For instance".', v:['for instance']},
+  {g:'detail', l:'F', p:'-ing clause', m:'Joins two actions by the same person without a connector.', ex:'<em>Walking</em> home, I thought about the interview.', tip:'The -ing part and the main part must have the same subject.', v:[]},
+  {g:'detail', l:'F', p:'In other words, …', m:'Says the same idea again more clearly.', ex:'The rule is flexible. <em>In other words,</em> you can choose your own time.', tip:'New sentence + comma.', v:['in other words']}
+];
+
+var UPG = [
+  {plain:'I like summer. It is hot. I can swim.',
+   E:'I like summer <mark>because</mark> it is hot <mark>and</mark> I can swim.',
+   B:'<mark>Although</mark> summer is hot, I like it <mark>since</mark> I can swim.',
+   F:'<mark>Despite</mark> the heat, I like summer, <mark>when</mark> I can swim every day.'},
+  {plain:'My friend lives in Osaka. She works at a café. She wants to be a teacher.',
+   E:'My friend lives in Osaka <mark>and</mark> works at a café, <mark>but</mark> she wants to be a teacher.',
+   B:'My friend, <mark>who</mark> lives in Osaka, works at a café. <mark>However,</mark> she wants to be a teacher.',
+   F:'<mark>Although</mark> my friend currently works at a café in Osaka, her real goal is to become a teacher.'},
+  {plain:'The train was late. I missed the first class. I was not happy.',
+   E:'The train was late, <mark>so</mark> I missed the first class <mark>and</mark> I was not happy.',
+   B:'I missed the first class <mark>because</mark> the train was late. <mark>As a result,</mark> I was not happy.',
+   F:'The train was late; <mark>consequently,</mark> I missed the first class, <mark>which</mark> left me frustrated.'},
+  {plain:'Smartphones are useful. They can be distracting. Students should turn them off in class.',
+   E:'Smartphones are useful, <mark>but</mark> they can be distracting, <mark>so</mark> students should turn them off in class.',
+   B:'<mark>Although</mark> smartphones are useful, they can be distracting. <mark>Therefore,</mark> students should turn them off in class.',
+   F:'<mark>Despite</mark> being useful, smartphones can be distracting; <mark>therefore,</mark> students should turn them off in class.'}
+];
+
+// s = sentence spoken ; f = what to listen for
+var LT = {
+  E: [
+    {s:'She walked to the station and waited for the train.', f:'the -ed endings: walked, waited'},
+    {s:'He likes music, but he doesn\'t play an instrument.', f:'the -s in likes, and the short form doesn\'t'},
+    {s:'There are two books and a pen on the desk.', f:'the small words: a, the, and the plural -s'},
+    {s:'We stayed at home because it was raining.', f:'the -ed in stayed, and the connector because'},
+    {s:'I\'m going to buy a new bag because mine is old.', f:'the short form I\'m, and the article a'}
+  ],
+  B: [
+    {s:'Although it was late, they decided to finish the project.', f:'the connector although, and the -ed in decided'},
+    {s:'The woman who lives next door has worked there for years.', f:'who lives (-s), and has worked (-ed)'},
+    {s:'They haven\'t decided where they\'re going this summer.', f:'the short forms haven\'t and they\'re'},
+    {s:'The lecture was postponed. However, most students stayed and studied.', f:'the -ed endings, and the connector however'},
+    {s:'He\'s lived in three countries, which means he speaks several languages.', f:'he\'s lived (= he has lived), and the -s in means, speaks'}
+  ],
+  F: [
+    {s:'Despite the delays, the passengers remained surprisingly calm.', f:'the plural -s in delays, passengers, and the -ed in remained'},
+    {s:'Having finished her research, she presented the results to the committee.', f:'having finished, and the articles before results, committee'},
+    {s:'The city has grown rapidly, whereas the surrounding villages have barely changed.', f:'has grown / have changed, and the connector whereas'},
+    {s:'If the instructions had been clearer, fewer people would have made mistakes.', f:'had been, would have made'},
+    {s:'The proposal was rejected; nevertheless, the team continued to develop the idea.', f:'the -ed endings, and the connector nevertheless'}
+  ]
+};
+
+var PROMPTS = [
+  'Describe a place you like to visit. What do you do there, and why do you like it?',
+  'Do you study better in the morning or at night? Explain why.',
+  'Describe a time when you learned something new. What happened?'
+];
+
+var REQS = {
+  E: {words:50, bank:3, checks:['I joined short sentences with and / but / so / because','I gave at least one reason']},
+  B: {words:80, bank:4, checks:['I used a contrast connector (although / however)','I used who / which / where at least once','I did not start any sentence with "And" or "But"']},
+  F: {words:120, bank:5, checks:['I used connectors from at least three different groups','I used despite / whereas or an -ing clause','I checked the punctuation after my connectors']}
+};
+var SPEAK = {
+  E: {time:'30–45 seconds', n:2, tips:['Say one idea, then add "because…"','Use "and", "but" or "so" to keep going','Finish: "So, that\'s why…"']},
+  B: {time:'45–60 seconds', n:3, tips:['Idea → reason → example → short ending','Try "although" or "however" once','Try "which means…" to add a result']},
+  F: {time:'60–90 seconds', n:4, tips:['Two ideas with a reason and an example each','Use one contrast: "whereas" or "despite"','Add a result: "consequently" or "which means…"']}
+};
+
+/* ================= state ================= */
+var S = {cabin:null, done:{}, mc:{}, kept:[], group:'add', prompt:null, checks:{}, essay:'', link:'', upg:{}, lt:{}};
+try { var sv = localStorage.getItem('detW3State'); if (sv) S = Object.assign(S, JSON.parse(sv)); } catch(e) {}
+function save(){ try { localStorage.setItem('detW3State', JSON.stringify(S)); } catch(e) {} }
+
+function esc(s){ return String(s).replace(/[&<>"']/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]; }); }
+var HAS_TTS = ('speechSynthesis' in window) && (typeof SpeechSynthesisUtterance !== 'undefined');
+
+function speak(text, rate){
+  try{
+    speechSynthesis.cancel();
+    var u = new SpeechSynthesisUtterance(text); u.lang = 'en-US'; u.rate = rate || 0.92;
+    var vs = speechSynthesis.getVoices().filter(function(v){ return /^en[-_]/i.test(v.lang); });
+    var pref = vs.filter(function(v){ return /^en[-_]US/i.test(v.lang) && /samantha|google us|aria|jenny|ava|natural/i.test(v.name); })[0]
+      || vs.filter(function(v){ return /^en[-_]US/i.test(v.lang); })[0] || vs[0];
+    if (pref) u.voice = pref;
+    speechSynthesis.speak(u);
+  }catch(e){}
+}
+if (HAS_TTS){ try{ speechSynthesis.getVoices(); }catch(e){} }
+
+/* ================= rail ================= */
+function paintRail(){
+  for (var i=1;i<=NSTOPS;i++){
+    var d = document.querySelector('.stamp-dot[data-stamp="'+i+'"]');
+    if (S.done[i]){ d.classList.add('done'); d.textContent='✓'; } else { d.classList.remove('done'); d.textContent=i; }
+  }
+  document.getElementById('railCabin').textContent = S.cabin ? CABIN_NAMES[S.cabin].toUpperCase() : 'NO CABIN YET';
+}
+function completeStop(n, noScroll){
+  S.done[n] = true; save(); paintRail(); buildSummary();
+  if (!noScroll){ var nx = document.getElementById('sec'+(n+1)); if (nx) nx.scrollIntoView({behavior:'smooth', block:'start'}); }
+}
+
+/* ================= stop 1 ================= */
+function pickCabin(c, silent){
+  S.cabin = c; save();
+  document.body.className = 'cab-' + c;
+  ['E','B','F'].forEach(function(k){ document.getElementById('cab'+k).classList.toggle('active', k===c); });
+  var co = document.getElementById('cabinCallout');
+  var msg = {
+    E:'<strong>Welcome to Economy.</strong> You\'ll join short sentences with four connectors that work in almost any answer. Using simple connectors correctly beats using difficult ones incorrectly.',
+    B:'<strong>Welcome to Business.</strong> You\'ll go beyond <em>and</em> and <em>but</em>, and add detail with <em>who / which / where</em>. This helps your score for grammar range.',
+    F:'<strong>Welcome to First Class.</strong> You\'ll practice formal connectors and the grammar that follows them (<em>despite</em> + noun, <em>whereas</em> + clause), which strong DET writing samples show.'
+  }[c];
+  co.innerHTML = msg + ' <em>You can switch cabins any time.</em>';
+  co.style.display = 'block';
+  renderMC(); renderBank(); renderUpg(); renderLT(); renderReqs(); renderCue(); onEssay(true);
+  paintRail();
+  if (!silent){ completeStop(1, true); setTimeout(function(){ document.getElementById('sec2').scrollIntoView({behavior:'smooth', block:'start'}); }, 350); }
+}
+
+/* ================= stop 2 ================= */
+function renderMC(){
+  var c = S.cabin || 'B', list = document.getElementById('mcList'); list.innerHTML = '';
+  MC[c].forEach(function(it, i){
+    var key = c+i, ans = S.mc[key];
+    var card = document.createElement('div');
+    card.className = 'mc' + (ans ? (ans===it.a ? ' ok' : ' no') : '');
+    var parts = it.s.split('___');
+    var sent = document.createElement('p'); sent.className = 'mc-sent';
+    sent.innerHTML = esc(parts[0]) + '<span class="gap">' + (ans ? esc(it.a) : '&nbsp;') + '</span>' + esc(parts[1]);
+    card.appendChild(sent);
+    var opts = document.createElement('div'); opts.className = 'mc-opts';
+    it.o.forEach(function(o){
+      var b = document.createElement('button'); b.className = 'rf-btn' + (ans===o ? ' picked' : ''); b.textContent = o;
+      if (ans) b.disabled = true;
+      b.onclick = function(){ if (S.mc[key]) return; S.mc[key] = o; save(); renderMC(); };
+      opts.appendChild(b);
+    });
+    card.appendChild(opts);
+    if (ans){
+      var fb = document.createElement('p'); fb.className = 'mc-fb';
+      fb.innerHTML = (ans===it.a ? '✓ ' : '✗ You chose <b>'+esc(ans)+'</b>. The connection is <b>'+esc(it.a)+'</b>. ') + it.why;
+      card.appendChild(fb);
+    }
+    list.appendChild(card);
+  });
+  mcScore();
+}
+function mcScore(){
+  var c = S.cabin || 'B', n=0, ok=0, tot = MC[c].length;
+  MC[c].forEach(function(it,i){ var a=S.mc[c+i]; if(a){ n++; if(a===it.a) ok++; } });
+  document.getElementById('mcScore').innerHTML = n+' / '+tot+' answered' + (n ? ' · <b>'+ok+' correct</b>' : '');
+  if (n === tot){
+    S.mcResult = ok+'/'+tot+' ('+CABIN_NAMES[c]+')';
+    if (!S.done[2]) completeStop(2, true); else { save(); buildSummary(); }
+  }
+}
+function mcReset(){
+  var c = S.cabin || 'B'; MC[c].forEach(function(it,i){ delete S.mc[c+i]; }); save(); renderMC();
+}
+
+/* ================= stop 3 ================= */
+function renderBank(){
+  var tabs = document.getElementById('bankTabs'); tabs.innerHTML='';
+  GROUPS.forEach(function(g){
+    var b = document.createElement('button');
+    b.className = 'bank-tab '+g.cls+(S.group===g.id?' active':'');
+    b.textContent = g.name; b.onclick = function(){ S.group=g.id; save(); renderBank(); };
+    tabs.appendChild(b);
+  });
+  var g = GROUPS.filter(function(x){return x.id===S.group;})[0] || GROUPS[0];
+  document.getElementById('groupIntro').textContent = g.intro;
+  var all = document.getElementById('showAll').checked;
+  var lv = ORDER[S.cabin || 'B'];
+  var list = document.getElementById('bankList'); list.innerHTML='';
+  BANK.forEach(function(it, idx){
+    if (it.g !== g.id) return;
+    if (!all && ORDER[it.l] > lv) return;
+    var kept = S.kept.indexOf(it.p) >= 0;
+    var d = document.createElement('div'); d.className = 'wcard '+g.cls;
+    d.innerHTML = '<div class="wcard-top"><span class="wphrase">'+esc(it.p)+'</span><span class="lvl '+it.l+'">'+CABIN_NAMES[it.l].toUpperCase()+'</span><span class="spacer"></span>'+
+      (HAS_TTS ? '<button class="say" onclick="sayIt('+idx+')">▶ Listen</button>' : '')+
+      '<button class="keep'+(kept?' on':'')+'" onclick="keepIt('+idx+')">'+(kept?'★ Kept':'☆ Keep')+'</button></div>'+
+      '<p class="wmean">'+esc(it.m)+'</p><p class="wex">'+it.ex+'</p>'+
+      '<p class="wtip"><b>TIP</b>'+esc(it.tip)+'</p>';
+    list.appendChild(d);
+  });
+  var kb = document.getElementById('keptBar');
+  kb.innerHTML = S.kept.length ? 'Your kept connectors (<b>'+S.kept.length+'</b>): '+S.kept.map(esc).join(' · ') : 'You haven\'t kept any connectors yet. Try to keep at least 3.';
+}
+function sayIt(idx){ speak(BANK[idx].ex.replace(/<[^>]+>/g,''), 0.92); }
+function keepIt(idx){
+  var p = BANK[idx].p, i = S.kept.indexOf(p);
+  if (i>=0) S.kept.splice(i,1); else S.kept.push(p);
+  save(); renderBank(); buildSummary();
+}
+
+/* ================= stop 4 ================= */
+function renderUpg(){
+  var box = document.getElementById('upgList'); box.innerHTML='';
+  var lv = S.cabin || 'B';
+  UPG.forEach(function(u, i){
+    var d = document.createElement('div'); d.className='upg';
+    var models = ['E','B','F'].map(function(k){
+      return '<div class="model"><span class="lvl '+k+'">'+CABIN_NAMES[k].toUpperCase()+'</span><span>'+u[k]+'</span></div>';
+    }).join('');
+    d.innerHTML = '<div class="upg-plain"><span class="lab">CHOPPY</span><p>'+esc(u.plain)+'</p></div>'+
+      '<textarea id="upg'+i+'" placeholder="Your joined sentence…">'+esc(S.upg[i]||'')+'</textarea>'+
+      '<div class="row" style="margin-top:8px"><button class="btn secondary small" data-m="m'+i+'">Compare</button>'+
+      '<span class="note">Your cabin\'s example is <strong>'+CABIN_NAMES[lv]+'</strong>. Look at the others too.</span></div>'+
+      '<div class="models" id="m'+i+'">'+models+'</div>';
+    d.querySelector('textarea').oninput = function(){ S.upg[i] = this.value; save(); buildSummary(); };
+    d.querySelector('button').onclick = function(){ document.getElementById('m'+i).classList.toggle('show'); };
+    box.appendChild(d);
+  });
+}
+
+/* ================= stop 5 ================= */
+var MAX_PLAYS = 3;
+function norm(s){
+  return String(s).toLowerCase().replace(/[’‘`]/g,"'").replace(/[^a-z0-9' ]+/g,' ').replace(/\s+/g,' ').trim();
+}
+// word-level diff (longest common subsequence). returns flags for target words + accuracy
+function diffWords(target, typed){
+  var a = norm(target).split(' ').filter(Boolean), b = norm(typed).split(' ').filter(Boolean);
+  var n=a.length, m=b.length, L=[], i, j;
+  for (i=0;i<=n;i++){ L[i]=[]; for (j=0;j<=m;j++) L[i][j]=0; }
+  for (i=n-1;i>=0;i--) for (j=m-1;j>=0;j--) L[i][j] = (a[i]===b[j]) ? L[i+1][j+1]+1 : Math.max(L[i+1][j], L[i][j+1]);
+  var hit=[]; i=0; j=0;
+  while (i<n && j<m){
+    if (a[i]===b[j]){ hit[i]=true; i++; j++; }
+    else if (L[i+1][j] >= L[i][j+1]) i++; else j++;
+  }
+  var ok = L[0][0];
+  return {hit:hit, ok:ok, total:n, acc: n ? Math.round(100*ok/Math.max(n,m)) : 0};
+}
+function ltState(key){ if (!S.lt[key]) S.lt[key] = {plays:0, typed:'', checked:false, acc:0}; return S.lt[key]; }
+function renderLT(){
+  var c = S.cabin || 'B', list = document.getElementById('ltList'); list.innerHTML='';
+  document.getElementById('ttsNote').textContent = HAS_TTS
+    ? 'The sentences are read by your device\'s voice, so the sound depends on your device. Headphones help.'
+    : 'Your browser can\'t play the audio, so this stop uses a memory version: the sentence appears for a few seconds, then you type it.';
+  LT[c].forEach(function(it, i){
+    var d = document.createElement('div'); d.id = 'lt'+i; list.appendChild(d); renderLTCard(i);
+  });
+  ltScore();
+}
+function renderLTCard(i){
+  var c = S.cabin || 'B', it = LT[c][i], key = c+i, st = ltState(key), d = document.getElementById('lt'+i);
+  d.className = 'lt' + (st.checked ? ' checked' : '');
+  var left = MAX_PLAYS - st.plays;
+  var playLabel = st.checked ? '▶ Play again' : (HAS_TTS ? '▶ Play' : '👁 Show') + ' (' + left + ' left)';
+  var h = '<div class="lt-head"><span class="lt-num">ANNOUNCEMENT '+(i+1)+' / '+LT[c].length+'</span>'+
+    '<button class="btn small" data-act="play"'+((!st.checked && left<=0)?' disabled style="opacity:.5;cursor:default"':'')+'>'+playLabel+'</button>'+
+    (st.checked ? '<span class="lt-acc">'+st.acc+'% correct</span>' : '')+'</div>'+
+    '<div class="lt-flash" style="display:none"></div>'+
+    '<input type="text" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" placeholder="Type the sentence you hear…" value="'+esc(st.typed)+'"'+(st.checked?' readonly':'')+'>';
+  if (!st.checked){
+    h += '<div class="row" style="margin-top:8px"><button class="btn secondary small" data-act="check">Check</button><span class="note">Listen first, then type. Check when you\'re ready.</span></div>';
+  } else {
+    var df = diffWords(it.s, st.typed), words = it.s.split(' ');
+    h += '<div class="lt-diff">'+words.map(function(w, k){ return '<span class="'+(df.hit[k]?'hit':'miss')+'">'+esc(w)+'</span>'; }).join(' ')+'</div>'+
+      '<p class="lt-note">'+(df.ok===df.total && st.acc===100 ? '<b>Perfect.</b> ' : '<b>'+df.ok+' of '+df.total+' words.</b> ')+'Listen for: '+esc(it.f)+'.</p>'+
+      '<div class="row" style="margin-top:6px"><button class="btn secondary small" data-act="retry">Try this one again</button></div>';
+  }
+  d.innerHTML = h;
+  var inp = d.querySelector('input');
+  inp.oninput = function(){ st.typed = this.value; save(); };
+  inp.onkeydown = function(e){ if (e.key === 'Enter' && !st.checked) ltCheck(i); };
+  d.querySelector('[data-act="play"]').onclick = function(){ ltPlay(i); };
+  var ck = d.querySelector('[data-act="check"]'); if (ck) ck.onclick = function(){ ltCheck(i); };
+  var rt = d.querySelector('[data-act="retry"]'); if (rt) rt.onclick = function(){ S.lt[key] = {plays:0, typed:'', checked:false, acc:0}; save(); renderLTCard(i); ltScore(); };
+}
+function ltPlay(i){
+  var c = S.cabin || 'B', it = LT[c][i], st = ltState(c+i), d = document.getElementById('lt'+i);
+  if (!st.checked){
+    if (st.plays >= MAX_PLAYS) return;
+    st.plays++; save();
+    var b = d.querySelector('[data-act="play"]'), left = MAX_PLAYS - st.plays;
+    b.textContent = (HAS_TTS ? '▶ Play' : '👁 Show') + ' (' + left + ' left)';
+    if (left <= 0){ b.disabled = true; b.style.opacity = '.5'; b.style.cursor = 'default'; }
+  }
+  if (HAS_TTS) speak(it.s, 0.9);
+  else {
+    var f = d.querySelector('.lt-flash'); f.textContent = it.s; f.style.display = 'block';
+    setTimeout(function(){ f.style.display = 'none'; f.textContent = ''; }, 4000);
+  }
+  var inp = d.querySelector('input'); if (inp && !st.checked) inp.focus();
+}
+function ltCheck(i){
+  var c = S.cabin || 'B', it = LT[c][i], st = ltState(c+i);
+  if (!st.typed.trim()) { document.getElementById('lt'+i).querySelector('input').focus(); return; }
+  st.checked = true; st.acc = diffWords(it.s, st.typed).acc; save();
+  renderLTCard(i); ltScore();
+}
+function ltScore(){
+  var c = S.cabin || 'B', n=0, sum=0, tot = LT[c].length;
+  LT[c].forEach(function(it,i){ var st = S.lt[c+i]; if (st && st.checked){ n++; sum += st.acc; } });
+  document.getElementById('ltScore').innerHTML = n+' / '+tot+' checked' + (n ? ' · <b>'+Math.round(sum/n)+'% average</b>' : '');
+  if (n === tot){
+    S.ltResult = Math.round(sum/n)+'% average over '+tot+' sentences ('+CABIN_NAMES[c]+')';
+    if (!S.done[5]) completeStop(5, true); else { save(); buildSummary(); }
+  }
+}
+
+/* ================= stop 6 ================= */
+function renderPrompts(){
+  var pl = document.getElementById('promptList'); pl.innerHTML='';
+  PROMPTS.forEach(function(p, i){
+    var l = document.createElement('label'); l.className='prompt-opt';
+    l.innerHTML = '<input type="radio" name="prompt" '+(S.prompt===i?'checked':'')+'> '+esc(p);
+    l.querySelector('input').onchange = function(){ S.prompt=i; save(); renderCue(); buildSummary(); };
+    pl.appendChild(l);
+  });
+}
+function renderReqs(){
+  var c = S.cabin || 'B', r = REQS[c], box = document.getElementById('reqs');
+  box.innerHTML = '<h3>'+CABIN_NAMES[c]+' checklist</h3>'+
+    '<div class="req" id="reqW"><span class="box"></span>Write at least '+r.words+' words</div>'+
+    '<div class="req" id="reqB"><span class="box"></span>Use at least '+r.bank+' different connectors (found automatically)</div>';
+  r.checks.forEach(function(t, i){
+    var k = c+i, row = document.createElement('div'); row.className = 'req'+(S.checks[k]?' met':'');
+    row.innerHTML = '<label><input type="checkbox" '+(S.checks[k]?'checked':'')+'> '+esc(t)+'</label>';
+    row.querySelector('input').onchange = function(){ S.checks[k] = this.checked; save(); row.classList.toggle('met', this.checked); buildSummary(); };
+    box.appendChild(row);
+  });
+}
+function findBank(text){
+  var t = ' ' + String(text).toLowerCase().replace(/[’‘]/g,"'").replace(/\s+/g,' ') + ' ';
+  return BANK.filter(function(it){
+    return it.v.some(function(v){ return new RegExp('(^|[^a-z])(?:' + v + ')(?=[^a-z]|$)').test(t); });
+  });
+}
+function highlight(text){
+  var vs = [];
+  BANK.forEach(function(it){ it.v.forEach(function(v){ vs.push(v); }); });
+  vs.sort(function(a,b){ return b.length-a.length; });
+  var re = new RegExp('(^|[^A-Za-z])('+vs.join('|')+')(?=[^A-Za-z]|$)','gi');
+  return esc(text).replace(re, '$1<mark>$2</mark>');
+}
+function onEssay(skipRead){
+  var ta = document.getElementById('essay');
+  if (skipRead !== true) S.essay = ta.value; else ta.value = S.essay || '';
+  save();
+  var c = S.cabin || 'B', r = REQS[c];
+  var words = (S.essay.trim().match(/\S+/g) || []).length;
+  var hits = findBank(S.essay);
+  document.getElementById('wc').textContent = words + ' words (goal: ' + r.words + '+)';
+  document.getElementById('bc').textContent = hits.length + ' different connectors (goal: ' + r.bank + '+)';
+  var f = document.getElementById('found');
+  f.innerHTML = hits.length ? hits.map(function(h){ return '<span>'+esc(h.p)+'</span>'; }).join('') : '<span class="empty">Connectors you use will appear here</span>';
+  document.getElementById('preview').innerHTML = S.essay ? highlight(S.essay) : '<span class="note">Nothing written yet.</span>';
+  var rw = document.getElementById('reqW'), rb = document.getElementById('reqB');
+  if (rw){ rw.classList.toggle('met', words >= r.words); rw.querySelector('.box').textContent = words>=r.words?'✓':''; }
+  if (rb){ rb.classList.toggle('met', hits.length >= r.bank); rb.querySelector('.box').textContent = hits.length>=r.bank?'✓':''; }
+  buildSummary();
+}
+var wInt = null;
+function writeTimer(){
+  var el = document.getElementById('wTimer'), btn = document.getElementById('wTimerBtn');
+  if (wInt){ clearInterval(wInt); wInt=null; el.textContent=''; btn.textContent='Start 5:00'; return; }
+  var end = Date.now() + 5*60*1000; btn.textContent='Stop timer';
+  wInt = setInterval(function(){
+    var s = Math.max(0, Math.round((end-Date.now())/1000));
+    el.textContent = Math.floor(s/60)+':'+('0'+(s%60)).slice(-2);
+    if (s<=0){ clearInterval(wInt); wInt=null; el.textContent="Time's up! (You can keep writing.)"; btn.textContent='Start 5:00'; }
+  }, 250);
+}
+
+/* ================= stop 7 ================= */
+function hasPrompt(){ return S.prompt !== null && S.prompt !== undefined; }
+function renderCue(){
+  var c = S.cabin || 'B', sp = SPEAK[c];
+  var topic = hasPrompt() ? PROMPTS[S.prompt] : 'Choose a question in Stop 06 first (or use any of them).';
+  document.getElementById('cuecard').innerHTML =
+    '<h3>🎙 Your cue card · '+CABIN_NAMES[c]+'</h3>'+
+    '<p><strong>Topic:</strong> '+esc(topic)+'</p>'+
+    '<p class="note">Same topic as your writing, so you already have ideas. This time, say it out loud <em>without reading your text</em>.</p>'+
+    '<p><strong>Speak for:</strong> '+sp.time+' · <strong>Use at least '+sp.n+' connectors</strong></p>'+
+    '<ul style="margin:6px 0 0; padding-left:1.2em; font-size:.92rem">'+sp.tips.map(function(t){return '<li>'+esc(t)+'</li>';}).join('')+'</ul>';
+}
+function validLink(v){ return /^(https?:\/\/)?(www\.)?(voca\.ro|vocaroo\.com)\/[A-Za-z0-9]+/i.test(v.trim()); }
+function checkLink(){
+  var v = document.getElementById('vocaLink').value; S.link = v.trim(); save();
+  var el = document.getElementById('linkCheck');
+  if (!v.trim()){ el.textContent=''; el.className='linkcheck'; }
+  else if (validLink(v)){ el.textContent='✓ Looks like a Vocaroo link. Nice!'; el.className='linkcheck ok'; }
+  else { el.textContent='Hmm, this doesn\'t look like a Vocaroo link. It should start with voca.ro/ or vocaroo.com/'; el.className='linkcheck bad'; }
+  buildSummary();
+}
+
+/* ================= stop 8 ================= */
+function buildSummary(){
+  var c = S.cabin, cc = c || 'B';
+  var hits = findBank(S.essay||'');
+  var words = ((S.essay||'').trim().match(/\S+/g) || []).length;
+  var r = REQS[cc];
+  var checksDone = r.checks.filter(function(t,i){ return S.checks[cc+i]; }).length;
+  var repairs = UPG.map(function(u,i){ return (S.upg[i]||'').trim(); });
+  var nRep = repairs.filter(Boolean).length;
+  var lines = [
+    'WEEK 3 · CONNECTING FLIGHTS — LANDING CARD',
+    'Cabin: ' + (c ? CABIN_NAMES[c] : '(not chosen)'),
+    'Missed Connection score: ' + (S.mcResult || '(not finished)'),
+    'Connectors I kept: ' + (S.kept.length ? S.kept.join(' · ') : '(none yet)'),
+    'Listen and Type: ' + (S.ltResult || '(not finished)'),
+    '',
+    'LAYOVER REPAIR (' + nRep + ' / ' + UPG.length + ')'
+  ];
+  repairs.forEach(function(t, i){ if (t) lines.push((i+1) + '. ' + t); });
+  lines = lines.concat([
+    '',
+    'WRITING — ' + (hasPrompt() ? PROMPTS[S.prompt] : '(no question chosen)'),
+    (S.essay && S.essay.trim()) ? S.essay.trim() : '(no writing yet)',
+    '',
+    'Word count: ' + words + ' · Different connectors used (' + hits.length + '): ' + (hits.length ? hits.map(function(h){return h.p;}).join(', ') : '—'),
+    'Checklist: ' + checksDone + ' / ' + r.checks.length + ' ticked',
+    '',
+    'SPEAKING (Vocaroo): ' + (S.link || '(no link yet)')
+  ]);
+  document.getElementById('summary').textContent = lines.join('\n');
+  var miss = [];
+  if (!c) miss.push('choose a cabin');
+  if (!S.ltResult) miss.push('finish Listen and Type');
+  if (!S.essay || !S.essay.trim()) miss.push('write your answer');
+  if (!S.link) miss.push('add your Vocaroo link');
+  document.getElementById('missing').textContent = miss.length ? 'Still to do: ' + miss.join(', ') + '. (You can still copy, but please complete these if you can.)' : '';
+}
+function copySummary(){
+  var t = document.getElementById('summary').textContent;
+  function ok(){ document.getElementById('copied').classList.add('show'); document.getElementById('stamped').classList.add('show'); completeStop(8, true); }
+  function fallback(){
+    var ta = document.createElement('textarea'); ta.value=t; ta.style.position='fixed'; ta.style.opacity='0'; document.body.appendChild(ta); ta.select();
+    try{ document.execCommand('copy'); }catch(e){} document.body.removeChild(ta); ok();
+  }
+  if (navigator.clipboard && navigator.clipboard.writeText){ navigator.clipboard.writeText(t).then(ok, fallback); } else fallback();
+}
+
+/* ================= init ================= */
+if (S.prompt === undefined) S.prompt = null;
+renderPrompts();
+document.getElementById('vocaLink').value = S.link || '';
+if (S.cabin) pickCabin(S.cabin, true);
+else { renderMC(); renderBank(); renderUpg(); renderLT(); renderReqs(); renderCue(); onEssay(true); }
+if (S.link) checkLink();
+paintRail(); buildSummary();
+</script>
+</body>
+</html>
