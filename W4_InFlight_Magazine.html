@@ -1,0 +1,1435 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DET In-Flight Magazine</title>
+<meta name="description" content="Week 4 of the async Duolingo English Test course — reading longer texts with confidence: skimming for titles and main ideas, Complete the Sentences, Complete the Passage, Highlight the Answer, a timed Interactive Reading set, and a Vocaroo summary.">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..700&family=Work+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap');
+
+  /* Palette: Kindai blue as the anchor, a warm coral complement for accents,
+     plus teal (Economy) and gold (First) as analogous/triadic supports. */
+  :root{
+    --bg:#EDF3FA;
+    --paper:#FFFFFF;
+    --paper-2:#F3F7FC;
+    --ink:#0F2340;
+    --muted:#55657D;
+    --blue:#0068B7;
+    --blue-deep:#004A85;
+    --coral:#E8663D;
+    --coral-deep:#B8481F;
+    --teal:#149487;
+    --teal-deep:#0B6A60;
+    --gold:#D9A21B;
+    --gold-deep:#8A6206;
+    --border:#CFDBE8;
+    --shadow: 0 1px 2px rgba(15,35,64,.07), 0 8px 24px -12px rgba(15,35,64,.22);
+    --cabin:var(--blue); --cabin-deep:var(--blue-deep);
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --bg:#0A1828; --paper:#112338; --paper-2:#152C46; --ink:#E8F0F8; --muted:#95A9BE;
+      --blue:#4DA3E8; --blue-deep:#8CC6F2; --coral:#F28A63; --coral-deep:#F7A889;
+      --teal:#3CC2B2; --teal-deep:#7ADCD0; --gold:#E7B84A; --gold-deep:#F0CD7A;
+      --border:#25405C; --shadow: 0 1px 2px rgba(0,0,0,.3), 0 8px 24px -12px rgba(0,0,0,.55);
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#0A1828; --paper:#112338; --paper-2:#152C46; --ink:#E8F0F8; --muted:#95A9BE;
+    --blue:#4DA3E8; --blue-deep:#8CC6F2; --coral:#F28A63; --coral-deep:#F7A889;
+    --teal:#3CC2B2; --teal-deep:#7ADCD0; --gold:#E7B84A; --gold-deep:#F0CD7A;
+    --border:#25405C; --shadow: 0 1px 2px rgba(0,0,0,.3), 0 8px 24px -12px rgba(0,0,0,.55);
+  }
+  :root{ color-scheme: light dark; }
+  body.cab-E{ --cabin:var(--teal); --cabin-deep:var(--teal-deep); }
+  body.cab-B{ --cabin:var(--blue); --cabin-deep:var(--blue-deep); }
+  body.cab-F{ --cabin:var(--gold); --cabin-deep:var(--gold-deep); }
+
+  *{ box-sizing:border-box; }
+  html{ -webkit-text-size-adjust:100%; }
+  body{
+    margin:0; background:var(--bg); color:var(--ink);
+    font-family:'Work Sans', ui-sans-serif, system-ui, sans-serif;
+    line-height:1.55; -webkit-font-smoothing:antialiased;
+  }
+  a{ color:var(--blue-deep); }
+  ::selection{ background:var(--gold); color:#1B2A2E; }
+  h1,h2,h3{ font-family:'Fraunces', ui-serif, Georgia, serif; font-weight:600; text-wrap:balance; margin:0; color:var(--ink); }
+  .mono{ font-family:'IBM Plex Mono', ui-monospace, monospace; }
+
+  /* ---------- Progress rail ---------- */
+  .railwrap{ position:sticky; top:0; z-index:40; background:color-mix(in srgb, var(--bg) 88%, transparent); backdrop-filter:blur(8px); border-bottom:1px solid var(--border); }
+  .rail{ max-width:780px; margin:0 auto; display:flex; align-items:center; gap:6px; padding:10px 16px; overflow-x:auto; }
+  .rail-title{ font-family:'Fraunces', serif; font-weight:600; font-size:.85rem; color:var(--blue-deep); white-space:nowrap; margin-right:8px; }
+  .stamp-dot{ width:26px; height:26px; border-radius:50%; border:2px solid var(--border); display:flex; align-items:center; justify-content:center; font-family:'IBM Plex Mono', monospace; font-size:.65rem; font-weight:600; color:var(--muted); flex:none; background:var(--paper); transition:transform .25s, background .25s, border-color .25s, color .25s; }
+  .stamp-dot.done{ border-color:var(--coral); background:var(--coral); color:#fff; transform:rotate(-8deg) scale(1.05); }
+  .rail-line{ flex:1; height:1px; background:var(--border); min-width:8px; }
+  .rail-cabin{ margin-left:10px; font-family:'IBM Plex Mono', monospace; font-size:.68rem; font-weight:600; letter-spacing:.06em; white-space:nowrap; padding:4px 10px; border-radius:999px; background:color-mix(in srgb, var(--cabin) 16%, var(--paper)); color:var(--cabin-deep); border:1px solid color-mix(in srgb, var(--cabin) 40%, transparent); }
+
+  /* ---------- Layout ---------- */
+  .wrap{ max-width:780px; margin:0 auto; padding:0 16px 100px; }
+  header.hero{ padding:40px 0 22px; display:flex; flex-direction:column; gap:10px; }
+  .eyebrow{ font-family:'IBM Plex Mono', monospace; font-size:.72rem; letter-spacing:.09em; text-transform:uppercase; color:var(--coral-deep); font-weight:600; }
+  header.hero h1{ font-size:clamp(2rem, 5vw, 2.6rem); }
+  header.hero h1 .accent{ color:var(--blue); font-style:italic; }
+  header.hero p{ color:var(--muted); font-size:1.02rem; max-width:58ch; margin:0; }
+  .chips{ display:flex; gap:8px; flex-wrap:wrap; margin-top:6px; }
+  .chip{ font-family:'IBM Plex Mono', monospace; font-size:.74rem; border:1px dashed var(--border); border-radius:999px; padding:5px 12px; color:var(--muted); }
+  .skillmap{ display:grid; grid-template-columns:repeat(3,1fr); gap:10px; margin-top:12px; }
+  @media (max-width:600px){ .skillmap{ grid-template-columns:1fr; } }
+  .skill{ background:var(--paper); border:1px solid var(--border); border-radius:12px; padding:12px 14px; border-top:4px solid var(--c); }
+  .skill b{ display:block; font-size:.9rem; }
+  .skill span{ font-size:.82rem; color:var(--muted); }
+
+  section.page{ background:var(--paper); border:1px solid var(--border); border-radius:14px; box-shadow:var(--shadow); margin:24px 0; padding:26px 24px 28px; position:relative; overflow:hidden; }
+  section.page::before{ content:""; position:absolute; left:0; top:0; bottom:0; width:5px; background:var(--accent, var(--blue)); opacity:.85; }
+  @media (max-width:520px){ section.page{ padding:22px 16px 24px; } }
+  .page-kicker{ display:flex; align-items:baseline; gap:10px; margin-bottom:6px; }
+  .page-num{ font-family:'IBM Plex Mono', monospace; font-size:.75rem; color:var(--accent, var(--blue)); font-weight:600; letter-spacing:.05em; }
+  .page-time{ margin-left:auto; font-family:'IBM Plex Mono', monospace; font-size:.72rem; color:var(--muted); }
+  section.page h2{ font-size:1.5rem; margin-bottom:4px; }
+  .page-sub{ color:var(--muted); margin:0 0 18px; font-size:.98rem; max-width:60ch; }
+  .det-tag{ display:inline-block; font-family:'IBM Plex Mono', monospace; font-size:.68rem; font-weight:600; letter-spacing:.04em; padding:3px 8px; border-radius:6px; background:color-mix(in srgb, var(--coral) 13%, var(--paper)); color:var(--coral-deep); margin-bottom:12px; }
+
+  /* ---------- Buttons ---------- */
+  button{ font-family:inherit; cursor:pointer; }
+  .btn{ display:inline-flex; align-items:center; gap:8px; background:var(--blue); color:#F3F8FC; border:none; border-radius:9px; padding:11px 20px; font-weight:600; font-size:.95rem; box-shadow:var(--shadow); transition:transform .15s, background .15s; }
+  .btn:hover{ background:var(--blue-deep); transform:translateY(-1px); }
+  :root[data-theme="dark"] .btn, .btn{ }
+  @media (prefers-color-scheme: dark){ :root:not([data-theme="light"]) .btn{ color:#07182A; } }
+  :root[data-theme="dark"] .btn{ color:#07182A; }
+  .btn.secondary{ background:transparent; color:var(--blue-deep); border:1.5px solid var(--blue); box-shadow:none; }
+  .btn.secondary:hover{ background:color-mix(in srgb, var(--blue) 12%, transparent); }
+  .btn.small{ padding:7px 13px; font-size:.85rem; }
+  .btn:focus-visible, .cabin:focus-visible, textarea:focus-visible, input:focus-visible, .rf-btn:focus-visible, .say:focus-visible, .keep:focus-visible, .prompt-opt:focus-visible{ outline:2.5px solid var(--gold); outline-offset:2px; }
+  .row{ display:flex; gap:10px; flex-wrap:wrap; align-items:center; }
+  .note{ font-size:.85rem; color:var(--muted); }
+
+  /* ---------- Stop 1: cabins ---------- */
+  .cabins{ display:grid; grid-template-columns:repeat(3,1fr); gap:12px; }
+  @media (max-width:640px){ .cabins{ grid-template-columns:1fr; } }
+  .cabin{ text-align:left; background:var(--paper-2); border:1.5px solid var(--border); border-radius:12px; padding:16px; display:flex; flex-direction:column; gap:6px; color:var(--ink); position:relative; transition:border-color .2s, background .2s; }
+  .cabin .tag{ font-family:'IBM Plex Mono', monospace; font-size:.68rem; font-weight:600; letter-spacing:.08em; color:var(--cc-deep); }
+  .cabin strong{ font-family:'Fraunces', serif; font-size:1.12rem; }
+  .cabin span.d{ color:var(--muted); font-size:.86rem; }
+  .cabin ul{ margin:4px 0 0; padding-left:1.1em; font-size:.84rem; color:var(--muted); }
+  .cabin::after{ content:""; position:absolute; left:14px; right:14px; top:0; height:4px; border-radius:0 0 4px 4px; background:var(--cc); }
+  .cabin:hover{ border-color:var(--cc); }
+  .cabin.active{ border-color:var(--cc); background:color-mix(in srgb, var(--cc) 10%, var(--paper)); box-shadow:0 0 0 1px var(--cc); }
+  .cabin.E{ --cc:var(--teal); --cc-deep:var(--teal-deep); }
+  .cabin.B{ --cc:var(--blue); --cc-deep:var(--blue-deep); }
+  .cabin.F{ --cc:var(--gold); --cc-deep:var(--gold-deep); }
+  .callout{ margin-top:16px; padding:12px 14px; border-radius:10px; background:color-mix(in srgb, var(--cabin) 9%, var(--paper)); border:1px solid color-mix(in srgb, var(--cabin) 30%, transparent); font-size:.92rem; }
+
+  /* ---------- Stop 2: real or fake ---------- */
+  .rf-top{ display:flex; justify-content:space-between; align-items:center; gap:10px; flex-wrap:wrap; margin-bottom:14px; }
+  .score{ font-family:'IBM Plex Mono', monospace; font-size:.85rem; color:var(--muted); }
+  .score b{ color:var(--coral-deep); }
+  .rf-grid{ display:grid; grid-template-columns:repeat(auto-fill, minmax(210px, 1fr)); gap:10px; }
+  .rf-card{ border:1.5px solid var(--border); border-radius:10px; padding:12px; background:var(--paper-2); display:flex; flex-direction:column; gap:8px; }
+  .rf-word{ font-family:'Fraunces', serif; font-size:1.15rem; font-weight:600; }
+  .rf-actions{ display:flex; gap:6px; }
+  .rf-btn{ flex:1; font-family:'IBM Plex Mono', monospace; font-size:.72rem; font-weight:700; letter-spacing:.05em; border-radius:7px; padding:7px 8px; border:1.5px solid var(--border); background:var(--paper); color:var(--muted); }
+  .rf-btn:hover:not(:disabled){ border-color:var(--ink); color:var(--ink); }
+  .rf-btn:disabled{ cursor:default; opacity:.55; }
+  .rf-card.ok{ border-color:var(--teal); background:color-mix(in srgb, var(--teal) 9%, var(--paper)); }
+  .rf-card.no{ border-color:var(--coral); background:color-mix(in srgb, var(--coral) 8%, var(--paper)); }
+  .rf-fb{ font-size:.82rem; color:var(--muted); display:none; }
+  .rf-card.ok .rf-fb, .rf-card.no .rf-fb{ display:block; }
+  .rf-fb b{ color:var(--ink); }
+
+  /* ---------- Stop 3: word bank ---------- */
+  .bank-tabs{ display:flex; gap:6px; flex-wrap:wrap; margin-bottom:14px; }
+  .bank-tab{ border:1.5px solid var(--border); background:var(--paper); color:var(--muted); border-radius:999px; padding:7px 14px; font-size:.86rem; font-weight:600; }
+  .bank-tab.active{ background:var(--gc); border-color:var(--gc); color:#fff; }
+  @media (prefers-color-scheme: dark){ :root:not([data-theme="light"]) .bank-tab.active{ color:#07182A; } }
+  :root[data-theme="dark"] .bank-tab.active{ color:#07182A; }
+  .group-intro{ font-size:.92rem; color:var(--muted); margin:0 0 12px; }
+  .wcard{ border:1px solid var(--border); border-left:4px solid var(--gc); border-radius:10px; padding:12px 14px; margin-bottom:10px; background:var(--paper-2); }
+  .wcard-top{ display:flex; align-items:center; gap:8px; flex-wrap:wrap; }
+  .wphrase{ font-family:'Fraunces', serif; font-size:1.1rem; font-weight:600; }
+  .lvl{ font-family:'IBM Plex Mono', monospace; font-size:.62rem; font-weight:700; letter-spacing:.06em; padding:2px 7px; border-radius:5px; }
+  .lvl.E{ background:color-mix(in srgb, var(--teal) 16%, var(--paper)); color:var(--teal-deep); }
+  .lvl.B{ background:color-mix(in srgb, var(--blue) 14%, var(--paper)); color:var(--blue-deep); }
+  .lvl.F{ background:color-mix(in srgb, var(--gold) 20%, var(--paper)); color:var(--gold-deep); }
+  .wcard-top .spacer{ flex:1; }
+  .say, .keep{ border:1.5px solid var(--border); background:var(--paper); color:var(--ink); border-radius:7px; padding:5px 10px; font-size:.8rem; font-weight:600; }
+  .say:hover, .keep:hover{ border-color:var(--blue); }
+  .keep.on{ background:var(--coral); border-color:var(--coral); color:#fff; }
+  .wmean{ font-size:.88rem; color:var(--muted); margin:4px 0 2px; }
+  .wex{ font-size:.93rem; margin:0; }
+  .wex em{ font-style:normal; font-weight:600; color:var(--gc-deep); }
+  .g-stance{ --gc:var(--blue); --gc-deep:var(--blue-deep); }
+  .g-strength{ --gc:var(--coral); --gc-deep:var(--coral-deep); }
+  .g-judge{ --gc:var(--teal); --gc-deep:var(--teal-deep); }
+  .g-link{ --gc:var(--gold); --gc-deep:var(--gold-deep); }
+  .toggle{ display:inline-flex; align-items:center; gap:8px; font-size:.86rem; color:var(--muted); cursor:pointer; }
+  .toggle input{ accent-color:var(--blue); width:16px; height:16px; }
+  .kept-bar{ margin-top:14px; font-size:.88rem; color:var(--muted); }
+  .kept-bar b{ color:var(--coral-deep); }
+
+  /* ---------- Stop 4: upgrade counter ---------- */
+  .upg{ border:1px solid var(--border); border-radius:12px; padding:14px 16px; margin-bottom:14px; background:var(--paper-2); }
+  .upg-plain{ display:flex; align-items:baseline; gap:10px; margin-bottom:10px; }
+  .upg-plain .lab{ font-family:'IBM Plex Mono', monospace; font-size:.68rem; font-weight:600; color:var(--muted); letter-spacing:.06em; flex:none; }
+  .upg-plain p{ margin:0; font-size:1.02rem; font-weight:600; text-decoration:underline wavy color-mix(in srgb, var(--coral) 55%, transparent); text-underline-offset:5px; }
+  textarea, input[type="text"], input[type="url"]{ width:100%; font-family:inherit; font-size:.95rem; padding:10px 12px; border:1.5px solid var(--border); border-radius:8px; background:var(--paper); color:var(--ink); }
+  textarea{ resize:vertical; min-height:64px; line-height:1.5; }
+  .models{ display:none; margin-top:12px; gap:8px; flex-direction:column; }
+  .models.show{ display:flex; }
+  .model{ border-radius:9px; padding:9px 12px; font-size:.92rem; border:1px solid var(--border); background:var(--paper); display:flex; gap:10px; align-items:baseline; }
+  .model .lvl{ flex:none; }
+  .model mark{ background:color-mix(in srgb, var(--gold) 28%, transparent); color:inherit; border-radius:3px; padding:0 2px; }
+
+  /* ---------- Stop 5: write ---------- */
+  .prompt-list{ display:flex; flex-direction:column; gap:8px; margin-bottom:14px; }
+  .prompt-opt{ display:flex; align-items:center; gap:10px; border:1.5px solid var(--border); border-radius:9px; padding:11px 13px; background:var(--paper-2); font-size:.95rem; cursor:pointer; }
+  .prompt-opt input{ accent-color:var(--blue); }
+  .prompt-opt:has(input:checked){ border-color:var(--blue); background:color-mix(in srgb, var(--blue) 8%, var(--paper)); }
+  .reqs{ border:1.5px solid color-mix(in srgb, var(--cabin) 45%, transparent); background:color-mix(in srgb, var(--cabin) 7%, var(--paper)); border-radius:10px; padding:12px 14px; margin-bottom:14px; }
+  .reqs h3{ font-size:1rem; margin-bottom:6px; color:var(--cabin-deep); }
+  .req{ display:flex; align-items:center; gap:9px; font-size:.9rem; padding:3px 0; }
+  .req .box{ width:18px; height:18px; border-radius:5px; border:1.5px solid var(--border); display:flex; align-items:center; justify-content:center; font-size:.7rem; flex:none; background:var(--paper); }
+  .req.met .box{ background:var(--teal); border-color:var(--teal); color:#fff; }
+  .req label{ display:flex; align-items:center; gap:9px; cursor:pointer; }
+  .req input[type="checkbox"]{ accent-color:var(--teal); width:18px; height:18px; margin:0; }
+  #essay{ min-height:190px; }
+  .meter{ display:flex; justify-content:space-between; gap:10px; flex-wrap:wrap; margin:8px 0 4px; font-family:'IBM Plex Mono', monospace; font-size:.8rem; color:var(--muted); }
+  .found{ display:flex; flex-wrap:wrap; gap:6px; margin:8px 0; min-height:28px; }
+  .found span{ font-size:.8rem; font-weight:600; padding:4px 10px; border-radius:999px; background:color-mix(in srgb, var(--gold) 22%, var(--paper)); color:var(--gold-deep); border:1px solid color-mix(in srgb, var(--gold) 45%, transparent); }
+  .found .empty{ background:none; border:1px dashed var(--border); color:var(--muted); font-weight:500; }
+  .preview{ border:1px dashed var(--border); border-radius:9px; padding:10px 12px; font-size:.93rem; min-height:44px; white-space:pre-wrap; background:var(--paper-2); }
+  .preview mark{ background:color-mix(in srgb, var(--gold) 30%, transparent); color:inherit; border-radius:3px; padding:0 2px; }
+  .timer{ font-family:'IBM Plex Mono', monospace; font-weight:600; color:var(--coral-deep); }
+
+  /* ---------- Stop 6: speak ---------- */
+  .steps{ counter-reset:s; list-style:none; padding:0; margin:0 0 16px; display:grid; gap:8px; }
+  .steps li{ counter-increment:s; display:flex; gap:12px; align-items:flex-start; font-size:.94rem; }
+  .steps li::before{ content:counter(s); flex:none; width:26px; height:26px; border-radius:50%; background:var(--coral); color:#fff; font-family:'IBM Plex Mono', monospace; font-weight:700; font-size:.78rem; display:flex; align-items:center; justify-content:center; margin-top:1px; }
+  .cuecard{ border-radius:12px; padding:16px 18px; margin-bottom:16px; background:linear-gradient(135deg, color-mix(in srgb, var(--coral) 12%, var(--paper)) 0%, color-mix(in srgb, var(--gold) 12%, var(--paper)) 100%); border:1px solid color-mix(in srgb, var(--coral) 30%, transparent); }
+  .cuecard h3{ font-size:1.05rem; margin-bottom:6px; }
+  .cuecard p{ margin:4px 0; font-size:.93rem; }
+  .linkcheck{ font-size:.85rem; margin-top:6px; min-height:1.3em; }
+  .linkcheck.ok{ color:var(--teal-deep); font-weight:600; }
+  .linkcheck.bad{ color:var(--coral-deep); }
+
+  /* ---------- Stop 7: summary ---------- */
+  .summary-box{ background:var(--paper-2); border:1.5px dashed var(--border); border-radius:10px; padding:14px 16px; margin:14px 0; white-space:pre-wrap; font-family:'IBM Plex Mono', monospace; font-size:.83rem; color:var(--ink); min-height:100px; overflow-wrap:anywhere; }
+  .copied-note{ font-size:.85rem; color:var(--teal-deep); display:none; font-weight:600; }
+  .copied-note.show{ display:inline; }
+  .missing{ font-size:.86rem; color:var(--coral-deep); margin:0; }
+  .stamped{ display:none; margin-top:16px; padding:16px; border:2px solid var(--coral); border-radius:10px; color:var(--coral-deep); font-family:'IBM Plex Mono', monospace; font-weight:700; letter-spacing:.05em; text-align:center; transform:rotate(-2deg); }
+  .stamped.show{ display:block; animation:stampin .35s ease; }
+  @keyframes stampin{ from{ opacity:0; transform:scale(1.6) rotate(-2deg);} to{ opacity:1; transform:scale(1) rotate(-2deg);} }
+
+  /* ---------- Duty-free resources ---------- */
+  .res-feature{ display:flex; gap:14px; align-items:center; flex-wrap:wrap; justify-content:space-between; padding:16px 18px; border-radius:12px; margin-bottom:14px; background:linear-gradient(135deg, var(--blue) 0%, var(--blue-deep) 100%); color:#F3F8FC; }
+  .res-feature h3{ color:#fff; font-size:1.15rem; }
+  .res-feature p{ margin:4px 0 0; font-size:.88rem; opacity:.9; max-width:48ch; }
+  .res-feature .row a{ background:#fff; color:#004A85; text-decoration:none; font-weight:700; font-size:.86rem; padding:9px 14px; border-radius:8px; }
+  .res-feature .row a.ghost{ background:transparent; color:#fff; border:1.5px solid rgba(255,255,255,.7); }
+  @media (prefers-color-scheme: dark){ :root:not([data-theme="light"]) .res-feature{ background:linear-gradient(135deg, #0C4F8A 0%, #083763 100%); } }
+  :root[data-theme="dark"] .res-feature{ background:linear-gradient(135deg, #0C4F8A 0%, #083763 100%); }
+  .res-feature{ flex-direction:column; align-items:stretch; }
+  .rf-head{ display:flex; gap:14px; align-items:center; flex-wrap:wrap; justify-content:space-between; }
+  .qt-grid{ display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-top:12px; }
+  @media (max-width:600px){ .qt-grid{ grid-template-columns:1fr; } }
+  .qt{ background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.25); border-radius:10px; padding:10px 12px; font-size:.84rem; }
+  .qt.main{ background:rgba(255,255,255,.18); border-color:rgba(255,255,255,.55); }
+  .qt b{ display:block; font-size:.98rem; color:#fff; margin:2px 0; }
+  .qt span:not(.qt-tag){ opacity:.92; }
+  .qt-tag{ font-family:'IBM Plex Mono', monospace; font-size:.64rem; font-weight:600; letter-spacing:.06em; color:#FFD27A; }
+  .res-grid{ display:grid; grid-template-columns:1fr 1fr; gap:10px; }
+  @media (max-width:600px){ .res-grid{ grid-template-columns:1fr; } }
+  .res{ display:block; text-decoration:none; color:var(--ink); border:1px solid var(--border); border-top:3px solid var(--rc); border-radius:10px; padding:12px 14px; background:var(--paper-2); transition:transform .15s, border-color .15s; }
+  .res:hover{ transform:translateY(-2px); border-color:var(--rc); }
+  .res b{ display:block; font-size:.96rem; }
+  .res .url{ font-family:'IBM Plex Mono', monospace; font-size:.7rem; color:var(--rc-deep); }
+  .res p{ margin:6px 0 0; font-size:.85rem; color:var(--muted); }
+  .res .how{ display:block; margin-top:6px; font-size:.8rem; color:var(--ink); }
+  .rc-blue{ --rc:var(--blue); --rc-deep:var(--blue-deep); }
+  .rc-teal{ --rc:var(--teal); --rc-deep:var(--teal-deep); }
+  .rc-coral{ --rc:var(--coral); --rc-deep:var(--coral-deep); }
+  .rc-gold{ --rc:var(--gold); --rc-deep:var(--gold-deep); }
+
+  footer.next{ margin-top:30px; padding:20px 22px; border-radius:14px; background:var(--paper); border:1px solid var(--border); display:flex; justify-content:space-between; align-items:center; gap:16px; flex-wrap:wrap; }
+  footer.next span{ display:block; font-family:'IBM Plex Mono', monospace; font-size:.72rem; color:var(--coral-deep); letter-spacing:.06em; text-transform:uppercase; margin-bottom:4px; }
+  footer.next strong{ font-family:'Fraunces', serif; font-size:1.1rem; }
+
+  @media (prefers-reduced-motion:reduce){
+    .stamped.show{ animation:none; } .stamp-dot.done{ transform:none; } .res:hover, .btn:hover{ transform:none; }
+    html{ scroll-behavior:auto; }
+  }
+
+  /* ---------- Week 3 additions ---------- */
+  :root{ --violet:#7A5BC0; --violet-deep:#553A96; }
+  @media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){ --violet:#A990E8; --violet-deep:#C9B8F4; } }
+  :root[data-theme="dark"]{ --violet:#A990E8; --violet-deep:#C9B8F4; }
+  .g-add{ --gc:var(--blue); --gc-deep:var(--blue-deep); }
+  .g-contrast{ --gc:var(--coral); --gc-deep:var(--coral-deep); }
+  .g-reason{ --gc:var(--teal); --gc-deep:var(--teal-deep); }
+  .g-result{ --gc:var(--gold); --gc-deep:var(--gold-deep); }
+  .g-detail{ --gc:var(--violet); --gc-deep:var(--violet-deep); }
+  .wtip{ font-size:.82rem; margin:6px 0 0; color:var(--ink); padding:5px 9px; border-radius:6px; background:color-mix(in srgb, var(--gc) 10%, var(--paper)); display:inline-block; }
+  .wtip b{ font-family:'IBM Plex Mono', monospace; font-size:.66rem; letter-spacing:.05em; color:var(--gc-deep); margin-right:6px; }
+
+  .mc{ border:1.5px solid var(--border); border-radius:10px; padding:14px; background:var(--paper-2); margin-bottom:10px; }
+  .mc.ok{ border-color:var(--teal); background:color-mix(in srgb, var(--teal) 9%, var(--paper)); }
+  .mc.no{ border-color:var(--coral); background:color-mix(in srgb, var(--coral) 8%, var(--paper)); }
+  .mc-sent{ font-size:1.04rem; font-weight:500; margin:0 0 10px; line-height:1.7; }
+  .gap{ display:inline-block; min-width:74px; border-bottom:2px solid var(--coral); text-align:center; font-weight:700; color:var(--coral-deep); padding:0 6px; }
+  .mc.ok .gap{ border-color:var(--teal); color:var(--teal-deep); }
+  .mc-opts{ display:flex; gap:8px; flex-wrap:wrap; }
+  .mc-opts .rf-btn{ flex:none; padding:8px 14px; font-size:.8rem; letter-spacing:.02em; }
+  .mc-opts .rf-btn.picked{ border-color:var(--ink); color:var(--ink); opacity:1; }
+  .mc-fb{ font-size:.86rem; color:var(--muted); margin:8px 0 0; }
+  .mc-fb b{ color:var(--ink); }
+
+  .lt{ border:1.5px solid var(--border); border-radius:12px; padding:14px 16px; background:var(--paper-2); margin-bottom:12px; }
+  .lt.checked{ border-color:color-mix(in srgb, var(--teal) 60%, var(--border)); }
+  .lt-head{ display:flex; align-items:center; gap:10px; flex-wrap:wrap; margin-bottom:10px; }
+  .lt-num{ font-family:'IBM Plex Mono', monospace; font-size:.72rem; font-weight:600; color:var(--muted); letter-spacing:.05em; }
+  .lt-acc{ margin-left:auto; font-family:'IBM Plex Mono', monospace; font-size:.8rem; font-weight:600; color:var(--teal-deep); }
+  .lt-diff{ margin-top:10px; font-size:1rem; line-height:2; }
+  .lt-diff .hit{ color:var(--teal-deep); font-weight:600; }
+  .lt-diff .miss{ background:color-mix(in srgb, var(--coral) 18%, transparent); border-bottom:2px solid var(--coral); border-radius:3px; padding:1px 4px; font-weight:600; }
+  .lt-note{ font-size:.85rem; color:var(--muted); margin:6px 0 0; }
+  .lt-note b{ color:var(--ink); }
+  .lt-flash{ font-family:'Fraunces', serif; font-size:1.05rem; padding:10px 12px; border:1px dashed var(--coral); border-radius:8px; margin-bottom:10px; }
+  .legend{ display:flex; gap:14px; flex-wrap:wrap; font-size:.8rem; color:var(--muted); margin:0 0 12px; }
+  .mc-opts .rf-btn:focus-visible, .bank-tab:focus-visible{ outline:2.5px solid var(--gold); outline-offset:2px; }
+  @media (prefers-color-scheme: dark){ :root:not([data-theme="light"]) .btn.secondary{ color:var(--blue-deep); } }
+  :root[data-theme="dark"] .btn.secondary{ color:var(--blue-deep); }
+
+  /* ---------- Week 4 additions: In-Flight Magazine ---------- */
+  .lopt-list{ display:flex; flex-direction:column; gap:8px; }
+  .lopt{ display:block; width:100%; text-align:left; font-size:.95rem; line-height:1.45; color:var(--ink); background:var(--paper); border:1.5px solid var(--border); border-radius:9px; padding:10px 13px; transition:border-color .15s, background .15s; }
+  .lopt:hover:not(:disabled){ border-color:var(--blue); }
+  .lopt:disabled{ cursor:default; }
+  .lopt.picked{ border-color:var(--ink); }
+  .lopt.ok{ border-color:var(--teal); background:color-mix(in srgb, var(--teal) 10%, var(--paper)); }
+  .lopt.no{ border-color:var(--coral); background:color-mix(in srgb, var(--coral) 9%, var(--paper)); }
+  .lopt.dim{ opacity:.6; }
+  .lopt .why{ display:block; margin-top:4px; font-size:.8rem; color:var(--muted); }
+  .lopt.ok .why{ color:var(--teal-deep); }
+  .lopt.no .why{ color:var(--coral-deep); }
+  .lopt:focus-visible, .tchip:focus-visible, .dcard:focus-visible, .w:focus-visible, select.blank:focus-visible{ outline:2.5px solid var(--gold); outline-offset:2px; }
+
+  /* let sticky bars work inside these stops (overflow:hidden would block them) */
+  #sec2, #sec7{ overflow:clip; }
+
+  /* magazine article */
+  .mag{ background:var(--paper-2); border:1px solid var(--border); border-radius:12px; padding:18px 20px 8px; margin:0 0 14px; }
+  @media (max-width:520px){ .mag{ padding:16px 14px 6px; } }
+  .mag-kicker{ font-family:'IBM Plex Mono', monospace; font-size:.66rem; font-weight:600; letter-spacing:.09em; color:var(--cabin-deep); text-transform:uppercase; }
+  .mag h3{ font-size:1.25rem; margin:2px 0 10px; }
+  .mag p{ margin:0 0 12px; font-size:1.02rem; line-height:1.8; }
+  .mag p.dc::first-letter{ font-family:'Fraunces', serif; font-weight:700; float:left; font-size:3.1em; line-height:.9; padding:4px 8px 0 0; color:var(--cabin-deep); }
+  .mag p.faded{ color:var(--muted); font-size:.92rem; font-style:italic; }
+  select.blank{ font:inherit; font-weight:600; color:var(--coral-deep); background:var(--paper); border:1.5px solid var(--coral); border-radius:6px; padding:1px 4px; margin:0 2px; max-width:100%; }
+  select.blank.ok{ color:var(--teal-deep); border-color:var(--teal); background:color-mix(in srgb, var(--teal) 10%, var(--paper)); }
+  select.blank.no{ border-style:dashed; background:color-mix(in srgb, var(--coral) 10%, var(--paper)); }
+  .filled{ font-weight:600; color:var(--teal-deep); border-bottom:2px solid var(--teal); }
+  .gapbox{ display:inline; padding:2px 8px; border:1.5px dashed var(--coral); border-radius:6px; color:var(--coral-deep); font-weight:600; background:color-mix(in srgb, var(--coral) 7%, var(--paper)); -webkit-box-decoration-break:clone; box-decoration-break:clone; }
+  .gapbox.ok{ border-color:var(--teal); border-style:solid; color:var(--teal-deep); background:color-mix(in srgb, var(--teal) 9%, var(--paper)); }
+  .gapbox.preview{ border-style:solid; color:var(--ink); font-weight:500; }
+  .blank-fb{ list-style:none; padding:0; margin:0 0 12px; display:grid; gap:4px; font-size:.86rem; }
+  .blank-fb li{ color:var(--muted); }
+  .blank-fb b{ color:var(--ink); }
+  .blank-fb .y{ color:var(--teal-deep); font-weight:700; }
+  .blank-fb .n{ color:var(--coral-deep); font-weight:700; }
+  .tipbox{ border-left:4px solid var(--gold); background:color-mix(in srgb, var(--gold) 10%, var(--paper)); border-radius:0 8px 8px 0; padding:9px 12px; font-size:.9rem; margin:0 0 14px; }
+  .tipbox b{ font-family:'IBM Plex Mono', monospace; font-size:.68rem; letter-spacing:.06em; color:var(--gold-deep); margin-right:6px; }
+
+  /* stop 2: briefing match */
+  .tchips{ display:flex; flex-wrap:wrap; gap:8px; margin-bottom:12px; position:sticky; top:52px; z-index:5; padding:8px 0; background:var(--paper); }
+  .tchip{ border:1.5px solid var(--border); background:var(--paper-2); color:var(--ink); border-radius:999px; padding:7px 13px; font-size:.86rem; font-weight:600; }
+  .tchip.sel{ border-color:var(--blue); background:color-mix(in srgb, var(--blue) 14%, var(--paper)); box-shadow:0 0 0 1px var(--blue); }
+  .tchip.used{ opacity:.45; text-decoration:line-through; cursor:default; }
+  .dgrid{ display:grid; gap:10px; }
+  .dcard{ text-align:left; width:100%; border:1.5px solid var(--border); background:var(--paper-2); color:var(--ink); border-radius:10px; padding:12px 14px; font-size:.95rem; }
+  .dcard:hover:not(:disabled){ border-color:var(--blue); }
+  .dcard:disabled{ cursor:default; }
+  .dcard.ok{ border-color:var(--teal); background:color-mix(in srgb, var(--teal) 9%, var(--paper)); }
+  .dcard.shake{ animation:shake .35s; border-color:var(--coral); }
+  .dcard .dname{ display:block; font-family:'IBM Plex Mono', monospace; font-size:.7rem; font-weight:700; letter-spacing:.05em; color:var(--teal-deep); margin-bottom:3px; }
+  .dcard .dtip{ display:block; margin-top:6px; font-size:.86rem; color:var(--ink); padding:6px 9px; border-radius:6px; background:color-mix(in srgb, var(--gold) 14%, var(--paper)); }
+  @keyframes shake{ 0%,100%{transform:translateX(0)} 25%{transform:translateX(-5px)} 75%{transform:translateX(5px)} }
+
+  /* stop 3: skim cards */
+  .skim{ border:1.5px solid var(--border); border-radius:12px; padding:14px 16px; background:var(--paper-2); margin-bottom:14px; }
+  .skim-head{ display:flex; align-items:center; gap:10px; flex-wrap:wrap; margin-bottom:10px; }
+  .skim-num{ font-family:'IBM Plex Mono', monospace; font-size:.72rem; font-weight:600; color:var(--muted); letter-spacing:.05em; }
+  .skim-clock{ margin-left:auto; font-family:'IBM Plex Mono', monospace; font-weight:600; font-size:.85rem; color:var(--coral-deep); }
+  .tbar{ height:5px; border-radius:3px; background:var(--border); overflow:hidden; margin:0 0 10px; }
+  .tbar i{ display:block; height:100%; background:var(--coral); width:100%; transition:width .25s linear; }
+  .skim-text{ position:relative; font-size:1rem; line-height:1.75; margin:0 0 12px; transition:filter .4s; }
+  .skim-text.fog{ filter:blur(6px); user-select:none; }
+  .fog-msg{ font-size:.86rem; color:var(--coral-deep); margin:-4px 0 10px; }
+  .skim-q{ font-weight:600; margin:0 0 8px; }
+
+  /* stop 6: highlight */
+  .w{ cursor:pointer; border-radius:3px; padding:1px 0; }
+  .hl-on .w:hover{ background:color-mix(in srgb, var(--gold) 18%, transparent); }
+  .w.sel{ background:color-mix(in srgb, var(--gold) 42%, transparent); box-shadow:0 0 0 1px color-mix(in srgb, var(--gold) 60%, transparent); }
+  .w.start{ outline:2px solid var(--gold); outline-offset:1px; }
+  .w.tgt{ text-decoration:underline 2.5px var(--teal); text-underline-offset:4px; }
+  .hlq{ border:1.5px solid var(--border); border-radius:10px; padding:12px 14px; background:var(--paper-2); margin-bottom:10px; }
+  .hlq.active{ border-color:var(--gold); box-shadow:0 0 0 1px var(--gold); }
+  .hlq-top{ display:flex; gap:10px; align-items:flex-start; }
+  .hlq-top input{ accent-color:var(--gold); margin-top:5px; width:16px; height:16px; flex:none; }
+  .hlq p{ margin:0; }
+  .hl-res{ margin-top:8px; font-size:.88rem; }
+  .hl-res.full{ color:var(--teal-deep); font-weight:600; }
+  .hl-res.part{ color:var(--gold-deep); font-weight:600; }
+  .hl-res.zero{ color:var(--coral-deep); font-weight:600; }
+  .hl-sel{ font-size:.86rem; color:var(--muted); margin:8px 0 0; font-style:italic; }
+  .split{ display:grid; grid-template-columns:1fr; gap:14px; }
+
+  /* stop 7: full flight */
+  .ff-rules{ display:grid; grid-template-columns:repeat(3,1fr); gap:8px; margin:0 0 14px; }
+  @media (max-width:600px){ .ff-rules{ grid-template-columns:1fr; } }
+  .ff-rule{ border:1px solid var(--border); border-radius:10px; padding:10px 12px; background:var(--paper-2); font-size:.86rem; }
+  .ff-rule b{ display:block; font-family:'IBM Plex Mono', monospace; font-size:.68rem; letter-spacing:.06em; color:var(--coral-deep); margin-bottom:2px; }
+  .ff-bar{ position:sticky; top:52px; z-index:6; display:flex; align-items:center; gap:10px; flex-wrap:wrap; padding:9px 12px; margin:0 0 12px; border-radius:10px; background:var(--paper); border:1.5px solid var(--border); box-shadow:var(--shadow); }
+  .ff-step{ font-family:'IBM Plex Mono', monospace; font-size:.75rem; font-weight:600; color:var(--muted); letter-spacing:.04em; }
+  .ff-type{ font-weight:700; font-size:.92rem; }
+  .ff-clock{ margin-left:auto; font-family:'IBM Plex Mono', monospace; font-weight:700; font-size:1rem; padding:3px 10px; border-radius:7px; background:color-mix(in srgb, var(--blue) 10%, var(--paper)); color:var(--blue-deep); }
+  .ff-clock.over{ background:var(--coral); color:#fff; }
+  .ff-dots{ display:flex; gap:4px; width:100%; }
+  .ff-dots i{ flex:1; height:4px; border-radius:2px; background:var(--border); }
+  .ff-dots i.on{ background:var(--coral); }
+  .ff-q{ font-weight:600; margin:0 0 10px; }
+  .res-table{ width:100%; border-collapse:collapse; font-size:.9rem; margin:6px 0 12px; }
+  .res-table th, .res-table td{ text-align:left; padding:7px 8px; border-bottom:1px solid var(--border); vertical-align:top; }
+  .res-table th{ font-family:'IBM Plex Mono', monospace; font-size:.68rem; letter-spacing:.05em; color:var(--muted); font-weight:600; }
+  .res-table td.pt{ font-family:'IBM Plex Mono', monospace; font-weight:600; white-space:nowrap; }
+  .res-table .y{ color:var(--teal-deep); } .res-table .h{ color:var(--gold-deep); } .res-table .n{ color:var(--coral-deep); }
+  .bigscore{ font-family:'Fraunces', serif; font-size:2.2rem; font-weight:700; color:var(--cabin-deep); line-height:1; }
+  .bigscore small{ font-size:1rem; color:var(--muted); font-weight:500; }
+  .attempts{ display:flex; gap:10px; flex-wrap:wrap; margin-bottom:12px; }
+  .att{ border:1px solid var(--border); border-radius:10px; padding:10px 14px; background:var(--paper-2); }
+  .att span{ display:block; font-family:'IBM Plex Mono', monospace; font-size:.66rem; letter-spacing:.06em; color:var(--muted); }
+  .key{ border:1.5px solid color-mix(in srgb, var(--teal) 45%, transparent); background:color-mix(in srgb, var(--teal) 6%, var(--paper)); border-radius:10px; padding:12px 14px; margin-top:12px; font-size:.9rem; }
+  .key h3{ font-size:1rem; margin-bottom:6px; color:var(--teal-deep); }
+  .key ol{ margin:0; padding-left:1.2em; display:grid; gap:6px; }
+  .key .y{ color:var(--teal-deep); font-weight:600; } .key .n{ color:var(--coral-deep); font-weight:600; }
+  .frame{ list-style:none; padding:0; margin:8px 0 0; display:grid; gap:6px; }
+  .frame li{ padding:7px 10px; border-radius:8px; background:var(--paper); border:1px solid color-mix(in srgb, var(--coral) 25%, transparent); font-size:.93rem; }
+  .frame li b{ font-family:'IBM Plex Mono', monospace; font-size:.68rem; letter-spacing:.05em; color:var(--coral-deep); margin-right:6px; }
+  @media (prefers-reduced-motion:reduce){ .dcard.shake{ animation:none; } .skim-text{ transition:none; } .tbar i{ transition:none; } }
+</style>
+</head>
+<body class="cab-B">
+
+<div class="railwrap">
+  <div class="rail" id="rail">
+    <span class="rail-title">YOUR ROUTE</span>
+    <div class="stamp-dot" data-stamp="1">1</div><div class="rail-line"></div>
+    <div class="stamp-dot" data-stamp="2">2</div><div class="rail-line"></div>
+    <div class="stamp-dot" data-stamp="3">3</div><div class="rail-line"></div>
+    <div class="stamp-dot" data-stamp="4">4</div><div class="rail-line"></div>
+    <div class="stamp-dot" data-stamp="5">5</div><div class="rail-line"></div>
+    <div class="stamp-dot" data-stamp="6">6</div><div class="rail-line"></div>
+    <div class="stamp-dot" data-stamp="7">7</div><div class="rail-line"></div>
+    <div class="stamp-dot" data-stamp="8">8</div><div class="rail-line"></div>
+    <div class="stamp-dot" data-stamp="9">9</div>
+    <span class="rail-cabin" id="railCabin">NO CABIN YET</span>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <header class="hero">
+    <div class="eyebrow">Week 4 · Reading Longer Texts with Confidence</div>
+    <h1><span class="accent">In-Flight</span> Magazine</h1>
+    <p>On a long flight, you don't read every word of the magazine. You look at the titles, find the main idea, and look for the parts you need. This week you'll practice reading like that, one Interactive Reading question type at a time, and then try a full timed set. You choose your own level. Go at your own pace. There's no grade, and finishing all the steps counts as attending this week.</p>
+    <div class="chips">
+      <span class="chip">~50 min total</span>
+      <span class="chip">Choose your level</span>
+      <span class="chip">One timed practice</span>
+      <span class="chip">A short recording</span>
+    </div>
+    <div class="skillmap">
+      <div class="skill" style="--c:var(--blue)"><b>Interactive Reading</b><span>All six question types, one at a time</span></div>
+      <div class="skill" style="--c:var(--teal)"><b>Main ideas</b><span>Choose titles that aren't too narrow or too broad</span></div>
+      <div class="skill" style="--c:var(--coral)"><b>Speaking</b><span>Summarize what you read</span></div>
+    </div>
+  </header>
+
+  <!-- STOP 1 -->
+  <section class="page" id="sec1" style="--accent:var(--blue)">
+    <div class="page-kicker"><span class="page-num">STOP 01</span><span class="page-time">~2 min</span></div>
+    <h2>Choose Your Cabin</h2>
+    <p class="page-sub">Pick the level that feels right today. Your choice changes the articles, the questions, and the time limits on this page. <strong>Every cabin counts the same for attendance</strong>, and you can switch any time.</p>
+    <div class="cabins">
+      <button class="cabin E" id="cabE" onclick="pickCabin('E')">
+        <span class="tag">ECONOMY</span>
+        <strong>Light reading</strong>
+        <span class="d">"Long texts make me nervous."</span>
+        <ul><li>Articles of ~160 words</li><li>60 seconds per skim</li><li>Full Flight: 8 minutes</li></ul>
+      </button>
+      <button class="cabin B" id="cabB" onclick="pickCabin('B')">
+        <span class="tag">BUSINESS</span>
+        <strong>A little more room</strong>
+        <span class="d">"I understand, but I read too slowly."</span>
+        <ul><li>Articles of ~200 words</li><li>50 seconds per skim</li><li>Full Flight: 7 minutes</li></ul>
+      </button>
+      <button class="cabin F" id="cabF" onclick="pickCabin('F')">
+        <span class="tag">FIRST CLASS</span>
+        <strong>Full upgrade</strong>
+        <span class="d">"I want to read harder texts quickly."</span>
+        <ul><li>Articles of ~240 words</li><li>45 seconds per skim</li><li>Full Flight: 7 minutes</li></ul>
+      </button>
+    </div>
+    <div class="callout" id="cabinCallout" style="display:none"></div>
+  </section>
+
+  <!-- STOP 2 -->
+  <section class="page" id="sec2" style="--accent:var(--teal)">
+    <div class="page-kicker"><span class="page-num">STOP 02</span><span class="page-time">~4 min</span></div>
+    <h2>Pre-flight Briefing</h2>
+    <span class="det-tag">DET FORMAT · INTERACTIVE READING</span>
+    <p class="page-sub">On the DET, Interactive Reading gives you <strong>one passage and six questions in about 7 minutes</strong>. You must answer each question before you can move on. Match each question type to what it asks you to do: tap a name, then tap its description. A tip appears for each correct match.</p>
+    <div class="tchips" id="tchips"></div>
+    <div class="dgrid" id="dgrid"></div>
+    <div class="rf-top" style="margin-top:12px"><span class="score" id="brScore"></span><button class="btn secondary small" onclick="brReset()">Start again</button></div>
+  </section>
+
+  <!-- STOP 3 -->
+  <section class="page" id="sec3" style="--accent:var(--coral)">
+    <div class="page-kicker"><span class="page-num">STOP 03</span><span class="page-time">~6 min</span></div>
+    <h2>Headline Hunt</h2>
+    <span class="det-tag">DET PRACTICE · TITLE THE PASSAGE + IDENTIFY THE IDEA</span>
+    <p class="page-sub">Read fast. You only have a short time to <strong>skim</strong> each text, so don't read every word. Look at the first and last sentences, and look for words that repeat. Then choose the best title or main idea. Each wrong answer is a common trap, and the feedback tells you which one.</p>
+    <div class="tipbox"><b>TIP</b>The best answer covers the <strong>whole</strong> text. It is not one detail (<em>too narrow</em>), not a huge topic (<em>too broad</em>), and not something the text never says (<em>not in the text</em>).</div>
+    <div class="rf-top"><span class="score" id="hhScore"></span></div>
+    <div id="hhList"></div>
+  </section>
+
+  <!-- STOP 4 -->
+  <section class="page" id="sec4" style="--accent:var(--gold)">
+    <div class="page-kicker"><span class="page-num">STOP 04</span><span class="page-time">~5 min</span></div>
+    <h2>Fill the Gaps</h2>
+    <span class="det-tag">DET PRACTICE · COMPLETE THE SENTENCES</span>
+    <p class="page-sub">Here's the first paragraph of this week's practice article. Choose the best word for each gap, then press <strong>Check</strong>. On the DET, you must fill every gap before you can move on.</p>
+    <div class="tipbox"><b>TIP</b>Fill the easy gaps first. Then read the <strong>whole sentence</strong> around each hard gap. Grammar helps: after <em>to</em> you need a base verb, after <em>instead of</em> an -ing form, and before a noun an adjective.</div>
+    <div id="fgBox"></div>
+  </section>
+
+  <!-- STOP 5 -->
+  <section class="page" id="sec5" style="--accent:var(--teal)">
+    <div class="page-kicker"><span class="page-num">STOP 05</span><span class="page-time">~5 min</span></div>
+    <h2>Missing Page</h2>
+    <span class="det-tag">DET PRACTICE · COMPLETE THE PASSAGE</span>
+    <p class="page-sub">A sentence is missing from the article. Choose the one that connects the sentence <strong>before</strong> the gap to the sentence <strong>after</strong> it. When you click an option, it appears in the gap so you can read it in place. Then press <strong>Confirm</strong>.</p>
+    <div class="tipbox"><b>TIP</b>Follow the clue words from Week 3: <em>this, these, they, them</em> point back to something, and <em>however, so, as a result</em> show the direction of the ideas. Wrong answers are often about the right topic but in the wrong place.</div>
+    <div id="mpBox"></div>
+  </section>
+
+  <!-- STOP 6 -->
+  <section class="page" id="sec6" style="--accent:var(--blue)">
+    <div class="page-kicker"><span class="page-num">STOP 06</span><span class="page-time">~6 min</span></div>
+    <h2>Seat Finder</h2>
+    <span class="det-tag">DET PRACTICE · HIGHLIGHT THE ANSWER</span>
+    <p class="page-sub">On the DET, you answer some questions by <strong>highlighting the words in the passage</strong>. Choose a question, then select the answer in the article: drag across the words, or tap the <strong>first word</strong> and then the <strong>last word</strong>. Press <strong>Check</strong> when you're ready.</p>
+    <div class="tipbox"><b>TIP</b>Highlight the words that answer the question, usually a phrase or one sentence. Don't highlight a whole paragraph, and don't stop after one word. If you're not sure, highlight something anyway. Close answers still get partial credit.</div>
+    <div id="sfBox"></div>
+  </section>
+
+  <!-- STOP 7 -->
+  <section class="page" id="sec7" style="--accent:var(--coral)">
+    <div class="page-kicker"><span class="page-num">STOP 07</span><span class="page-time">~10 min</span></div>
+    <h2>Full Flight</h2>
+    <span class="det-tag">DET PRACTICE · FULL INTERACTIVE READING SET</span>
+    <p class="page-sub">Now put it all together. This is a new article you haven't seen, with all six question types in the same order as the DET. Use what you practiced today.</p>
+    <div id="ffBox"></div>
+  </section>
+
+  <!-- STOP 8 -->
+  <section class="page" id="sec8" style="--accent:var(--teal)">
+    <div class="page-kicker"><span class="page-num">STOP 08</span><span class="page-time">~5 min</span></div>
+    <h2>Tell a Friend</h2>
+    <span class="det-tag">BONUS · SPEAKING ABOUT WHAT YOU READ</span>
+    <p class="page-sub">If you can explain an article in a few sentences, you really understood its main idea. Record a short summary of the Full Flight article on <strong>Vocaroo</strong> (free, no account needed) and paste the link below so I can listen and send you feedback.</p>
+    <div class="cuecard" id="cuecard"></div>
+    <ol class="steps">
+      <li><span>Open <a href="https://vocaroo.com/" target="_blank" rel="noopener">vocaroo.com</a> in a new tab. It works on a computer or a phone.</span></li>
+      <li><span>Take <strong>30 seconds</strong> to plan using the three-part frame. Don't write a script. Just a few key words for each part.</span></li>
+      <li><span>Press the red <strong>record</strong> button (allow the microphone if asked) and talk. Don't read the article aloud. Use your own words.</span></li>
+      <li><span>Press stop, then <strong>Save &amp; Upload</strong>. Copy the link it gives you (it looks like <span class="mono">voca.ro/…</span> or <span class="mono">vocaroo.com/…</span>).</span></li>
+      <li><span>Paste the link here:</span></li>
+    </ol>
+    <input type="url" id="vocaLink" placeholder="https://voca.ro/..." oninput="checkLink()">
+    <div class="linkcheck" id="linkCheck"></div>
+    <p class="note">Nervous about recording? That's normal. Only I will hear it, and my feedback will focus on one or two helpful things, not every mistake.</p>
+    <div class="row" style="margin-top:10px"><button class="btn" onclick="completeStop(8)">Continue to my summary →</button></div>
+  </section>
+
+  <!-- STOP 9 -->
+  <section class="page" id="sec9" style="--accent:var(--gold)">
+    <div class="page-kicker"><span class="page-num">STOP 09</span><span class="page-time">~2 min</span></div>
+    <h2>Landing Card</h2>
+    <p class="page-sub">This is Week 4's primary assignment. Add one reading tip you will use on test day, then copy your summary and paste it into the Week 4 assignment in Classroom. That counts as attending this week.</p>
+    <label class="note" for="tipLine" style="display:block; margin-bottom:6px; color:var(--ink); font-weight:600">One reading tip I will use on test day:</label>
+    <input type="text" id="tipLine" placeholder="e.g. For titles, I'll cross out answers that are only one detail." oninput="S.tip=this.value; save(); buildSummary();">
+    <p class="missing" id="missing" style="margin-top:12px"></p>
+    <div class="summary-box" id="summary"></div>
+    <div class="row">
+      <button class="btn" onclick="copySummary()">Copy my summary</button>
+      <span class="copied-note" id="copied">Copied! Now paste it into Classroom.</span>
+    </div>
+    <div class="stamped" id="stamped">✓ LANDED — SEE YOU IN CLASSROOM</div>
+  </section>
+
+  <!-- RESOURCES -->
+  <section class="page" id="resources" style="--accent:var(--gold)">
+    <div class="page-kicker"><span class="page-num">TAKE-HOME</span><span class="page-time">optional</span></div>
+    <h2>Duty-Free Shop: Free Reading Tools</h2>
+    <p class="page-sub">Free sites with short articles at your level. Reading a little every day helps more than reading a lot once a week. Pick one or two you like.</p>
+    <div class="res-feature">
+      <div class="rf-head">
+        <div>
+          <h3>Official DET Practice: try this week's question types</h3>
+          <p>On Duolingo's free practice page, choose the question types below. They use the same skills you practiced today: finding main ideas and the details that answer a question.</p>
+        </div>
+        <div class="row">
+          <a href="https://englishtest.duolingo.com/practice" target="_blank" rel="noopener">Open the practice page →</a>
+          <a class="ghost" href="https://englishtest.duolingo.com/quick" target="_blank" rel="noopener">Quick practice test</a>
+        </div>
+      </div>
+      <div class="qt-grid">
+        <div class="qt main"><span class="qt-tag">MAIN FOCUS · Stops 02–07</span><b>Interactive Reading</b><span>One passage with six questions: complete the sentences, complete the passage, highlight the answer (×2), identify the idea, title the passage.</span></div>
+        <div class="qt"><span class="qt-tag">STRATEGY · Stop 03</span><b>Title &amp; main idea questions</b><span>In each Interactive Reading set, cross out the titles and ideas that are too narrow, too broad, or not in the text before you choose.</span></div>
+        <div class="qt"><span class="qt-tag">ALSO TRY · Stop 04</span><b>Fill in the Blanks</b><span>Complete the missing letters of words in a short text. Use grammar and the meaning of the sentence, as in Fill the Gaps.</span></div>
+        <div class="qt"><span class="qt-tag">ALSO TRY</span><b>Read and Select</b><span>Choose the real English words. A quick way to build reading speed and vocabulary.</span></div>
+      </div>
+    </div>
+    <div class="res-grid">
+      <a class="res rc-blue" href="https://breakingnewsenglish.com/" target="_blank" rel="noopener">
+        <b>Breaking News English</b><span class="url">breakingnewsenglish.com</span>
+        <p>Each news story is written at several levels, with reading activities.</p>
+        <span class="how">Try: read one story, then say its main idea in one sentence before you look at the questions.</span>
+      </a>
+      <a class="res rc-teal" href="https://www.newsinlevels.com/" target="_blank" rel="noopener">
+        <b>News in Levels</b><span class="url">newsinlevels.com</span>
+        <p>Very short news stories at three levels. Good for daily practice.</p>
+        <span class="how">Try: read Level 2, then Level 3 of the same story. Notice the new words.</span>
+      </a>
+      <a class="res rc-coral" href="https://learnenglish.britishcouncil.org/skills/reading" target="_blank" rel="noopener">
+        <b>British Council LearnEnglish Reading</b><span class="url">learnenglish.britishcouncil.org</span>
+        <p>Short texts (emails, articles, reviews) with comprehension tasks, sorted by level.</p>
+        <span class="how">Try: one B1 or B2 text, with a timer of 3 minutes for the first read.</span>
+      </a>
+      <a class="res rc-gold" href="https://readtheory.org/" target="_blank" rel="noopener">
+        <b>ReadTheory</b><span class="url">readtheory.org</span>
+        <p>Free reading quizzes that adjust to your level as you answer, with main-idea and detail questions.</p>
+        <span class="how">Try: three passages a week. A free account saves your progress.</span>
+      </a>
+      <a class="res rc-blue" href="https://learningenglish.voanews.com/" target="_blank" rel="noopener">
+        <b>VOA Learning English</b><span class="url">learningenglish.voanews.com</span>
+        <p>News articles in clear, slower English, often with audio you can listen to while you read.</p>
+        <span class="how">Try: read the first paragraph and guess a title before you read the real one.</span>
+      </a>
+      <a class="res rc-teal" href="https://simple.wikipedia.org/" target="_blank" rel="noopener">
+        <b>Simple English Wikipedia</b><span class="url">simple.wikipedia.org</span>
+        <p>Wikipedia written with easier words and shorter sentences. Search any topic you like.</p>
+        <span class="how">Try: look up something you know well, like your hometown, and skim it in 60 seconds.</span>
+      </a>
+    </div>
+    <p class="note" style="margin-top:12px">All sites were free to use when this page was made. If a link changes, search for the site name.</p>
+  </section>
+
+  <footer class="next">
+    <div><span>Next stop</span><strong>Week 5: Listening to Conversations in Detail</strong></div>
+    <span class="chip">Opens next week</span>
+  </footer>
+</div>
+<script>
+/* ================= data ================= */
+var CABIN_NAMES = {E:'Economy', B:'Business', F:'First Class'};
+var NSTOPS = 9;
+var SKIM_SEC = {E:60, B:50, F:45};
+var FF_MIN = {E:8, B:7, F:7};
+
+var TRAPS = {
+  narrow:  'Too narrow: this is only one small part of the text.',
+  broad:   'Too broad: the text is about something more specific.',
+  notin:   'Not in the text: the text doesn\'t talk about this.',
+  contra:  'Contradicts: the text says something different.',
+  detail:  'One detail only: it\'s true, but it isn\'t the idea of the whole text.',
+  extreme: 'Too extreme: the text never says anything this strong.',
+  off:     'Off-topic: it doesn\'t connect to the sentences around the gap.',
+  repeat:  'Repeats an earlier idea: it doesn\'t move the text forward.',
+  logic:   'Wrong direction: the linking word doesn\'t fit the ideas around it.',
+  back:    'Wrong place: it goes back to an earlier paragraph.'
+};
+
+// Stop 2: n = name, d = what it asks, t = tip
+var BRIEF = [
+  {n:'Complete the Sentences', d:'Choose the best word for each blank in the first part of the passage.', t:'Fill the easy blanks first. Read the whole sentence, not just the words next to the blank.'},
+  {n:'Complete the Passage', d:'Choose the sentence that fits the gap.', t:'Read the sentence before AND after the gap. Follow clue words like this, they, however.'},
+  {n:'Highlight the Answer', d:'Select the words in the passage that answer a question. (This one appears twice.)', t:'Highlight a phrase or sentence, not a whole paragraph. Always highlight something; partial answers still earn points.'},
+  {n:'Identify the Idea', d:'Choose the main idea of the whole passage.', t:'Wrong answers are often one true detail. Ask: does this cover the WHOLE passage?'},
+  {n:'Title the Passage', d:'Choose the best title.', t:'Not too narrow, not too broad, and nothing that is not in the text.'}
+];
+
+// Stop 3: q = 'title' | 'idea'; o = options: {t, ok} or {t, trap, note}
+var HH = {
+  E: [
+    {q:'title', text:'Many people take photos of their food before they eat. Some do it to remember a special meal. Others want to share it with friends online. Restaurants have noticed this, too. Some now serve food on colorful plates and use bright lights so the photos look good. A few restaurants even create new dishes just because they look nice in pictures. For many customers, how food looks is now almost as important as how it tastes.',
+     o:[{t:'Colorful Plates and Bright Lights in Restaurants', trap:'narrow'},{t:'Food Around the World', trap:'broad'},{t:'Food That Looks Good on Camera', ok:true},{t:'How to Cook a Healthy Meal at Home', trap:'notin'}]},
+    {q:'title', text:'Walking is one of the easiest ways to stay healthy. You don\'t need special clothes or a gym. A short walk after lunch can help you feel less sleepy in the afternoon. Walking with a friend is a good way to talk and relax at the same time. Some people listen to podcasts while they walk, so they can learn something new. Even ten minutes a day can make a difference.',
+     o:[{t:'Learning New Things by Listening to Podcasts', trap:'narrow'},{t:'The Benefits of Walking', ok:true},{t:'Sports and Exercise for Every Age', trap:'broad'},{t:'Why Gyms Are Too Expensive', trap:'notin', note:'Gyms are mentioned, but not their price.'}]},
+    {q:'idea', text:'In some Japanese towns, empty houses are becoming a problem. Young people move to big cities for work, and older people leave their homes. Some towns are trying new ideas. They sell old houses for very low prices, or even give them away, to families who promise to live there. Other towns turn empty houses into cafés or guest houses for tourists.',
+     o:[{t:'Young people move to big cities to find work.', trap:'detail'},{t:'Japan has many interesting towns to visit.', trap:'broad'},{t:'Houses in big cities are very expensive now.', trap:'notin'},{t:'Towns are finding new uses for empty houses.', ok:true}]}
+  ],
+  B: [
+    {q:'title', text:'Convenience stores in Japan do much more than sell snacks. Customers can pay their electricity bills, send packages, print documents, and buy concert tickets, all at the same counter. Many stores are open 24 hours, which makes them useful for people who work late or start early. In some small towns, the local convenience store is the only shop nearby, so older residents depend on it for daily necessities. For many people, it has become a kind of community center.',
+     o:[{t:'Paying Your Bills After Work at Night', trap:'narrow'},{t:'Japan\'s Do-Everything Shops', ok:true},{t:'Shopping Trends Across Asia Today', trap:'broad'},{t:'Why Convenience Store Food Is Bad for Your Health', trap:'notin'}]},
+    {q:'title', text:'Many people believe that multitasking helps them get more done. However, research suggests the opposite. When we switch between tasks, such as answering messages while writing a report, our brains need time to refocus each time. These small delays add up, and mistakes become more common. Experts often recommend “single-tasking”: choosing one task, turning off notifications, and working on it for a set amount of time before taking a break.',
+     o:[{t:'How to Turn Off the Notifications on Your Phone', trap:'narrow'},{t:'The Human Brain and How It Works', trap:'broad'},{t:'Why Business Reports Are Difficult to Write', trap:'notin'},{t:'Why Multitasking Slows Us Down', ok:true}]},
+    {q:'idea', text:'Every year, thousands of students from around the world come to Japan to study. Many of them say that the most difficult part is not the language or the classes, but making Japanese friends. Japanese students are often friendly but shy, and international students may not know how to start a conversation. To help, some universities hold language exchange events, where students meet to practice each other\'s languages. These events give both groups an easy reason to talk.',
+     o:[{t:'Exchange events help students make friends.', ok:true},{t:'Many Japanese students are friendly but quite shy.', trap:'detail'},{t:'Studying abroad in another country is always difficult.', trap:'broad'},{t:'International students find Japanese classes too difficult.', trap:'contra', note:'The text says the hard part is “not the language or the classes”.'}]}
+  ],
+  F: [
+    {q:'title', text:'For decades, the open-plan office was promoted as the future of work. Without walls, the argument went, employees would communicate more freely, share ideas, and collaborate more creatively. The reality has often been different. Research has found that when companies remove walls, face-to-face conversation can actually decrease, as workers put on headphones and switch to email and chat to protect their concentration. As a result, many companies are now redesigning their spaces to include quiet rooms and small meeting areas alongside open spaces.',
+     o:[{t:'Why So Many Office Workers Now Wear Headphones at Their Desks', trap:'narrow'},{t:'The History of Modern Architecture and Design', trap:'broad'},{t:'Open Offices: An Innovation That Did Not Work as Planned', ok:true},{t:'How to Get Promoted Quickly in a Competitive Workplace', trap:'notin', note:'A word trap: “promoted” appears in the text, but with a different meaning.'}]},
+    {q:'title', text:'The phrase “use it or lose it” applies surprisingly well to language skills. People who learned a second language in school often find that, years later, they can still understand much of what they read but struggle to speak. This is because receptive skills, such as reading and listening, tend to fade more slowly than productive skills like speaking and writing. The good news is that relearning is usually much faster than learning for the first time. Even forgotten knowledge leaves traces that make it easier to rebuild.',
+     o:[{t:'Good News Regarding Relearning a Forgotten Language', ok:true},{t:'Why Reading Is Always Easier Than Speaking a Language', trap:'narrow'},{t:'How the Human Brain Stores and Uses Information', trap:'broad'},{t:'The Best Age for Children to Start Learning a Second Language', trap:'notin'}]},
+    {q:'idea', text:'When tourists visit a popular destination, they bring money that supports local businesses. But when too many arrive at once, the effect can turn negative. In some famous cities, residents complain about crowded buses, rising rents as apartments become holiday rentals, and littered streets. This problem, often called “overtourism,” has led some places to introduce entry fees, limit the number of cruise ships, or promote less famous areas nearby. The aim is not to stop tourism, but to spread it out more evenly.',
+     o:[{t:'Tourists bring money that supports many small local businesses.', trap:'detail'},{t:'Cities are managing tourism, not stopping it.', ok:true},{t:'Travel has changed a great deal in the modern, connected world.', trap:'broad'},{t:'Cruise ships should be completely banned from all popular cities.', trap:'extreme'}]}
+  ]
+};
+
+/* Articles. p = paragraphs. In p[0], {0} {1}… are blanks. [[GAP]] marks the missing sentence.
+   blanks: o = options, a = answer, why = feedback. gap: o = options (ok / trap / note), clue.
+   hl: q = question, a = exact answer words from the passage. */
+var PRACTICE = {
+  E: {title:'Studying on the Train',
+    p:['Many university students in Japan spend a {0} time on trains. For {1}, the trip to campus takes more than an hour each way. That is {2} ten hours a week! Instead of {3} or looking at social media, some students {4} this time to study.',
+       'Yuna, a second-year student, listens to English podcasts on her way to school. “I can\'t read on a crowded train,” she says, “but I can always listen.” Her friend Kenta uses a flashcard app. He learns about ten new words during his morning commute.',
+       'Of course, studying on a train is not always easy. Trains can be noisy and crowded, and it is hard to write. [[GAP]] Short activities, like reviewing words or listening, work best.',
+       'Train time may feel like wasted time. But with a little planning, it can become one of the most useful parts of your day.'],
+    blanks:[
+      {o:['far','long','slow'], a:'long', why:'We say “a long time”. “Far” is for distance.'},
+      {o:['any','much','some'], a:'some', why:'“For some” = for some students.'},
+      {o:['over','across','up'], a:'over', why:'“Over ten hours” = more than ten hours.'},
+      {o:['sleep','sleeping','slept'], a:'sleeping', why:'After “instead of”, use the -ing form.'},
+      {o:['do','give','use'], a:'use', why:'“Use this time to study” = do something useful with the time.'}],
+    gap:{o:[{t:'Yuna\'s favorite English podcast is about travel and food.', trap:'off'},
+            {t:'So choose activities that don\'t need a desk.', ok:true},
+            {t:'However, trains in Japan are usually very clean and quiet.', trap:'contra', note:'The sentence before says trains are “noisy and crowded”.'},
+            {t:'Kenta also studies at the university library on weekends.', trap:'off', note:'It isn\'t about studying on trains.'}],
+      clue:'“hard to write” → “don\'t need a desk” → “Short activities … work best.”'},
+    hl:[{q:'How does Kenta study on the train?', a:'Kenta uses a flashcard app'},
+        {q:'What kinds of activities work best on a train?', a:'Short activities, like reviewing words or listening'}]
+  },
+  B: {title:'The Rise of Solo Travel',
+    p:['Not long ago, traveling by yourself was often {0} as lonely or even a little strange. Today, that image is changing {1}. More and more young people are choosing to travel {2}, and the tourism industry has started to {3}. Hotels now offer single rooms at lower prices, {4} tour companies run trips designed especially for solo travelers.',
+       'Why is solo travel becoming so popular? One reason is freedom. When you travel alone, you can wake up when you like, change your plans at any time, and spend three hours in a museum if you want to. Nobody will complain. Another reason is personal growth. Solving problems on your own, such as finding your way in a foreign city, can build confidence.',
+       'Solo travel also makes it easier to meet new people. [[GAP]] Locals and other travelers are more likely to start a conversation with them, and solo travelers are more likely to say yes to new experiences.',
+       'Of course, traveling alone has some challenges. It can cost more, since there is no one to share a taxi or a room with, and safety is an important concern. Experienced solo travelers suggest sharing your plans with family and keeping your phone charged. With some preparation, a trip for one can be a trip to remember.'],
+    blanks:[
+      {o:['looked','seen','watched'], a:'seen', why:'“Be seen as” = people think it is.'},
+      {o:['quick','quicker','quickly'], a:'quickly', why:'An adverb (-ly) describes how it is changing.'},
+      {o:['alone','lonely','only'], a:'alone', why:'“Travel alone” = without other people. “Lonely” is a feeling.'},
+      {o:['noticing','notice','noticed'], a:'notice', why:'“Start to” + base verb.'},
+      {o:['during','since','while'], a:'while', why:'“While” joins two clauses happening at the same time. “During” needs a noun.'}],
+    gap:{o:[{t:'Hotels in big cities are often expensive, especially on weekends.', trap:'off'},
+            {t:'However, many people still feel nervous about eating alone in restaurants.', trap:'logic', note:'“However” breaks the positive point of this paragraph.'},
+            {t:'Travelers on their own often seem more open.', ok:true},
+            {t:'As mentioned above, solving problems on your own builds confidence.', trap:'repeat'}],
+      clue:'“them” in the next sentence refers to “travelers on their own”, and “more open” leads into “more likely to start a conversation”.'},
+    hl:[{q:'According to the article, how can solo travel build confidence?', a:'Solving problems on your own, such as finding your way in a foreign city'},
+        {q:'Why can solo travel cost more?', a:'there is no one to share a taxi or a room with'}]
+  },
+  F: {title:'The Case for Slow Travel',
+    p:['For many travelers, a successful trip {0} seeing as much as possible: five cities in seven days, with a full schedule from morning {1} night. Slow travel takes the {2} approach. Instead of rushing between famous sights, slow travelers stay in one place for a longer period, {3} them to experience daily life {4} than simply passing through. The idea {5} grown in popularity in recent years.',
+       'Supporters argue that slow travel leads to deeper and more memorable experiences. When you stay in a neighborhood for two weeks, you begin to notice details that a one-day visitor would miss: the bakery that sells out by nine, the old men who play chess in the park every afternoon, the festival that is not listed in any guidebook. You may even start to recognize faces, and they may recognize yours.',
+       'There are also practical benefits. Moving constantly is tiring and expensive; every train ticket, hotel check-in, and packed suitcase takes time and energy. [[GAP]] Many slow travelers rent apartments with kitchens, which allows them to shop at local markets and cook their own meals.',
+       'Slow travel is not for everyone. It requires more vacation time than many workers have, and some people simply enjoy the excitement of a fast-moving trip. Yet even travelers with limited time can borrow its main idea: choose fewer places, and give each one the attention it deserves.'],
+    blanks:[
+      {o:['shows','means','takes'], a:'means', why:'“A successful trip means seeing…” = is the same as.'},
+      {o:['by','until','since'], a:'until', why:'“From morning until night.”'},
+      {o:['opposed','opposite','opposing'], a:'opposite', why:'An adjective before a noun: “the opposite approach”.'},
+      {o:['allow','allowed','allowing'], a:'allowing', why:'An -ing clause adds the result: “…, allowing them to…”.'},
+      {o:['rather','other','better'], a:'rather', why:'“Rather than” = instead of.'},
+      {o:['have','is','has'], a:'has', why:'Present perfect with a singular subject: “The idea has grown”.'}],
+    gap:{o:[{t:'Famous sights are usually crowded during the summer holiday season.', trap:'off'},
+            {t:'The old men in the park, however, rarely speak to strangers or visitors.', trap:'back'},
+            {t:'As a result, slow travelers usually visit far more cities than other tourists do.', trap:'contra'},
+            {t:'Longer stays reduce these costs, and long rentals are often cheaper.', ok:true}],
+      clue:'“these costs” refers back to “tiring and expensive”, and “rentals” leads into “rent apartments”.'},
+    hl:[{q:'What details might a slow traveler notice that a short-term visitor would miss?', a:'the bakery that sells out by nine, the old men who play chess in the park every afternoon, the festival that is not listed in any guidebook'},
+        {q:'Why might slow travel not suit everyone?', a:'It requires more vacation time than many workers have, and some people simply enjoy the excitement of a fast-moving trip'}]
+  }
+};
+
+var FULL = {
+  E: {title:'Window or Aisle?',
+    p:['When you {0} a flight, you often have to choose a seat. Most people {1} between two kinds: the window seat {2} the aisle seat. Each one has good {3} and bad points, so the best choice depends {4} what you like to do during a flight.',
+       'Window seats are popular with people who want to sleep. You can lean against the wall, and nobody needs to climb over you. You can also enjoy the view and take photos of the clouds. However, if you need the restroom, you must ask the people next to you to stand up.',
+       'Aisle seats are better for people who move around a lot. You can stand up any time and stretch your legs. [[GAP]] On the other hand, other passengers may wake you up when they need to get out.',
+       'So, which seat is best? If you want to rest, choose the window. If you want freedom to move, choose the aisle. And if you get the middle seat… just try to smile!'],
+    blanks:[
+      {o:['read','book','open'], a:'book', why:'You “book” a flight = you reserve it.'},
+      {o:['prefer','want','choose'], a:'choose', why:'“Choose between A and B.”'},
+      {o:['and','or','but'], a:'and', why:'“Between A and B” always uses “and”.'},
+      {o:['places','points','times'], a:'points', why:'“Good points and bad points” = advantages and disadvantages.'},
+      {o:['at','for','on'], a:'on', why:'“Depends on” is a fixed phrase.'}],
+    gap:{o:[{t:'Window seats are often the first seats to be booked on busy flights.', trap:'off', note:'This paragraph is about aisle seats.'},
+            {t:'Many airlines serve rice and fish for dinner on long flights.', trap:'off'},
+            {t:'This is helpful on long flights.', ok:true},
+            {t:'Because of this, aisle seats are very hard to sleep in.', trap:'logic', note:'The problem comes later, after “On the other hand”.'}],
+      clue:'“This” points back to standing up and stretching your legs, and “On the other hand” then gives the bad point.'},
+    hl:[{q:'Why do people who want to sleep like window seats?', a:'You can lean against the wall, and nobody needs to climb over you'},
+        {q:'What is one problem with aisle seats?', a:'other passengers may wake you up when they need to get out'}],
+    idea:[{t:'Window seats are the best seats on a plane for everyone.', trap:'contra'},
+          {t:'Aisle seats let you stand up and stretch your legs at any time.', trap:'detail'},
+          {t:'Flying is more comfortable than taking the train or bus.', trap:'notin'},
+          {t:'The best seat depends on your needs.', ok:true}],
+    ttl:[{t:'Choosing Your Seat', ok:true},
+         {t:'Taking Photos of the Clouds from Your Window', trap:'narrow'},
+         {t:'The History of Air Travel Around the World', trap:'broad'},
+         {t:'Why Middle Seats Are Secretly the Best', trap:'contra'}]
+  },
+  B: {title:'Beating Jet Lag',
+    p:['If you have ever {0} to a country far away, you may know the feeling: you are tired in the afternoon but wide {1} at 3 a.m. This is called jet lag. It happens {2} your body clock is still following the time zone you {3}, not the one you arrived {4}.',
+       'Your body clock controls when you feel sleepy, hungry, and alert. It is mostly set by light. When your eyes see morning light, your brain receives a signal that the day has started. Crossing many time zones confuses this system, and it usually takes several days to adjust. Many travelers find that flying east, where you “lose” time, is harder than flying west.',
+       'Fortunately, there are ways to reduce jet lag. Before the trip, you can slowly move your bedtime closer to the time at your destination. On the plane, drink plenty of water and avoid too much coffee. [[GAP]] Instead, go outside and spend time in natural light, which helps reset your body clock.',
+       'Jet lag cannot be avoided completely, but a little planning can help you enjoy your trip from the very first day.'],
+    blanks:[
+      {o:['flew','flown','flying'], a:'flown', why:'“Have ever” + past participle: flown.'},
+      {o:['wake','woken','awake'], a:'awake', why:'“Wide awake” = completely awake.'},
+      {o:['because','although','unless'], a:'because', why:'This gives the reason for jet lag.'},
+      {o:['leave','left','leaving'], a:'left', why:'Past tense: the time zone you left.'},
+      {o:['on','to','in'], a:'in', why:'We “arrive in” a country or city.'}],
+    gap:{o:[{t:'Coffee is one of the most popular drinks in the world, especially in the morning.', trap:'off'},
+            {t:'After you land, avoid long daytime naps.', ok:true},
+            {t:'Many travelers say that flying west is usually much easier than flying east.', trap:'repeat'},
+            {t:'Therefore, you should sleep as much as possible as soon as you land.', trap:'contra', note:'The next sentence says “Instead, go outside”.'}],
+      clue:'“Instead, go outside…” must follow something the traveler should NOT do, like taking a long nap.'},
+    hl:[{q:'What mainly sets the body clock?', a:'It is mostly set by light'},
+        {q:'What can travelers do before the trip?', a:'slowly move your bedtime closer to the time at your destination'}],
+    idea:[{t:'Flying east is usually harder than flying west because you lose time.', trap:'detail'},
+          {t:'Long flights can cause serious health problems for many travelers.', trap:'broad'},
+          {t:'Jet lag can be reduced with simple steps.', ok:true},
+          {t:'Travelers should drink coffee on the plane to stay awake.', trap:'contra'}],
+    ttl:[{t:'Why We Feel Hungry in the Middle of the Night', trap:'narrow'},
+         {t:'The Science of Sleep and Dreams', trap:'broad'},
+         {t:'The Best Places to Visit in Winter', trap:'notin'},
+         {t:'How to Handle Jet Lag', ok:true}]
+  },
+  F: {title:'The Hidden Design of Airports',
+    p:['Most travelers {0} to think of an airport as a place to pass {1} as quickly as possible. Airport designers, however, think very differently. Every {2} of a modern terminal, from the layout of the corridors to the color of the lighting, is carefully planned to {3} how passengers feel and behave. The goal is {4} practical and partly commercial.',
+       'On the practical side, designers try to reduce stress. Security checks are often the most anxious part of the journey, so many airports place calming features, such as natural light, plants, and open views of the runway, immediately after them. Clear signs and simple routes help passengers feel in control, which in turn makes them more relaxed.',
+       'On the commercial side, airports earn a large share of their income from shops and restaurants rather than from airlines alone. [[GAP]] In many large airports, passengers must walk through a duty-free shop after security; there is no other path. Some terminals use curved walkways, which keep shop windows in view for longer than a straight corridor would.',
+       'These two goals are closely connected. A relaxed passenger who is not worried about missing a flight is far more likely to stop for coffee or browse for gifts. In this sense, a calm airport is also a profitable one.'],
+    blanks:[
+      {o:['tendency','tend','tending'], a:'tend', why:'“Tend to” + verb = usually do.'},
+      {o:['across','over','through'], a:'through', why:'“Pass through” a place = go in one side and out the other.'},
+      {o:['element','elementary','elemental'], a:'element', why:'A noun is needed after “every”.'},
+      {o:['influential','influence','influenced'], a:'influence', why:'“Planned to” + base verb.'},
+      {o:['partial','part','partly'], a:'partly', why:'An adverb, matching “partly commercial”.'}],
+    gap:{o:[{t:'So the path to your gate often passes many stores.', ok:true},
+            {t:'Plants and natural light also help to improve the air quality inside terminals.', trap:'back'},
+            {t:'Many passengers prefer to bring their own food and drinks from home.', trap:'off'},
+            {t:'However, most airlines have reduced the size of their seats in recent years.', trap:'off'}],
+      clue:'“So” turns the money from shops into a design result, and the next sentence gives examples of paths that pass stores.'},
+    hl:[{q:'Why do airports place calming features right after security?', a:'Security checks are often the most anxious part of the journey'},
+        {q:'Why do some terminals use curved walkways?', a:'keep shop windows in view for longer than a straight corridor would'}],
+    idea:[{t:'Security checks are the most stressful part of flying for most passengers.', trap:'detail'},
+          {t:'Airports are designed to calm passengers and encourage spending.', ok:true},
+          {t:'Modern buildings around the world use a lot of natural light and plants.', trap:'broad'},
+          {t:'Airports make most of their money from airline fees, not from shops.', trap:'contra'}],
+    ttl:[{t:'The Duty-Free Shop You Must Walk Through After Security', trap:'narrow'},
+         {t:'The Future of Transportation in a Changing World', trap:'broad'},
+         {t:'The Hidden Design of Airports', ok:true},
+         {t:'How to Get Through Airport Security Faster', trap:'notin'}]
+  }
+};
+
+var SPEAK = {
+  E: {time:'about 30 seconds', frame:[['MAIN IDEA','This article is about…'],['ONE DETAIL','For example, …'],['I THINK','I usually choose the … seat because…']]},
+  B: {time:'about 45 seconds', frame:[['MAIN IDEA','The article explains…'],['ONE DETAIL','One useful tip is…'],['I THINK','The tip I would try first is… because…']]},
+  F: {time:'about 60 seconds', frame:[['MAIN IDEA','The article argues that…'],['ONE DETAIL','For example, …'],['I THINK','Next time I\'m at an airport, I\'ll notice… / I\'m not sure I agree, because…']]}
+};
+</script>
+<script>
+/* ================= state ================= */
+var S = {cabin:null, done:{}, br:{matched:{}, miss:0}, hh:{}, fg:{}, mp:{}, sf:{}, ff:{}, link:'', tip:''};
+try { var sv = localStorage.getItem('detW4State'); if (sv) S = Object.assign(S, JSON.parse(sv)); } catch(e) {}
+function save(){ try { localStorage.setItem('detW4State', JSON.stringify(S)); } catch(e) {} }
+function C(){ return S.cabin || 'B'; }
+function esc(s){ return String(s).replace(/[&<>"']/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]; }); }
+function $(id){ return document.getElementById(id); }
+function mmss(s){ s = Math.max(0, Math.round(s)); return Math.floor(s/60)+':'+('0'+(s%60)).slice(-2); }
+
+// shuffle once per page load per key, so options don't jump around while a student works
+var ORD = {};
+function order(key, n){
+  if (!ORD[key] || ORD[key].length !== n){
+    var a = []; for (var i=0;i<n;i++) a.push(i);
+    for (var j=n-1;j>0;j--){ var k = Math.floor(Math.random()*(j+1)); var t=a[j]; a[j]=a[k]; a[k]=t; }
+    ORD[key] = a;
+  }
+  return ORD[key];
+}
+function shuffled(key, arr){ return order(key, arr.length).map(function(i){ return arr[i]; }); }
+function trapText(o){ return o.ok ? '' : (TRAPS[o.trap] || '') + (o.note ? ' ' + o.note : ''); }
+function correctOf(opts){ return opts.filter(function(o){ return o.ok; })[0]; }
+
+/* ================= rail ================= */
+function paintRail(){
+  for (var i=1;i<=NSTOPS;i++){
+    var d = document.querySelector('.stamp-dot[data-stamp="'+i+'"]');
+    if (S.done[i]){ d.classList.add('done'); d.textContent='✓'; } else { d.classList.remove('done'); d.textContent=i; }
+  }
+  $('railCabin').textContent = S.cabin ? CABIN_NAMES[S.cabin].toUpperCase() : 'NO CABIN YET';
+}
+function completeStop(n, noScroll){
+  S.done[n] = true; save(); paintRail(); buildSummary();
+  if (!noScroll){ var nx = $('sec'+(n+1)); if (nx) nx.scrollIntoView({behavior:'smooth', block:'start'}); }
+}
+
+/* ================= article helpers ================= */
+function gapCorrect(art){ return correctOf(art.gap.o).t; }
+// resolve blanks to answers and the gap to the correct sentence
+function plainParas(art){
+  return art.p.map(function(p){
+    return p.replace(/\{(\d+)\}/g, function(m, i){ return art.blanks[+i].a; }).replace('[[GAP]]', gapCorrect(art));
+  });
+}
+// paragraph 1 with <select> blanks. picks = array of chosen words; marks = optional array of 'ok'/'no'
+function blanksPara(art, key, picks, marks, locked){
+  var txt = esc(art.p[0]).replace(/\{(\d+)\}/g, function(m, i){
+    i = +i; var b = art.blanks[i], opts = shuffled(key+'b'+i, b.o), cur = picks[i] || '';
+    var cls = 'blank' + (marks && marks[i] ? ' '+marks[i] : '');
+    return '<select class="'+cls+'" data-i="'+i+'" aria-label="Blank '+(i+1)+'"'+(locked?' disabled':'')+'><option value="">'+(cur?'':'select')+'</option>'+
+      opts.map(function(o){ return '<option'+(o===cur?' selected':'')+'>'+esc(o)+'</option>'; }).join('')+'</select>';
+  });
+  return '<p class="dc">'+txt+'</p>';
+}
+// a paragraph with the gap shown as a box (preview text or placeholder)
+function gapPara(text, preview, cls){
+  var box = '<span class="gapbox'+(cls?' '+cls:'')+'">'+(preview ? esc(preview) : '[ missing sentence ]')+'</span>';
+  return '<p>'+esc(text).replace('[[GAP]]', box)+'</p>';
+}
+function magOpen(kicker, title){
+  return '<div class="mag"><div class="mag-kicker">'+esc(kicker)+'</div>'+(title ? '<h3>'+esc(title)+'</h3>' : '');
+}
+
+/* ---------- highlight component ---------- */
+function normW(w){ return String(w).toLowerCase().replace(/[’‘]/g,"'").replace(/[^a-z0-9']/g,''); }
+function tokens(paras){ var out=[]; paras.forEach(function(p, pi){ p.split(/\s+/).filter(Boolean).forEach(function(w){ out.push({w:w, p:pi}); }); }); return out; }
+function findTarget(paras, phrase){
+  var tk = tokens(paras).map(function(t){ return normW(t.w); });
+  var ph = phrase.split(/\s+/).map(normW).filter(Boolean);
+  for (var i=0;i+ph.length<=tk.length;i++){
+    var ok = true; for (var j=0;j<ph.length;j++){ if (tk[i+j] !== ph[j]){ ok=false; break; } }
+    if (ok) return [i, i+ph.length-1];
+  }
+  return null;
+}
+function scoreHL(sel, tgt){
+  if (!sel || !tgt) return {pts:0, cls:'zero', msg:'Nothing highlighted. On the DET, always highlight something, because close answers get partial credit.'};
+  var ov = Math.max(0, Math.min(sel[1], tgt[1]) - Math.max(sel[0], tgt[0]) + 1);
+  var rec = ov / (tgt[1]-tgt[0]+1), prec = ov / (sel[1]-sel[0]+1);
+  if (rec >= 0.8 && prec >= 0.7) return {pts:1, cls:'full', msg:'✓ Full credit. You found the answer.'};
+  if (ov > 0){
+    if (prec < 0.7 && rec >= 0.8) return {pts:0.5, cls:'part', msg:'½ Partial credit: too much. Your highlight includes the answer plus extra words. Trim it to just the part that answers the question.'};
+    if (rec < 0.8 && prec >= 0.7) return {pts:0.5, cls:'part', msg:'½ Partial credit: too little. You\'re in the right place, but the answer continues. Highlight the whole phrase.'};
+    return {pts:0.5, cls:'part', msg:'½ Partial credit. You\'re close, but only part of your highlight is the answer.'};
+  }
+  return {pts:0, cls:'zero', msg:'✗ Not quite. The answer is in a different part of the text. Look for words from the question.'};
+}
+// renders paragraphs as word spans into el. st = {sel:[a,b]|null}. opts.tgt = [a,b] to underline. onChange called after selection.
+function mountHL(el, paras, st, opts, onChange){
+  opts = opts || {};
+  var tk = tokens(paras), k = 0, html = '';
+  paras.forEach(function(p, pi){
+    var words = p.split(/\s+/).filter(Boolean);
+    html += '<p'+(pi===0?' class="dc"':'')+'>' + words.map(function(w){
+      var i = k++, cls = 'w';
+      if (st.sel && i>=st.sel[0] && i<=st.sel[1]) cls += ' sel';
+      if (opts.tgt && i>=opts.tgt[0] && i<=opts.tgt[1]) cls += ' tgt';
+      if (st.pending === i) cls += ' start';
+      return '<span class="'+cls+'" data-k="'+i+'">'+esc(w)+'</span>';
+    }).join(' ') + '</p>';
+  });
+  el.innerHTML = html;
+  if (opts.locked){ el.classList.remove('hl-on'); return; }
+  el.classList.add('hl-on');
+  var dragged = false;
+  function wOf(node){ while (node && node !== el){ if (node.nodeType===1 && node.classList && node.classList.contains('w')) return +node.getAttribute('data-k'); node = node.parentNode; } return null; }
+  el.onmouseup = function(){
+    var s = window.getSelection && window.getSelection();
+    if (s && !s.isCollapsed && el.contains(s.anchorNode) && el.contains(s.focusNode)){
+      var a = wOf(s.anchorNode), b = wOf(s.focusNode);
+      if (a !== null && b !== null){
+        st.sel = [Math.min(a,b), Math.max(a,b)]; st.pending = null; dragged = true;
+        try{ s.removeAllRanges(); }catch(e){}
+        onChange();
+      }
+    }
+  };
+  el.onclick = function(e){
+    if (dragged){ dragged = false; return; }
+    var w = e.target.closest ? e.target.closest('.w') : null; if (!w) return;
+    var i = +w.getAttribute('data-k');
+    if (st.pending === null || st.pending === undefined){ st.pending = i; st.sel = [i, i]; }
+    else { st.sel = [Math.min(st.pending, i), Math.max(st.pending, i)]; st.pending = null; }
+    onChange();
+  };
+}
+function selText(paras, sel){
+  if (!sel) return '';
+  return tokens(paras).slice(sel[0], sel[1]+1).map(function(t){ return t.w; }).join(' ');
+}
+
+/* ================= stop 1 ================= */
+function pickCabin(c, silent){
+  if (FF && FF.c !== c) stopFF();
+  S.cabin = c; save();
+  document.body.className = 'cab-' + c;
+  ['E','B','F'].forEach(function(k){ $('cab'+k).classList.toggle('active', k===c); });
+  var msg = {
+    E:'<strong>Welcome to Economy.</strong> Your articles are short, with everyday words. Focus on the strategies: first and last sentences, clue words, and avoiding the three title traps.',
+    B:'<strong>Welcome to Business.</strong> Your articles are longer, with more linking words. Watch how <em>however</em>, <em>this</em> and <em>them</em> connect the ideas.',
+    F:'<strong>Welcome to First Class.</strong> Your articles are magazine-length, with abstract ideas and tighter timers. Practice reading for the main idea before the details.'
+  }[c];
+  $('cabinCallout').innerHTML = msg + ' <em>You can switch cabins any time.</em>';
+  $('cabinCallout').style.display = 'block';
+  renderAll();
+  if (!silent){ completeStop(1, true); setTimeout(function(){ $('sec2').scrollIntoView({behavior:'smooth', block:'start'}); }, 350); }
+}
+function renderAll(){ renderBrief(); renderHH(); renderFG(); renderMP(); renderSF(); renderFF(); renderCue(); paintRail(); buildSummary(); }
+
+/* ================= stop 2: briefing ================= */
+var brSel = null;
+function renderBrief(){
+  var tc = $('tchips'), dg = $('dgrid'); tc.innerHTML = ''; dg.innerHTML = '';
+  shuffled('brN', BRIEF.map(function(b,i){ return i; })).forEach(function(i){
+    var used = !!S.br.matched[i];
+    var b = document.createElement('button');
+    b.className = 'tchip' + (used ? ' used' : '') + (brSel===i ? ' sel' : '');
+    b.textContent = BRIEF[i].n; b.disabled = used;
+    b.onclick = function(){ brSel = (brSel===i ? null : i); renderBrief(); };
+    tc.appendChild(b);
+  });
+  shuffled('brD', BRIEF.map(function(b,i){ return i; })).forEach(function(i){
+    var ok = !!S.br.matched[i];
+    var d = document.createElement('button');
+    d.className = 'dcard' + (ok ? ' ok' : ''); d.disabled = ok;
+    d.innerHTML = (ok ? '<span class="dname">✓ '+esc(BRIEF[i].n).toUpperCase()+'</span>' : '') + esc(BRIEF[i].d) +
+      (ok ? '<span class="dtip">💡 '+esc(BRIEF[i].t)+'</span>' : '');
+    d.onclick = function(){
+      if (brSel === null){ $('brScore').innerHTML = 'First tap a question type name above.'; return; }
+      if (brSel === i){ S.br.matched[i] = true; brSel = null; save(); renderBrief(); }
+      else { S.br.miss = (S.br.miss||0) + 1; brSel = null; save(); document.querySelectorAll('.tchip.sel').forEach(function(x){ x.classList.remove('sel'); }); d.classList.remove('shake'); void d.offsetWidth; d.classList.add('shake'); brScore(); }
+    };
+    dg.appendChild(d);
+  });
+  brScore();
+}
+function brScore(){
+  var n = Object.keys(S.br.matched).length;
+  $('brScore').innerHTML = n+' / '+BRIEF.length+' matched' + (S.br.miss ? ' · '+S.br.miss+' wrong '+(S.br.miss===1?'try':'tries') : '') + (n===BRIEF.length ? ' · <b>All matched!</b>' : '');
+  if (n === BRIEF.length && !S.done[2]) completeStop(2, true);
+}
+function brReset(){ S.br = {matched:{}, miss:0}; brSel = null; delete ORD.brN; delete ORD.brD; save(); renderBrief(); }
+
+/* ================= stop 3: headline hunt ================= */
+var HHT = {};
+function hhState(c){ if (!S.hh[c]) S.hh[c] = [{},{},{}]; return S.hh[c]; }
+function renderHH(){
+  var c = C(), list = $('hhList'); list.innerHTML = '';
+  Object.keys(HHT).forEach(function(k){ clearInterval(HHT[k].int); }); HHT = {};
+  HH[c].forEach(function(it, i){ var d = document.createElement('div'); d.className = 'skim'; d.id = 'hh'+i; list.appendChild(d); renderHHCard(i); });
+  hhScore();
+}
+function renderHHCard(i){
+  var c = C(), it = HH[c][i], st = hhState(c)[i], d = $('hh'+i), t = HHT[i];
+  var started = !!t || !!st.ans, answered = !!st.ans;
+  var qtxt = it.q === 'title' ? 'Which is the best title for this text?' : 'What is the main idea of this text?';
+  var h = '<div class="skim-head"><span class="skim-num">SKIM '+(i+1)+' / '+HH[c].length+' · '+(it.q==='title'?'TITLE THE PASSAGE':'IDENTIFY THE IDEA')+'</span>'+
+    '<span class="skim-clock" id="hhClock'+i+'">'+(answered ? '' : (t ? '' : SKIM_SEC[c]+' s'))+'</span></div>';
+  if (!started){
+    h += '<div class="row"><button class="btn small" data-act="start">Start skimming ('+SKIM_SEC[c]+' s)</button><span class="note">The text appears when you start.</span></div>';
+    d.innerHTML = h; d.querySelector('[data-act="start"]').onclick = function(){ hhStart(i); }; return;
+  }
+  var fog = t && t.up && !answered;
+  if (!answered) h += '<div class="tbar"><i id="hhBar'+i+'"></i></div>';
+  h += '<p class="skim-text'+(fog?' fog':'')+'">'+esc(it.text)+'</p>';
+  if (fog) h += '<p class="fog-msg">Time\'s up! Choose from what you remember, or <button class="btn secondary small" data-act="peek">peek again (+15 s)</button></p>';
+  h += '<p class="skim-q">'+qtxt+'</p><div class="lopt-list">';
+  var cor = correctOf(it.o);
+  shuffled(c+'hh'+i, it.o).forEach(function(o, j){
+    var cls = 'lopt', why = '';
+    if (answered){
+      if (o.ok){ cls += ' ok'; why = st.ans===o.t ? '✓ Correct. It covers the whole text.' : '✓ This is the best answer.'; }
+      else if (st.ans === o.t){ cls += ' no'; why = '✗ ' + trapText(o); }
+      else cls += ' dim';
+    }
+    h += '<button class="'+cls+'" data-o="'+esc(o.t)+'"'+(answered?' disabled':'')+'>'+esc(o.t)+(why?'<span class="why">'+why+'</span>':'')+'</button>';
+  });
+  h += '</div>';
+  if (answered) h += '<div class="row" style="margin-top:8px"><button class="btn secondary small" data-act="redo">Try this one again</button></div>';
+  d.innerHTML = h;
+  d.querySelectorAll('.lopt').forEach(function(b){ b.onclick = function(){ hhAnswer(i, b.getAttribute('data-o')); }; });
+  var pk = d.querySelector('[data-act="peek"]'); if (pk) pk.onclick = function(){ hhPeek(i); };
+  var rd = d.querySelector('[data-act="redo"]'); if (rd) rd.onclick = function(){ hhState(c)[i] = {first: st.first}; delete ORD[c+'hh'+i]; renderHHCard(i); hhScore(); };
+  if (t && !answered) hhTick(i);
+}
+function hhStart(i){
+  var c = C(); HHT[i] = {end: Date.now() + SKIM_SEC[c]*1000, total: SKIM_SEC[c], up:false};
+  renderHHCard(i);
+  HHT[i].int = setInterval(function(){ hhTick(i); }, 250);
+}
+function hhTick(i){
+  var t = HHT[i]; if (!t) return;
+  var left = (t.end - Date.now())/1000, clock = $('hhClock'+i), bar = $('hhBar'+i);
+  if (clock) clock.textContent = left > 0 ? Math.ceil(left)+' s' : '0 s';
+  if (bar) bar.style.width = Math.max(0, 100*left/t.total) + '%';
+  if (left <= 0 && !t.up){ t.up = true; clearInterval(t.int); renderHHCard(i); }
+}
+function hhPeek(i){ var t = HHT[i]; t.end = Date.now() + 15000; t.total = 15; t.up = false; t.int = setInterval(function(){ hhTick(i); }, 250); renderHHCard(i); }
+function hhAnswer(i, txt){
+  var c = C(), st = hhState(c)[i];
+  if (st.ans) return;
+  st.ans = txt;
+  if (st.first === undefined) st.first = !!(correctOf(HH[c][i].o).t === txt);
+  if (HHT[i]){ clearInterval(HHT[i].int); delete HHT[i]; }
+  save(); renderHHCard(i); hhScore();
+}
+function hhScore(){
+  var c = C(), arr = hhState(c), n = 0, ok = 0;
+  arr.forEach(function(st){ if (st.first !== undefined){ n++; if (st.first) ok++; } });
+  $('hhScore').innerHTML = n+' / 3 answered' + (n ? ' · <b>'+ok+' correct on first try</b>' : '');
+  if (n === 3){ S.hhResult = ok+'/3 correct on first try ('+CABIN_NAMES[c]+')'; if (!S.done[3]) completeStop(3, true); else { save(); buildSummary(); } }
+}
+
+/* ================= stop 4: fill the gaps ================= */
+function fgState(c){ if (!S.fg[c]) S.fg[c] = {picks:[], checks:0, marks:null}; return S.fg[c]; }
+function renderFG(){
+  var c = C(), art = PRACTICE[c], st = fgState(c), box = $('fgBox');
+  var allOk = st.marks && st.marks.every(function(m){ return m==='ok'; });
+  var h = magOpen('IN-FLIGHT MAGAZINE · PRACTICE ARTICLE', art.title) + blanksPara(art, c+'fg', st.picks, st.marks, allOk) +
+    '<p class="faded">The article continues in Stop 05…</p></div>';
+  h += '<div class="row" style="margin-bottom:10px"><button class="btn" data-act="check"'+(allOk?' disabled style="opacity:.5;cursor:default"':'')+'>Check</button><span class="note" id="fgMsg"></span></div>';
+  if (st.marks){
+    h += '<ul class="blank-fb">' + art.blanks.map(function(b, i){
+      var ok = st.marks[i]==='ok';
+      if (ok) return '<li><span class="y">✓ '+(i+1)+'. '+esc(b.a)+'</span>: '+esc(b.why)+'</li>';
+      if (st.checks >= 2) return '<li><span class="n">✗ '+(i+1)+'.</span> The answer is <b>'+esc(b.a)+'</b>. '+esc(b.why)+'</li>';
+      return '<li><span class="n">✗ '+(i+1)+'.</span> Try another word. Read the whole sentence again.</li>';
+    }).join('') + '</ul>';
+    if (allOk) h += '<p class="note"><b>All correct!</b> '+(st.first===art.blanks.length?'Perfect on the first check.':'You got '+st.first+' / '+art.blanks.length+' on your first check.')+'</p>';
+  }
+  h += '<div class="row" style="margin-top:6px"><button class="btn secondary" onclick="completeStop(4)">Continue to Stop 05 →</button></div>';
+  box.innerHTML = h;
+  box.querySelectorAll('select.blank').forEach(function(s){
+    s.onchange = function(){ var i = +s.getAttribute('data-i'); st.picks[i] = s.value; if (st.marks){ st.marks[i] = null; s.className = 'blank'; } save(); };
+  });
+  var ck = box.querySelector('[data-act="check"]'); if (ck) ck.onclick = fgCheck;
+}
+function fgCheck(){
+  var c = C(), art = PRACTICE[c], st = fgState(c);
+  var empty = art.blanks.some(function(b, i){ return !st.picks[i]; });
+  if (empty){ $('fgMsg').textContent = 'Fill every gap first. On the DET, you can\'t move on until all gaps are filled.'; return; }
+  st.marks = art.blanks.map(function(b, i){ return st.picks[i] === b.a ? 'ok' : 'no'; });
+  st.checks = (st.checks||0) + 1;
+  if (st.first === undefined) st.first = st.marks.filter(function(m){ return m==='ok'; }).length;
+  S.fgResult = st.first+'/'+art.blanks.length+' on first check ('+CABIN_NAMES[c]+')';
+  save(); renderFG();
+  if (!S.done[4]) completeStop(4, true);
+}
+
+/* ================= stop 5: missing page ================= */
+function mpState(c){ if (!S.mp[c]) S.mp[c] = {pick:null, tried:[], solved:false}; return S.mp[c]; }
+function renderMP(){
+  var c = C(), art = PRACTICE[c], st = mpState(c), box = $('mpBox');
+  var cor = gapCorrect(art);
+  var h = magOpen('IN-FLIGHT MAGAZINE · PRACTICE ARTICLE (CONTINUED)', '') + '<p class="faded">…continued from Stop 04</p>';
+  art.p.slice(1).forEach(function(p){
+    if (p.indexOf('[[GAP]]') < 0) h += '<p>'+esc(p)+'</p>';
+    else h += gapPara(p, st.solved ? cor : st.pick, st.solved ? 'ok' : (st.pick ? 'preview' : ''));
+  });
+  h += '</div><p class="skim-q">Which sentence fits the gap?</p><div class="lopt-list">';
+  shuffled(c+'mp', art.gap.o).forEach(function(o){
+    var tried = st.tried.indexOf(o.t) >= 0, cls = 'lopt', why = '';
+    if (o.ok && st.solved){ cls += ' ok'; why = '✓ Correct. Clue: ' + esc(art.gap.clue); }
+    else if (tried){ cls += ' no'; why = '✗ ' + esc(trapText(o)); }
+    else if (st.pick === o.t) cls += ' picked';
+    else if (st.solved) cls += ' dim';
+    h += '<button class="'+cls+'" data-o="'+esc(o.t)+'"'+((tried||st.solved)?' disabled':'')+'>'+esc(o.t)+(why?'<span class="why">'+why+'</span>':'')+'</button>';
+  });
+  h += '</div>';
+  if (!st.solved) h += '<div class="row" style="margin-top:10px"><button class="btn" data-act="confirm"'+(st.pick?'':' disabled style="opacity:.5;cursor:default"')+'>Confirm</button><span class="note">Click an option to see it in the gap first.</span></div>';
+  h += '<div class="row" style="margin-top:12px"><button class="btn secondary" onclick="completeStop(5)">Continue to Stop 06 →</button></div>';
+  box.innerHTML = h;
+  box.querySelectorAll('.lopt').forEach(function(b){ b.onclick = function(){ st.pick = b.getAttribute('data-o'); save(); renderMP(); }; });
+  var cf = box.querySelector('[data-act="confirm"]'); if (cf) cf.onclick = mpConfirm;
+}
+function mpConfirm(){
+  var c = C(), art = PRACTICE[c], st = mpState(c); if (!st.pick) return;
+  var ok = st.pick === gapCorrect(art);
+  if (st.firstOk === undefined) st.firstOk = ok;
+  if (ok) st.solved = true; else { st.tried.push(st.pick); st.pick = null; }
+  S.mpResult = (st.firstOk ? 'correct on first try' : st.solved ? 'correct on try '+(st.tried.length+1) : 'wrong on first try') + ' ('+CABIN_NAMES[c]+')';
+  save(); renderMP();
+  if (!S.done[5]) completeStop(5, true); else buildSummary();
+}
+
+/* ================= stop 6: seat finder ================= */
+function sfState(c){ if (!S.sf[c]) S.sf[c] = {active:0, q:[{sel:null, res:null},{sel:null, res:null}]}; return S.sf[c]; }
+function renderSF(){
+  var c = C(), art = PRACTICE[c], st = sfState(c), box = $('sfBox'), paras = plainParas(art);
+  var h = magOpen('IN-FLIGHT MAGAZINE · PRACTICE ARTICLE', art.title)+'<div id="sfArt"></div></div>';
+  art.hl.forEach(function(q, i){
+    var qs = st.q[i], act = st.active === i;
+    h += '<div class="hlq'+(act?' active':'')+'" data-q="'+i+'"><label class="hlq-top"><input type="radio" name="sfq" '+(act?'checked':'')+'><p><b>Question '+(i+1)+'.</b> '+esc(q.q)+'</p></label>';
+    if (qs.sel) h += '<p class="hl-sel">Your highlight: “'+esc(selText(paras, qs.sel))+'”</p>';
+    else if (act) h += '<p class="hl-sel">Highlight your answer in the article above.</p>';
+    if (qs.res) h += '<p class="hl-res '+qs.res.cls+'">'+esc(qs.res.msg)+'</p>';
+    if (act){
+      h += '<div class="row" style="margin-top:8px">' + (qs.res ? '<button class="btn secondary small" data-act="again">Try again</button>' :
+        '<button class="btn small" data-act="check"'+(qs.sel?'':' disabled style="opacity:.5;cursor:default"')+'>Check</button><button class="btn secondary small" data-act="clear">Clear</button>') + '</div>';
+    }
+    h += '</div>';
+  });
+  h += '<div class="rf-top" style="margin-top:6px"><span class="score" id="sfScore"></span><button class="btn secondary" onclick="completeStop(6)">Continue to Full Flight →</button></div>';
+  box.innerHTML = h;
+  var qs = st.q[st.active];
+  var tgt = qs.res ? findTarget(paras, art.hl[st.active].a) : null;
+  mountHL($('sfArt'), paras, qs, {tgt:tgt, locked:!!qs.res}, function(){ save(); renderSF(); });
+  box.querySelectorAll('.hlq').forEach(function(el){
+    var i = +el.getAttribute('data-q');
+    el.querySelector('input').onchange = function(){ st.active = i; save(); renderSF(); };
+    var ck = el.querySelector('[data-act="check"]'); if (ck) ck.onclick = function(){ sfCheck(i); };
+    var cl = el.querySelector('[data-act="clear"]'); if (cl) cl.onclick = function(){ st.q[i].sel = null; st.q[i].pending = null; save(); renderSF(); };
+    var ag = el.querySelector('[data-act="again"]'); if (ag) ag.onclick = function(){ st.q[i] = {sel:null, res:null, first:st.q[i].first}; save(); renderSF(); };
+  });
+  sfScore();
+}
+function sfCheck(i){
+  var c = C(), art = PRACTICE[c], st = sfState(c), qs = st.q[i], paras = plainParas(art);
+  qs.res = scoreHL(qs.sel, findTarget(paras, art.hl[i].a)); qs.pending = null;
+  if (qs.first === undefined) qs.first = qs.res.pts;
+  save(); renderSF();
+}
+function sfScore(){
+  var c = C(), st = sfState(c), n = 0, pts = 0;
+  st.q.forEach(function(q){ if (q.first !== undefined){ n++; pts += q.first; } });
+  $('sfScore').innerHTML = n+' / 2 checked' + (n ? ' · <b>'+pts+' / 2 points on first check</b>' : '');
+  if (n === 2){ S.sfResult = pts+'/2 points on first check ('+CABIN_NAMES[c]+')'; if (!S.done[6]) completeStop(6, true); else { save(); buildSummary(); } }
+}
+
+/* ================= stop 7: full flight ================= */
+var FF = null, FFint = null;
+var FF_TYPES = ['Complete the Sentences','Complete the Passage','Highlight the Answer','Highlight the Answer','Identify the Idea','Title the Passage'];
+function ffState(c){ if (!S.ff[c]) S.ff[c] = {attempts:[], key:false}; return S.ff[c]; }
+function stopFF(){ if (FFint){ clearInterval(FFint); FFint = null; } FF = null; }
+function startFF(){
+  var c = C(), n = ffState(c).attempts.length;
+  ['ff'+c+'b0','ff'+c+'b1','ff'+c+'b2','ff'+c+'b3','ff'+c+'b4','ff'+c+'gap','ff'+c+'idea','ff'+c+'ttl'].forEach(function(k){ delete ORD[k]; });
+  FF = {c:c, step:0, start:Date.now(), picks:[], gap:null, hl:[{sel:null},{sel:null}], idea:null, ttl:null, n:n+1};
+  renderFF();
+  $('sec7').scrollIntoView({behavior:'smooth', block:'start'});
+  FFint = setInterval(ffTick, 500);
+}
+function ffElapsed(){ return (Date.now() - FF.start)/1000; }
+function ffTick(){
+  var el = $('ffClock'); if (!el || !FF) return;
+  var limit = FF_MIN[FF.c]*60, e = ffElapsed(), left = limit - e;
+  if (left >= 0){ el.textContent = mmss(left); el.classList.remove('over'); el.title = 'Time left'; }
+  else { el.textContent = '+' + mmss(-left) + ' over'; el.classList.add('over'); el.title = 'Over time. Keep going and finish.'; }
+}
+function ffAnswered(){
+  var art = FULL[FF.c];
+  switch (FF.step){
+    case 0: return art.blanks.every(function(b, i){ return !!FF.picks[i]; });
+    case 1: return !!FF.gap;
+    case 2: return !!FF.hl[0].sel;
+    case 3: return !!FF.hl[1].sel;
+    case 4: return !!FF.idea;
+    case 5: return !!FF.ttl;
+  }
+}
+function renderFF(){
+  var c = C(), box = $('ffBox'), st = ffState(c), art = FULL[c];
+  if (!FF){
+    var h = '';
+    if (!st.attempts.length){
+      h += '<div class="ff-rules"><div class="ff-rule"><b>TIME</b>'+FF_MIN[c]+' minutes for 6 questions. The clock turns coral when time is up, but you can still finish.</div>'+
+        '<div class="ff-rule"><b>ONE WAY</b>Like the DET, you can\'t go back to a question. Answer each one before you move on.</div>'+
+        '<div class="ff-rule"><b>TWO TRIES</b>You get one retry before the answer key is shown. Both scores go in your summary.</div></div>'+
+        '<div class="row"><button class="btn" onclick="startFF()">Start Full Flight ('+FF_MIN[c]+':00)</button><span class="note">Find a quiet moment first.</span></div>';
+    } else h += ffResults(c);
+    box.innerHTML = h; return;
+  }
+  // running
+  var s = FF.step, paras = plainParas(art);
+  var h = '<div class="ff-bar"><span class="ff-step">QUESTION '+(s+1)+' / 6</span><span class="ff-type">'+FF_TYPES[s]+'</span><span class="ff-clock" id="ffClock"></span>'+
+    '<div class="ff-dots">'+[0,1,2,3,4,5].map(function(k){ return '<i'+(k<=s?' class="on"':'')+'></i>'; }).join('')+'</div></div>';
+  var kicker = 'IN-FLIGHT MAGAZINE · ATTEMPT '+FF.n;
+  if (s === 0){
+    h += '<p class="ff-q">Select the best word for each blank.</p>' + magOpen(kicker, '') + blanksPara(art, 'ff'+c, FF.picks, null, false) + '</div>';
+  } else if (s === 1){
+    h += '<p class="ff-q">Select the sentence that best fills the gap.</p>' + magOpen(kicker, '') + '<p class="dc">'+esc(paras[0])+'</p>';
+    art.p.slice(1).forEach(function(p){ h += p.indexOf('[[GAP]]')<0 ? '<p>'+esc(p)+'</p>' : gapPara(p, FF.gap, FF.gap?'preview':''); });
+    h += '</div><div class="lopt-list">' + shuffled('ff'+c+'gap', art.gap.o).map(function(o){
+      return '<button class="lopt'+(FF.gap===o.t?' picked':'')+'" data-o="'+esc(o.t)+'">'+esc(o.t)+'</button>'; }).join('') + '</div>';
+  } else if (s === 2 || s === 3){
+    var qi = s-2, sel = FF.hl[qi].sel;
+    h += '<p class="ff-q">'+esc(art.hl[qi].q)+'</p><p class="note" style="margin:-4px 0 10px">Highlight the answer in the text: drag, or tap the first and last word.</p>' + magOpen(kicker, '') + '<div id="ffArt"></div></div>' +
+      '<p class="hl-sel">'+(sel ? 'Your highlight: “'+esc(selText(paras, sel))+'”' : 'Nothing highlighted yet.')+'</p>';
+  } else {
+    var key = s===4 ? 'idea' : 'ttl', opts = s===4 ? art.idea : art.ttl;
+    h += magOpen(kicker, '') + paras.map(function(p, pi){ return '<p'+(pi===0?' class="dc"':'')+'>'+esc(p)+'</p>'; }).join('') + '</div>' +
+      '<p class="ff-q">'+(s===4 ? 'Select the idea that is expressed in the passage.' : 'Select the best title for the passage.')+'</p><div class="lopt-list">' +
+      shuffled('ff'+c+key, opts).map(function(o){ return '<button class="lopt'+(FF[key]===o.t?' picked':'')+'" data-o="'+esc(o.t)+'">'+esc(o.t)+'</button>'; }).join('') + '</div>';
+  }
+  var ready = ffAnswered();
+  h += '<div class="row" style="margin-top:12px"><button class="btn" data-act="next"'+(ready?'':' disabled style="opacity:.5;cursor:default"')+'>'+(s===5?'Finish ✓':'Next →')+'</button>'+
+    (ready ? '' : '<span class="note">'+(s===2||s===3 ? 'Highlight something to continue.' : 'Answer to continue.')+'</span>')+'</div>';
+  box.innerHTML = h;
+  ffTick();
+  box.querySelectorAll('select.blank').forEach(function(sl){ sl.onchange = function(){ FF.picks[+sl.getAttribute('data-i')] = sl.value; ffNextState(); }; });
+  if (s === 1) box.querySelectorAll('.lopt').forEach(function(b){ b.onclick = function(){ FF.gap = b.getAttribute('data-o'); renderFF(); }; });
+  if (s === 4 || s === 5) box.querySelectorAll('.lopt').forEach(function(b){ b.onclick = function(){ FF[s===4?'idea':'ttl'] = b.getAttribute('data-o'); renderFF(); }; });
+  if (s === 2 || s === 3) mountHL($('ffArt'), paras, FF.hl[s-2], {}, function(){ renderFF(); });
+  box.querySelector('[data-act="next"]').onclick = ffNext;
+}
+function ffNextState(){
+  var b = $('ffBox').querySelector('[data-act="next"]'), ok = ffAnswered();
+  b.disabled = !ok; b.style.opacity = ok ? '' : '.5'; b.style.cursor = ok ? '' : 'default';
+  var n = b.nextElementSibling; if (n && ok) n.remove();
+}
+function ffNext(){
+  if (!ffAnswered()) return;
+  if (FF.step < 5){ FF.step++; renderFF(); $('sec7').scrollIntoView({behavior:'smooth', block:'start'}); return; }
+  // finish & score
+  var c = FF.c, art = FULL[c], paras = plainParas(art);
+  var blanks = art.blanks.filter(function(b, i){ return FF.picks[i] === b.a; }).length;
+  var gap = FF.gap === gapCorrect(art);
+  var hl = [0,1].map(function(i){ return scoreHL(FF.hl[i].sel, findTarget(paras, art.hl[i].a)).pts; });
+  var idea = FF.idea === correctOf(art.idea).t, ttl = FF.ttl === correctOf(art.ttl).t;
+  var secs = Math.round(ffElapsed());
+  var r = {blanks:blanks, nb:art.blanks.length, gap:gap, hl:hl, idea:idea, ttl:ttl, secs:secs, limit:FF_MIN[c]*60,
+    total: blanks + (gap?1:0) + hl[0] + hl[1] + (idea?1:0) + (ttl?1:0),
+    picks:FF.picks.slice(), gapPick:FF.gap, hlText:[selText(paras, FF.hl[0].sel), selText(paras, FF.hl[1].sel)], ideaPick:FF.idea, ttlPick:FF.ttl};
+  var st = ffState(c); st.attempts.push(r); if (st.attempts.length >= 2) st.key = true;
+  stopFF(); save(); renderFF(); renderCue();
+  if (!S.done[7]) completeStop(7, true); else buildSummary();
+  $('sec7').scrollIntoView({behavior:'smooth', block:'start'});
+}
+function ptsCell(p){ return p===1 ? '<span class="y">✓ 1</span>' : p===0.5 ? '<span class="h">½</span>' : '<span class="n">✗ 0</span>'; }
+function timeLine(r){ return mmss(r.secs) + (r.secs <= r.limit ? ' (within '+mmss(r.limit)+')' : ' ('+mmss(r.secs - r.limit)+' over '+mmss(r.limit)+')'); }
+function ffResults(c){
+  var st = ffState(c), art = FULL[c], r = st.attempts[st.attempts.length-1];
+  var h = '<div class="attempts">' + st.attempts.map(function(a, i){
+    return '<div class="att"><span>ATTEMPT '+(i+1)+'</span><div class="bigscore">'+a.total+'<small> / 10</small></div><span style="margin-top:4px">'+timeLine(a)+'</span></div>';
+  }).join('') + '</div>';
+  h += '<table class="res-table"><thead><tr><th>QUESTION</th><th>ATTEMPT '+st.attempts.length+'</th></tr></thead><tbody>'+
+    '<tr><td>1. Complete the Sentences</td><td class="pt">'+(r.blanks===r.nb?'<span class="y">':'<span class="h">')+r.blanks+' / '+r.nb+'</span></td></tr>'+
+    '<tr><td>2. Complete the Passage</td><td class="pt">'+ptsCell(r.gap?1:0)+'</td></tr>'+
+    '<tr><td>3. Highlight the Answer</td><td class="pt">'+ptsCell(r.hl[0])+'</td></tr>'+
+    '<tr><td>4. Highlight the Answer</td><td class="pt">'+ptsCell(r.hl[1])+'</td></tr>'+
+    '<tr><td>5. Identify the Idea</td><td class="pt">'+ptsCell(r.idea?1:0)+'</td></tr>'+
+    '<tr><td>6. Title the Passage</td><td class="pt">'+ptsCell(r.ttl?1:0)+'</td></tr></tbody></table>';
+  if (!st.key){
+    h += '<p class="note">Want to improve your score? Use your retry before you look at the answers. The same article is used, and the options are shuffled.</p>'+
+      '<div class="row"><button class="btn" onclick="startFF()">Retry (1 left)</button><button class="btn secondary" onclick="ffShowKey()">Show the answer key instead</button></div>';
+  } else {
+    var ideaO = art.idea.filter(function(o){ return o.t===r.ideaPick; })[0], ttlO = art.ttl.filter(function(o){ return o.t===r.ttlPick; })[0], gapO = art.gap.o.filter(function(o){ return o.t===r.gapPick; })[0];
+    h += '<div class="key"><h3>Answer key · “'+esc(art.title)+'”</h3><ol>'+
+      '<li><b>Complete the Sentences:</b> '+art.blanks.map(function(b, i){ var ok = r.picks[i]===b.a; return '<span class="'+(ok?'y':'n')+'">'+esc(b.a)+'</span>'+(ok?'':' (you: '+esc(r.picks[i]||'—')+')'); }).join(' · ')+
+        '<ul style="margin:4px 0 0; padding-left:1.1em; color:var(--muted)">'+art.blanks.map(function(b){ return '<li>'+esc(b.a)+': '+esc(b.why)+'</li>'; }).join('')+'</ul></li>'+
+      '<li><b>Complete the Passage:</b> “'+esc(gapCorrect(art))+'” '+esc('Clue: '+art.gap.clue)+(gapO && !gapO.ok ? '<br><span class="n">Your answer:</span> '+esc(trapText(gapO)) : '')+'</li>'+
+      '<li><b>Highlight:</b> '+esc(art.hl[0].q)+' → “'+esc(art.hl[0].a)+'”'+(r.hlText[0] ? '<br><span style="color:var(--muted)">You highlighted: “'+esc(r.hlText[0])+'”</span>' : '')+'</li>'+
+      '<li><b>Highlight:</b> '+esc(art.hl[1].q)+' → “'+esc(art.hl[1].a)+'”'+(r.hlText[1] ? '<br><span style="color:var(--muted)">You highlighted: “'+esc(r.hlText[1])+'”</span>' : '')+'</li>'+
+      '<li><b>Identify the Idea:</b> “'+esc(correctOf(art.idea).t)+'”'+(ideaO && !ideaO.ok ? '<br><span class="n">Your answer:</span> '+esc(trapText(ideaO)) : '')+'</li>'+
+      '<li><b>Title the Passage:</b> “'+esc(correctOf(art.ttl).t)+'”'+(ttlO && !ttlO.ok ? '<br><span class="n">Your answer:</span> '+esc(trapText(ttlO)) : '')+'</li>'+
+      '</ol></div>';
+  }
+  h += '<div class="row" style="margin-top:14px"><button class="btn secondary" onclick="completeStop(7)">Continue to Tell a Friend →</button></div>';
+  return h;
+}
+function ffShowKey(){ var st = ffState(C()); st.key = true; save(); renderFF(); buildSummary(); }
+
+/* ================= stop 8 ================= */
+function renderCue(){
+  var c = C(), sp = SPEAK[c], art = FULL[c];
+  $('cuecard').innerHTML = '<h3>🎙 Your cue card · '+CABIN_NAMES[c]+'</h3>'+
+    '<p><strong>Topic:</strong> Tell a friend about the Full Flight article'+(ffState(c).attempts.length ? ' (“'+esc(art.title)+'”)' : '')+'. They haven\'t read it.</p>'+
+    '<p><strong>Speak for:</strong> '+sp.time+' · Use the three-part frame:</p>'+
+    '<ul class="frame">'+sp.frame.map(function(f){ return '<li><b>'+f[0]+'</b>'+esc(f[1])+'</li>'; }).join('')+'</ul>';
+}
+function validLink(v){ return /^(https?:\/\/)?(www\.)?(voca\.ro|vocaroo\.com)\/[A-Za-z0-9]+/i.test(v.trim()); }
+function checkLink(){
+  var v = $('vocaLink').value; S.link = v.trim(); save();
+  var el = $('linkCheck');
+  if (!v.trim()){ el.textContent=''; el.className='linkcheck'; }
+  else if (validLink(v)){ el.textContent='✓ Looks like a Vocaroo link. Nice!'; el.className='linkcheck ok'; }
+  else { el.textContent='Hmm, this doesn\'t look like a Vocaroo link. It should start with voca.ro/ or vocaroo.com/'; el.className='linkcheck bad'; }
+  buildSummary();
+}
+
+/* ================= stop 9 ================= */
+function buildSummary(){
+  var c = S.cabin, cc = C(), st = ffState(cc);
+  var nb = Object.keys(S.br.matched).length;
+  var lines = [
+    'WEEK 4 · IN-FLIGHT MAGAZINE — LANDING CARD',
+    'Cabin: ' + (c ? CABIN_NAMES[c] : '(not chosen)'),
+    'Pre-flight Briefing: ' + nb + '/' + BRIEF.length + ' matched' + (S.br.miss ? ' (' + S.br.miss + ' wrong ' + (S.br.miss===1?'try':'tries') + ')' : ''),
+    'Headline Hunt: ' + (S.hhResult || '(not finished)'),
+    'Fill the Gaps: ' + (S.fgResult || '(not finished)'),
+    'Missing Page: ' + (S.mpResult || '(not finished)'),
+    'Seat Finder: ' + (S.sfResult || '(not finished)'),
+    '',
+    'FULL FLIGHT · Interactive Reading practice (' + CABIN_NAMES[cc] + ', ' + FF_MIN[cc] + ' min)'
+  ];
+  if (!st.attempts.length) lines.push('(not finished)');
+  st.attempts.forEach(function(r, i){
+    lines.push('Attempt ' + (i+1) + ': ' + r.total + '/10 · time ' + timeLine(r));
+    lines.push('  Complete the Sentences ' + r.blanks + '/' + r.nb + ' · Complete the Passage ' + (r.gap?'1':'0') + '/1 · Highlight 1: ' + r.hl[0] + '/1 · Highlight 2: ' + r.hl[1] + '/1 · Identify the Idea ' + (r.idea?'1':'0') + '/1 · Title the Passage ' + (r.ttl?'1':'0') + '/1');
+  });
+  if (st.attempts.length === 1) lines.push(st.key ? '(Answer key viewed, no retry.)' : '(Retry not used yet.)');
+  lines = lines.concat([
+    '',
+    'SPEAKING (Vocaroo): ' + (S.link || '(no link yet)'),
+    'Reading tip I will use on test day: ' + ((S.tip||'').trim() || '(not written yet)')
+  ]);
+  $('summary').textContent = lines.join('\n');
+  var miss = [];
+  if (!c) miss.push('choose a cabin');
+  if (!st.attempts.length) miss.push('finish the Full Flight');
+  if (!S.link) miss.push('add your Vocaroo link');
+  if (!(S.tip||'').trim()) miss.push('write your reading tip');
+  $('missing').textContent = miss.length ? 'Still to do: ' + miss.join(', ') + '. (You can still copy, but please complete these if you can.)' : '';
+}
+function copySummary(){
+  var t = $('summary').textContent;
+  function ok(){ $('copied').classList.add('show'); $('stamped').classList.add('show'); completeStop(9, true); }
+  function fallback(){
+    var ta = document.createElement('textarea'); ta.value=t; ta.style.position='fixed'; ta.style.opacity='0'; document.body.appendChild(ta); ta.select();
+    try{ document.execCommand('copy'); }catch(e){} document.body.removeChild(ta); ok();
+  }
+  if (navigator.clipboard && navigator.clipboard.writeText){ navigator.clipboard.writeText(t).then(ok, fallback); } else fallback();
+}
+
+/* ================= init ================= */
+if (!S.br || !S.br.matched) S.br = {matched:{}, miss:0};
+$('vocaLink').value = S.link || '';
+$('tipLine').value = S.tip || '';
+if (S.cabin) pickCabin(S.cabin, true); else renderAll();
+if (S.link) checkLink();
+paintRail(); buildSummary();
+</script>
+</body>
+</html>
