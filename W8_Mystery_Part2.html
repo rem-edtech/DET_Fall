@@ -543,6 +543,11 @@
     <div id="noteBox"></div>
   </section>
 
+  <section class="page" id="secD" style="--accent:var(--teal); display:none">
+    <div class="page-kicker"><span class="page-num">STEP 4</span><span class="page-time">~8 min</span></div>
+    <div id="diaryBox"></div>
+  </section>
+
   <section class="page" id="secW" style="--accent:var(--gold)">
     <div class="page-kicker"><span class="page-num">WORD HELP</span><span class="page-time">optional</span></div>
     <h2>Words from the story</h2>
@@ -551,9 +556,9 @@
   </section>
 
   <section class="page" id="secR" style="--accent:var(--gold)">
-    <div class="page-kicker"><span class="page-num">STEP 4</span><span class="page-time">~1 min</span></div>
+    <div class="page-kicker"><span class="page-num" id="repNum">STEP 4</span><span class="page-time">~1 min</span></div>
     <h2>Copy your report</h2>
-    <p class="page-sub">Your report has your paragraph and everything you typed in the gaps. Tap <strong>Copy my report</strong> and paste it into the Week 8 mystery assignment in Classroom.</p>
+    <p class="page-sub" id="repSub">Your report has your paragraph and everything you typed in the gaps. Tap <strong>Copy my report</strong> and paste it into the Week 8 mystery assignment in Classroom.</p>
     <p class="missing" id="missing"></p>
     <div class="summary-box" id="summary"></div>
     <div class="row">
@@ -572,7 +577,7 @@ var PAGE = {"part":2,"lines":[{"sp":"Narrator","t":["And ",{"g":0}," let’s ",{
 <script>
 var VERS = {A:{n:'Version A', d:'The original gaps', sets:['a']}, B:{n:'Version B', d:'Different gaps', sets:['b']}, C:{n:'Challenge', d:'All the gaps from A and B', sets:['a','b']}};
 var KEY = 'detW8Myst' + PAGE.part;
-var S = {ver:'A', vals:{}, first:{}, hints:{}, shown:{}, checks:{}, firstCheck:{}, listen:0, plays:0, note:'', think:0, reflect:'', diagram:false};
+var S = {ver:'A', vals:{}, first:{}, hints:{}, shown:{}, checks:{}, firstCheck:{}, listen:0, plays:0, note:'', think:0, reflect:'', diary:'', diaryHints:0, diagram:false};
 try { var sv = localStorage.getItem(KEY); if (sv) S = Object.assign(S, JSON.parse(sv)); } catch(e) {}
 function save(){ try { localStorage.setItem(KEY, JSON.stringify(S)); } catch(e) {} }
 function $(id){ return document.getElementById(id); }
@@ -735,6 +740,30 @@ function renderNote(){
     $('diaBtn').onclick = function(){ S.diagram = !S.diagram; save(); paintDia(); }; paintDia();
   }
 }
+/* ---------- step 4 (part 2): the doctor's diary ---------- */
+var DIARY_Q = [
+  'Where were you, and what did you see when you arrived on the highway?',
+  'What did you tell Mike about his father? How did Mike act?',
+  'What did you tell Mr. Floyd about the father (his leg, the crutch, the right side)?',
+  'How did you feel when Mr. Floyd explained the two flaws? Were you surprised?',
+  'What do you think about Mike now? What will you remember about this case?'
+];
+var DIARY_MIN = 80;
+function renderDiary(){
+  if (PAGE.part !== 2) return;
+  $('secD').style.display = '';
+  $('diaryBox').innerHTML = '<h2>The Doctor’s Diary</h2><span class="det-tag">DET SKILL · WRITING · PAST TENSE</span>' +
+    '<p class="page-sub"><strong>You are the doctor.</strong> Tonight you are at home, and you write in your diary about the murder case you were part of today. Tell the story <strong>from the doctor’s point of view</strong>: what you saw, what you said, and what you learned. Write <strong>' + DIARY_MIN + ' words or more</strong>.</p>' +
+    '<div class="frame8"><b>Diary tips:</b> use <strong>I</strong> and the <strong>past tense</strong> (I arrived… I saw… I told…). Use time words to keep your story in order: <em>First… When I arrived… Later… After that… Finally…</em> End with your feelings or a lesson.<br><em>Dear Diary, Today was a day I will never forget. I was called to an accident on the highway…</em></div>' +
+    '<textarea class="nb" id="diaryT" style="min-height:220px" placeholder="Dear Diary, Today…"></textarea>' +
+    '<div class="row" style="margin-top:8px"><span class="note" id="diaryWC"></span><button class="btn secondary small" id="dqBtn"></button></div><div id="dqBox"></div>';
+  $('diaryT').value = S.diary || '';
+  function wc(){ var n = words($('diaryT').value); $('diaryWC').innerHTML = n + ' word' + (n === 1 ? '' : 's') + ' · target ' + DIARY_MIN + (n >= DIARY_MIN ? ' 🎯' : ''); }
+  $('diaryT').oninput = function(){ S.diary = this.value; save(); wc(); buildSummary(); }; wc();
+  function paintQ(){ $('dqBtn').textContent = S.diaryHints >= DIARY_Q.length ? 'No more questions' : 'Give me a question to answer (' + (S.diaryHints + 1) + ' of ' + DIARY_Q.length + ')'; $('dqBtn').disabled = S.diaryHints >= DIARY_Q.length;
+    $('dqBox').innerHTML = S.diaryHints ? '<ul class="think">' + DIARY_Q.slice(0, S.diaryHints).map(function(q){ return '<li>' + q + '</li>'; }).join('') + '</ul>' : ''; }
+  $('dqBtn').onclick = function(){ S.diaryHints = Math.min(DIARY_Q.length, (S.diaryHints || 0) + 1); save(); paintQ(); buildSummary(); }; paintQ();
+}
 var DIAGRAM = '<svg class="diagram" viewBox="0 0 420 300" role="img" aria-label="Diagram of the road: the father walks north on the edge of the road with his crutch on the left. Mike helps on his right, between his father and the car coming south.">' +
   '<rect x="150" y="0" width="200" height="300" fill="color-mix(in srgb, var(--muted) 22%, var(--paper))"/><line x1="250" y1="0" x2="250" y2="300" stroke="var(--paper)" stroke-width="4" stroke-dasharray="18 14"/>' +
   '<text x="20" y="22" font-size="13" font-weight="700" fill="var(--ink)">NORTH ↑</text><text x="20" y="290" font-size="13" font-weight="700" fill="var(--ink)">SOUTH ↓</text>' +
@@ -769,11 +798,15 @@ function buildSummary(){
   if (!tried.length){ lines.push(''); lines.push('Gaps: (not started)'); }
   lines.push('');
   if (PAGE.part === 1){ lines.push('How does Mr. Floyd know that Mike is the murderer? (thinking hints used: ' + S.think + ')'); lines.push((S.note || '').trim() || '(not written yet)'); }
-  else { lines.push('Was my idea right?'); lines.push((S.reflect || '').trim() || '(not written yet)'); }
+  else {
+    lines.push('Was my idea right?'); lines.push((S.reflect || '').trim() || '(not written yet)');
+    lines.push(''); lines.push('THE DOCTOR’S DIARY (' + words(S.diary || '') + ' words · question prompts used: ' + (S.diaryHints || 0) + ')'); lines.push((S.diary || '').trim() || '(not written yet)');
+  }
   $('summary').textContent = lines.join('\n');
   var miss = [];
   if (!Object.keys(S.checks).length) miss.push('fill the gaps and tap Check my answers');
   if (!((PAGE.part === 1 ? S.note : S.reflect) || '').trim()) miss.push(PAGE.part === 1 ? 'write your idea in the Detective’s notebook' : 'write 2–3 sentences in Case closed');
+  if (PAGE.part === 2 && !(S.diary || '').trim()) miss.push('write the Doctor’s Diary');
   $('missing').textContent = miss.length ? 'Still to do: ' + miss.join(', ') + '. (You can still copy, but please complete these if you can.)' : '';
 }
 $('copyBtn').onclick = function(){
@@ -794,7 +827,8 @@ $('audLen').textContent = 'audio ' + mmss(PAGE.secs);
 $('partNav').innerHTML = PAGE.part === 1
   ? '<div class="nextpart"><div><span class="note">After you copy your report</span><br><strong>Part 2: Mr. Floyd explains</strong></div><a class="btn" href="'+PAGE.other+'">Go to Part 2 →</a></div>'
   : '<div class="nextpart"><div><span class="note">Missed something?</span><br><strong>Part 1: the accident</strong></div><a class="btn secondary" href="'+PAGE.other+'">← Back to Part 1</a></div>';
-renderVer(); renderScript(); renderNote(); renderWords(); paintHint(); paintPlayer(); buildSummary();
+if (PAGE.part === 2){ $('repNum').textContent = 'STEP 5'; $('repSub').innerHTML = 'Your report has your Case closed sentences, your diary and everything you typed in the gaps. Tap <strong>Copy my report</strong> and paste it into the Week 8 mystery assignment in Classroom.'; }
+renderVer(); renderScript(); renderNote(); renderDiary(); renderWords(); paintHint(); paintPlayer(); buildSummary();
 </script>
 </body>
 </html>
