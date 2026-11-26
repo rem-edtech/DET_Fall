@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Five-Minute Mystery · Part 1</title>
-<meta name="description" content="Week 10 extra activity for the async Duolingo English Test course: listen to the radio mystery “My Pal Patsy”, fill the gaps with hints, practise feet and inches, and write a detective’s postcard.">
+<meta name="description" content="Week 10–11 extra activity for the async Duolingo English Test course: listen to the radio mystery “My Pal Patsy”, fill the gaps with hints, practise feet and inches, and write a detective’s postcard.">
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..700&family=Work+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap');
 
@@ -516,7 +516,7 @@
 <div class="wrap">
 
   <header class="hero">
-    <div class="eyebrow">Week 10 · Extra activity · Listening → Writing</div>
+    <div class="eyebrow" id="eyebrow">Week 10 · Extra activity · Listening → Writing</div>
     <h1>Five-Minute <span class="accent">Mystery</span></h1>
     <p id="heroText"></p>
     <div class="chips">
@@ -883,7 +883,7 @@ function gapLine(ver){
   }).join(' | ');
 }
 function buildSummary(){
-  var lines = ['FIVE-MINUTE MYSTERY · PART ' + PAGE.part + ' — REPORT', 'Listening: ' + mmss(listened()) + ' in total · pressed Play ' + S.plays + ' time' + (S.plays === 1 ? '' : 's')], tried = [];
+  var lines = ['WEEK ' + (PAGE.part === 1 ? 10 : 11) + ' · FIVE-MINUTE MYSTERY “MY PAL PATSY” · PART ' + PAGE.part + ' — REPORT', 'Listening: ' + mmss(listened()) + ' in total · pressed Play ' + S.plays + ' time' + (S.plays === 1 ? '' : 's')], tried = [];
   Object.keys(VERS).forEach(function(k){
     var t = tally(k); if (!(S.checks[k] || (k === S.ver && t.filled))) return; tried.push(k);
     var fc = S.firstCheck[k];
@@ -917,15 +917,16 @@ $('copyBtn').onclick = function(){
 /* ---------- init ---------- */
 if (!VERS[S.ver]) S.ver = 'A';
 ['vals','first','hints','shown','checks','firstCheck'].forEach(function(k){ if (!S[k] || typeof S[k] !== 'object') S[k] = {}; });
+if (PAGE.part === 2) $('eyebrow').textContent = 'Week 11 · Extra activity · Listening → Writing';
 $('heroText').innerHTML = (PAGE.part === 1
-  ? '<strong>Part 1 of 2: lost in the cave.</strong> In a small town in the southern USA, two men went exploring in Echo Cavern at night. Only one came out alive. Doctor Melville and Lem, the town policeman, listen to his story… and something is wrong. Listen to this old American radio mystery, fill in the missing words, and then be the detective: <strong>how does the doctor know that Gatti is lying?</strong>'
-  : '<strong>Part 2 of 2: the answer.</strong> Doctor Melville explains the flaw in Gatti’s story. Listen, fill in the missing words, check your own idea from Part 1, and then write a postcard as the doctor.') + HERO_ART;
+  ? '<strong>Part 1 of 2: lost in the cave.</strong> (The answer comes in Part 2, next week.) In a small town in the southern USA, two men went exploring in Echo Cavern at night. Only one came out alive. Doctor Melville and Lem, the town policeman, listen to his story… and something is wrong. Listen to this old American radio mystery, fill in the missing words, and then be the detective: <strong>how does the doctor know that Gatti is lying?</strong>'
+  : '<strong>Part 2 of 2: the answer.</strong> Last week, you heard Gatti’s story. Doctor Melville explains the flaw in Gatti’s story. Listen, fill in the missing words, check your own idea from Part 1, and then write a postcard as the doctor.') + HERO_ART;
 $('chipPart').textContent = 'Part ' + PAGE.part + ' of 2';
 $('audLen').textContent = 'audio ' + mmss(PAGE.secs);
 $('partNav').innerHTML = PAGE.part === 1
-  ? '<div class="nextpart"><div><span class="note">After you copy your report</span><br><strong>Part 2: the doctor explains</strong></div><a class="btn" href="'+PAGE.other+'">Go to Part 2 →</a></div>'
-  : '<div class="nextpart"><div><span class="note">Missed something?</span><br><strong>Part 1: lost in the cave</strong></div><a class="btn secondary" href="'+PAGE.other+'">← Back to Part 1</a></div>';
-if (PAGE.part === 2){ $('repNum').textContent = 'STEP 5'; $('repSub').innerHTML = 'Your report has your Case closed sentences, your postcard and everything you typed in the gaps. Tap <strong>Copy my report</strong> and paste it into the Week 10 mystery assignment in Classroom.'; }
+  ? '<div class="nextpart"><div><span class="note">Coming in Week 11</span><br><strong>Part 2: the doctor explains</strong><br><span class="note">Keep your guess secret until next week! Use the same phone or computer for Part 2, and your Part 1 idea will be waiting for you there.</span></div></div>'
+  : '<div class="nextpart"><div><span class="note">Missed something?</span><br><strong>Part 1 (Week 10): lost in the cave</strong><br><span class="note">You can find Part 1 in last week’s Week 10 mystery assignment in Classroom.</span></div></div>';
+if (PAGE.part === 2){ $('repNum').textContent = 'STEP 5'; $('repSub').innerHTML = 'Your report has your Case closed sentences, your postcard and everything you typed in the gaps. Tap <strong>Copy my report</strong> and paste it into the Week ' + (PAGE.part === 1 ? 10 : 11) + ' mystery assignment in Classroom.'; }
 renderField(); renderVer(); renderScript(); renderNote(); renderDiary(); renderWords(); paintHint(); paintPlayer(); buildSummary();
 </script>
 </body>
